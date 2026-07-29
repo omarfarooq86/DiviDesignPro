@@ -1,4 +1,6 @@
 <section class="hero" id="hero">
+  <div class="hero__orb" aria-hidden="true"></div>
+  <div class="hero__spotlight" id="heroSpotlight" aria-hidden="true"></div>
   <div class="container hero__inner">
     <div class="hero__content">
       <div class="hero__badge">
@@ -92,30 +94,59 @@
     background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
     overflow: hidden;
     position: relative;
+    isolation: isolate;
   }
 
+  /* Dot grid pattern overlay */
   .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
-    animation: floatOrb 20s ease-in-out infinite;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.25;
+    background-image: radial-gradient(circle, #1E40AF 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
+  /* Floating blue orb */
   .hero::after {
     content: '';
     position: absolute;
-    bottom: -30%;
-    left: -10%;
+    z-index: 0;
+    top: -30%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    animation: floatOrb 20s ease-in-out infinite;
+  }
+
+  /* Floating green orb */
+  .hero__orb {
+    position: absolute;
+    z-index: 0;
+    bottom: -20%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(22, 163, 74, 0.07) 0%, transparent 70%);
+    animation: floatOrb 25s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+
+  /* Mouse spotlight */
+  .hero__spotlight {
+    position: absolute;
+    z-index: 1;
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(22, 163, 74, 0.06) 0%, transparent 70%);
-    animation: floatOrb 25s ease-in-out infinite reverse;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s;
   }
 
   @keyframes floatOrb {
@@ -387,3 +418,22 @@
     .hero__stats { gap: var(--space-4); }
   }
 </style>
+
+<script>
+  // Mouse-following spotlight effect
+  const hero = document.querySelector('.hero');
+  const spotlight = document.getElementById('heroSpotlight');
+  if (hero && spotlight) {
+    hero.addEventListener('mousemove', function(e) {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      spotlight.style.left = x + 'px';
+      spotlight.style.top = y + 'px';
+      spotlight.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', function() {
+      spotlight.style.opacity = '0';
+    });
+  }
+</script>
