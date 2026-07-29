@@ -1,0 +1,180 @@
+keyword,category,intent,difficulty,content_idea,priority
+divi 5 tutorial,divi,informational,medium,step-by-step divi 5 beginner guide,high
+divi 5 vs divi 4,divi,informational,low,comparison article with migration guide,high
+divi 5 speed optimization,divi,informational,medium,performance tuning checklist,high
+divi 5 loop builder,divi,informational,medium,tutorial with real examples,high
+divi 5 global variables,divi,informational,low,design system setup guide,medium
+divi 5 design presets,divi,informational,low,reusable presets walkthrough,medium
+divi 5 review,divi,informational,high,honest review from experienced dev,high
+divi 5 new features,divi,informational,medium,whats new roundup post,high
+divi 5 release date,divi,informational,low,news update post,low
+divi 5 migration guide,divi,informational,medium,step-by-step upgrade tutorial,high
+divi 5 performance benchmarks,divi,informational,medium,data-driven speed comparison,medium
+divi 5 vs elementor,divi,comparison,high,in-depth feature comparison,high
+divi 5 vs bricks builder,divi,comparison,medium,head-to-head comparison,medium
+divi theme pricing,divi,commercial,low,pricing breakdown and value analysis,high
+divi lifetime license,divi,commercial,low,cost-benefit analysis,high
+divi theme features,divi,informational,low,complete feature overview,medium
+divi child theme development,divi,informational,medium,how to build custom child themes,medium
+divi custom modules,divi,informational,high,creating custom divi modules guide,medium
+divi css customization,divi,informational,medium,css tricks for divi sites,medium
+divi responsive design,divi,informational,low,mobile optimization with divi,medium
+divi header customization,divi,informational,low,advanced header techniques,medium
+divi footer builder,divi,informational,low,custom footer designs tutorial,low
+divi theme builder,divi,informational,medium,complete theme builder guide,high
+divi dynamic content,divi,informational,medium,dynamic content tutorial series,high
+divi wooCommerce integration,divi,informational,medium,building online stores with divi,high
+divi accessibility,divi,informational,low,making divi sites accessible,medium
+divi multilingual site,divi,informational,medium,multi-language divi setup guide,medium
+divi seo optimization,divi,informational,medium,seo best practices for divi,high
+divi security best practices,divi,informational,low,securing divi websites,medium
+divi maintenance mode,divi,informational,low,maintenance mode setup,low
+divi backup and restore,divi,informational,low,backup strategy for divi sites,low
+divi white label,divi,informational,low,white label divi services guide,medium
+divi freelance pricing,divi,commercial,low,pricing guide for divi services,high
+divi website cost,divi,commercial,medium,cost breakdown for divi projects,high
+divi developer for hire,divi,transactional,high,service landing page,high
+hire divi designer,divi,transactional,high,service landing page,high
+wordpress vs wix,wordpress,comparison,high,platform comparison for beginners,high
+wordpress vs squarespace,wordpress,comparison,high,detailed platform comparison,high
+wordpress vs shopify,wordpress,comparison,high,ecommerce platform comparison,high
+wordpress hosting best,wordpress,commercial,high,best hosting for wordpress guide,high
+wordpress speed optimization,wordpress,informational,high,complete speed guide,high
+wordpress security tips,wordpress,informational,medium,security hardening checklist,high
+wordpress backup plugin,wordpress,informational,medium,best backup plugins compared,medium
+wordpress seo plugin,wordpress,informational,medium,seo plugins comparison,high
+wordpress caching plugin,wordpress,informational,medium,best caching plugins guide,medium
+wordpress page builder,wordpress,informational,high,best page builders comparison,high
+wordpress theme customization,wordpress,informational,medium,custom theme development guide,medium
+wordpress child theme,wordpress,informational,low,child theme creation tutorial,medium
+wordpress custom post types,wordpress,informational,medium,cpt creation guide,medium
+wordpress rest api,wordpress,informational,high,api integration tutorial,low
+wordpress gutenberg blocks,wordpress,informational,medium,custom blocks development,medium
+wordpress full site editing,wordpress,informational,medium,fse complete guide,medium
+wordpress maintenance plan,wordpress,commercial,medium,maintenance services guide,high
+wordpress update safe,wordpress,informational,low,safe update procedures,medium
+wordpress malware removal,wordpress,informational,medium,cleanup guide and services,high
+wordpress migration guide,wordpress,informational,medium,site migration tutorial,high
+wordpress local development,wordpress,informational,low,local dev environment setup,medium
+wordpress multisite,wordpress,informational,medium,multisite setup guide,low
+wordpress membership site,wordpress,informational,medium,membership plugin comparison,medium
+wordpress blog setup,wordpress,informational,low,complete blog setup guide,medium
+wordpress ecommerce setup,wordpress,informational,medium,woocommerce store setup guide,high
+wordpress landing page,wordpress,informational,low,landing page design tips,medium
+website redirection services,services,commercial,low,service landing page,medium
+website migration services,services,commercial,medium,service landing page,high
+wordpress maintenance services,services,commercial,medium,service landing page,high
+wordpress support services,services,commercial,medium,service landing page,high
+website speed optimization service,services,commercial,medium,service landing page,high
+website redesign services,services,commercial,high,service landing page,high
+custom wordpress development,services,commercial,high,service landing page,high
+wordpress consultation,services,commercial,medium,service landing page,medium
+ai to wordpress conversion,services,commercial,medium,service landing page,high
+figma to wordpress,services,commercial,medium,service landing page,high
+figma to divi,services,commercial,medium,service landing page,high
+psd to wordpress,services,commercial,medium,service landing page,low
+xd to wordpress,services,commercial,low,service landing page,low
+wordpress error fix,wordpress,informational,medium,common errors troubleshooting,high
+wordpress white screen of death,wordpress,informational,medium,troubleshooting guide,medium
+wordpress 500 error fix,wordpress,informational,low,troubleshooting guide,low
+wordpress database optimization,wordpress,informational,low,database cleanup guide,medium
+wordpress image optimization,wordpress,informational,low,image compression guide,high
+wordpress lazy loading,wordpress,informational,low,lazy loading implementation,medium
+wordpress cdn setup,wordpress,informational,low,cdn integration guide,medium
+wordpress ssl setup,wordpress,informational,low,ssl certificate setup,medium
+wordpress google analytics,wordpress,informational,low,analytics integration guide,medium
+wordpress google search console,wordpress,informational,low,gsc setup tutorial,medium
+wordpress yoast seo,wordpress,informational,medium,yoast setup complete guide,high
+wordpress rankmath seo,wordpress,informational,medium,rankmath setup complete guide,medium
+on page seo checklist,seo,informational,medium,complete on-page checklist,high
+seo for wordpress,seo,informational,medium,wordpress seo complete guide,high
+local seo wordpress,seo,informational,medium,local seo for wp sites,high
+local seo services,seo,commercial,high,service landing page,high
+technical seo audit,seo,informational,high,audit checklist and guide,high
+core web vitals optimization,seo,informational,high,cwv improvement guide,high
+schema markup wordpress,seo,informational,medium,schema implementation guide,high
+structured data testing,seo,informational,low,schema validation guide,medium
+xml sitemap wordpress,seo,informational,low,sitemap setup guide,medium
+robots.txt optimization,seo,informational,low,robots.txt best practices,low
+seo content writing tips,seo,informational,medium,content writing for seo guide,high
+keyword research guide,seo,informational,high,keyword research tutorial,high
+long tail keywords strategy,seo,informational,medium,finding low competition keywords,high
+backlink building strategies,seo,informational,high,white hat link building guide,high
+guest posting for seo,seo,informational,medium,guest posting strategy guide,medium
+google ranking factors,seo,informational,high,ranking factors analysis,high
+google algorithm update,seo,informational,high,latest update analysis,high
+seo audit checklist,seo,informational,medium,complete audit template,high
+seo for small business,seo,informational,medium,small business seo guide,high
+seo for freelancers,seo,informational,low,seo guide for freelancers,medium
+seo vs sem,seo,informational,medium,comparison article,medium
+seo tools comparison,seo,informational,medium,best seo tools reviewed,high
+google search console tips,seo,informational,medium,gsc pro tips guide,medium
+google analytics 4 tutorial,seo,informational,medium,ga4 complete guide,medium
+bounce rate reduction,seo,informational,medium,improving engagement guide,medium
+mobile first indexing,seo,informational,medium,mobile optimization for seo,high
+site speed seo impact,seo,informational,medium,speed and rankings analysis,high
+digital marketing services,digital_marketing,commercial,high,service landing page,high
+digital marketing for small business,digital_marketing,informational,medium,small business dm guide,high
+content marketing strategy,digital_marketing,informational,high,content strategy framework,high
+social media marketing tips,digital_marketing,informational,medium,social media guide,medium
+email marketing wordpress,digital_marketing,informational,medium,email setup for wp,medium
+conversion rate optimization,digital_marketing,informational,high,cro guide and checklist,high
+lead generation website,digital_marketing,informational,medium,lead gen strategies,high
+call to action best practices,digital_marketing,informational,low,cta design guide,medium
+landing page optimization,digital_marketing,informational,medium,landing page best practices,high
+a/b testing wordpress,digital_marketing,informational,medium,ab testing setup guide,medium
+google ads vs seo,digital_marketing,comparison,medium,ppc vs organic comparison,medium
+facebook ads wordpress,digital_marketing,informational,low,fb pixel integration,low
+website lead generation tips,digital_marketing,informational,medium,lead gen optimization guide,high
+small business website tips,digital_marketing,informational,low,website tips for smbs,high
+divi 5 dynamic content tutorial,divi,informational,medium,dynamic content deep dive,medium
+divi 5 hover effects,divi,informational,low,advanced hover effects tutorial,low
+divi 5 animations,divi,informational,low,animation effects guide,low
+divi 5 gradient backgrounds,divi,informational,low,modern gradient design tutorial,low
+divi 5 mega menu,divi,informational,medium,mega menu creation guide,medium
+divi 5 sticky header,divi,informational,low,sticky header tutorial,low
+divi 5 transparent header,divi,informational,low,transparent header designs,low
+divi 5 blog layout,divi,informational,medium,blog design inspiration,medium
+divi 5 portfolio layout,divi,informational,medium,portfolio design ideas,medium
+divi 5 testimonial design,divi,informational,low,testimonial section designs,low
+divi 5 pricing table,divi,informational,low,pricing table designs,low
+divi 5 contact form,divi,informational,low,custom contact form tutorial,low
+divi 5 popup,divi,informational,medium,popup creation guide,medium
+divi 5 countdown timer,divi,informational,low,urgency elements tutorial,low
+divi 5 social share buttons,divi,informational,low,social sharing integration,low
+wordpress block themes,wordpress,informational,medium,block theme development guide,medium
+wordpress pattern library,wordpress,informational,low,block patterns guide,low
+wordpress reusable blocks,wordpress,informational,low,reusable blocks tutorial,low
+wordpress query loop block,wordpress,informational,medium,query loop tutorial,medium
+wordpress heading optimization,wordpress,informational,low,heading structure best practices,medium
+wordpress internal linking,wordpress,informational,low,internal linking strategy,high
+wordpress breadcrumbs,wordpress,informational,low,breadcrumb setup guide,medium
+wordpress 404 page,wordpress,informational,low,custom 404 page design,low
+wordpress legal pages,wordpress,informational,low,privacy policy terms setup,low
+wordpress gdpr compliance,wordpress,informational,medium,gdpr compliance checklist,medium
+wordpress cookie consent,wordpress,informational,low,cookie consent setup guide,low
+wordpress accessibility compliance,wordpress,informational,medium,wp accessibility guide,medium
+wordpress pdf embed,wordpress,informational,low,pdf embedding guide,low
+wordpress video background,wordpress,informational,low,video background tutorial,low
+wordpress svg support,wordpress,informational,low,enabling svg uploads,low
+wordpress custom fonts,wordpress,informational,low,font integration guide,medium
+wordpress two factor authentication,wordpress,informational,low,2fa setup guide,medium
+wordpress login security,wordpress,informational,medium,login protection guide,high
+wordpress brute force protection,wordpress,informational,medium,security hardening,high
+wordpress comment spam,wordpress,informational,low,spam prevention guide,low
+wordpress user roles,wordpress,informational,low,roles and permissions guide,medium
+divi 5 conditional display,divi,informational,medium,conditional visibility guide,medium
+divi 5 copy paste styles,divi,informational,low,style transfer techniques,low
+divi 5 keyboard shortcuts,divi,informational,low,productivity shortcuts,low
+divi 5 troubleshooting,divi,informational,medium,common issues and fixes,high
+divi 5 plugin compatibility,divi,informational,medium,compatible plugins list,medium
+divi 5 hosting requirements,divi,informational,low,hosting specs for divi 5,medium
+divi 5 php version,divi,informational,low,php compatibility guide,low
+divi 5 changelog,divi,informational,low,version history updates,low
+divi 5 known issues,divi,informational,medium,bugs and workarounds,medium
+divi 5 future roadmap,divi,informational,low,upcoming features speculation,low
+divi cloud,divi,informational,medium,divi cloud service guide,medium
+divi ai,divi,informational,high,divi ai features tutorial,high
+divi marketplace,divi,informational,low,child themes and layouts,medium
+elegant themes pricing,divi,commercial,medium,membership options breakdown,high
+elegant themes discount,divi,commercial,low,discount codes and deals,high
