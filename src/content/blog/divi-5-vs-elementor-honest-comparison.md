@@ -3,7 +3,7 @@ title: 'Divi 5 vs Elementor: An Honest Comparison From a Divi Freelancer'
 description: 'I build websites with Divi for a living — 100+ projects. Here is my unfiltered comparison of Divi 5 vs Elementor on performance, pricing, AI, and when not to use either one.'
 date: 2026-07-29
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-vs-elementor.png'
+featuredImage: '/blog-images/divi-vs-elementor-featured.webp'
 hasFAQ: true
 faqData:
   - question: 'Is Divi 5 faster than Elementor?'
