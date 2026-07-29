@@ -1,88 +1,177 @@
 ---
 interface PortfolioItem {
   title: string;
-  category: string;
   description: string;
   url?: string;
   image: string;
 }
 
-const categories = [
-  'All',
-  'Outdoor Ads',
-  'Medical',
-  'Technology',
-  'Wedding',
-  'Logistics',
-  'Services',
-  'Education',
-  'Adventure',
+interface PortfolioCategory {
+  name: string;
+  icon: string;
+  items: PortfolioItem[];
+}
+
+const portfolioData: PortfolioCategory[] = [
+  {
+    name: 'Outdoor Advertising',
+    icon: '🏗️',
+    items: [
+      {
+        title: 'Bray Outdoor Advertising',
+        description: 'SoCal outdoor advertising agency website built in Divi 5',
+        url: 'https://brayoutdoor.com',
+        image: '/portfolio/bray-outdoor.png',
+      },
+      {
+        title: 'Dallas Billboards',
+        description: 'DFW billboard advertising agency designed in Divi 5',
+        url: 'https://www.dallasbillboards.com',
+        image: '/portfolio/dallas-billboards.png',
+      },
+    ],
+  },
+  {
+    name: 'Medical & Dental',
+    icon: '🏥',
+    items: [
+      {
+        title: 'NoFrills Dental',
+        description: 'Affordable family dentistry clinic in Singapore',
+        url: 'https://www.nofrillsdental.com',
+        image: '/portfolio/nofrills-dental.png',
+      },
+    ],
+  },
+  {
+    name: 'Home Services & Contractors',
+    icon: '🏠',
+    items: [
+      {
+        title: 'Apex Plumbing',
+        description: 'Emergency plumbing services in Powder Springs, GA',
+        url: 'https://www.emergencyplumbersatlanta.com',
+        image: '/portfolio/emergency-plumbers.png',
+      },
+      {
+        title: 'Shepard Painting Solutions',
+        description: 'Residential & commercial painting in Canton, OH',
+        url: 'https://shepardpaintingsolutions.com',
+        image: '/portfolio/shepard-painting.png',
+      },
+      {
+        title: 'Leonard & Sons',
+        description: 'Chimney sweep & fireplace repair in Chicagoland, IL',
+        url: 'https://leonardandsons.com',
+        image: '/portfolio/leonard-sons.png',
+      },
+      {
+        title: 'My Bat Guy',
+        description: 'Bat & wildlife removal services in Oakland County, MI',
+        url: 'https://www.batremovalandprevention.com',
+        image: '/portfolio/bat-removal.png',
+      },
+      {
+        title: 'The Chimney Doctor',
+        description: 'Chimney sweep & fireplace repair in Memphis, TN',
+        url: 'https://www.thechimneydoctor.com',
+        image: '/portfolio/chimney-doctor.png',
+      },
+      {
+        title: 'Sweeps & Ladders',
+        description: 'Chimney sweep & fireplace repair in Nashville & Franklin, TN',
+        url: 'https://www.sweepsandladders.com',
+        image: '/portfolio/sweeps-ladders.png',
+      },
+      {
+        title: 'Caulking Solutions',
+        description: 'Professional caulking services website in Divi 5',
+        url: 'https://apx.ann.mybluehost.me/website_893cc3ba/',
+        image: '/portfolio/caulking-solutions.png',
+      },
+    ],
+  },
+  {
+    name: 'Education',
+    icon: '🎓',
+    items: [
+      {
+        title: 'Oxford Scholastica',
+        description: 'Oxford summer school & online courses platform',
+        url: 'https://www.oxfordscholastica.com',
+        image: '/portfolio/oxford-scholastica.png',
+      },
+    ],
+  },
+  {
+    name: 'Adventure & Travel',
+    icon: '🌍',
+    items: [
+      {
+        title: 'Hawaii By Storm',
+        description: 'Maui private luxury tours website',
+        url: 'https://hawaiibystorm.com',
+        image: '/portfolio/hawaii-by-storm.png',
+      },
+      {
+        title: 'Overland Adventures',
+        description: 'Luxury Land Rover Defender camper hire in the UK',
+        url: 'https://overland-adventures.co.uk',
+        image: '/portfolio/overland-adventures.png',
+      },
+    ],
+  },
+  {
+    name: 'Logistics & Freight',
+    icon: '🚛',
+    items: [
+      {
+        title: 'CB3 Freight Logistics',
+        description: 'Reliable freight services company website',
+        url: 'https://cb3freightlogistics.com',
+        image: '/portfolio/cb3-freight.png',
+      },
+    ],
+  },
+  {
+    name: 'Entertainment',
+    icon: '🎵',
+    items: [
+      {
+        title: 'Snoop Dogg',
+        description: 'Official website for the legendary artist',
+        url: 'https://snoopdogg.com',
+        image: '/portfolio/snoop-dogg.png',
+      },
+    ],
+  },
+  {
+    name: 'E-commerce',
+    icon: '🛍️',
+    items: [
+      {
+        title: 'Custom Designs Now',
+        description: 'Premium custom mugs e-commerce store in Pakistan',
+        url: 'https://customdesignsnow.com',
+        image: '/portfolio/custom-designs-now.png',
+      },
+    ],
+  },
+  {
+    name: 'Personal & Portfolio',
+    icon: '✨',
+    items: [
+      {
+        title: 'The Whispering Observatory',
+        description: 'Personal blog and portfolio site in Divi 5',
+        url: 'https://thewhisperingobservatory.dividesignpro.com',
+        image: '/portfolio/whispering-observatory.png',
+      },
+    ],
+  },
 ];
 
-const items: PortfolioItem[] = [
-  {
-    title: 'Bray Outdoor Advertising',
-    category: 'Outdoor Ads',
-    description: 'Outdoor advertising company website built in Divi 5',
-    url: 'https://brayoutdoor.com',
-    image: '/portfolio/bray-outdoor.jpg',
-  },
-  {
-    title: 'Dallas Billboards',
-    category: 'Outdoor Ads',
-    description: 'Another Ads website designed in Divi 5',
-    url: 'https://www.dallasbillboards.com',
-    image: '/portfolio/dallas-billboards.jpg',
-  },
-  {
-    title: 'Medical Practice Site',
-    category: 'Medical',
-    description: 'Professional medical practice website with patient portal',
-    image: '/portfolio/medical.jpg',
-  },
-  {
-    title: 'Tech Startup Landing',
-    category: 'Technology',
-    description: 'SaaS landing page with modern UI and conversion optimization',
-    image: '/portfolio/tech.jpg',
-  },
-  {
-    title: 'Wedding Venue Site',
-    category: 'Wedding',
-    description: 'Elegant wedding venue showcase with gallery and booking',
-    image: '/portfolio/wedding.jpg',
-  },
-  {
-    title: 'Freight & Logistics',
-    category: 'Logistics',
-    description: 'Logistics company website with quote calculator',
-    image: '/portfolio/logistics.jpg',
-  },
-  {
-    title: 'Residential Services',
-    category: 'Services',
-    description: 'Home services company with service booking system',
-    image: '/portfolio/residential.jpg',
-  },
-  {
-    title: 'Chimney Services',
-    category: 'Services',
-    description: 'Specialized chimney service company with location pages',
-    image: '/portfolio/chimney.jpg',
-  },
-  {
-    title: 'Education Platform',
-    category: 'Education',
-    description: 'Online learning platform with course catalog',
-    image: '/portfolio/education.jpg',
-  },
-  {
-    title: 'Adventure Tours',
-    category: 'Adventure',
-    description: 'Adventure travel company with tour booking',
-    image: '/portfolio/adventure.jpg',
-  },
-];
+const totalItems = portfolioData.reduce((sum, cat) => sum + cat.items.length, 0);
 ---
 
 <section class="section" id="portfolio">
@@ -90,47 +179,49 @@ const items: PortfolioItem[] = [
     <div class="section__header">
       <h2 class="section__title">Most Recent Divi Websites</h2>
       <p class="section__subtitle">
-        A selection of 50+ Divi websites I've built across industries. Each site is
-        custom-designed, mobile-responsive, speed-optimized, and SEO-ready.
+        A selection of {totalItems}+ Divi websites I've built across {portfolioData.length} industries.
+        Each site is custom-designed, mobile-responsive, speed-optimized, and SEO-ready.
       </p>
     </div>
 
-    <div class="portfolio__filters" role="tablist" aria-label="Portfolio categories">
-      {categories.map((cat) => (
-        <button
-          class="portfolio__filter"
-          data-category={cat}
-          role="tab"
-          aria-selected={cat === 'All' ? 'true' : 'false'}
-        >
-          {cat}
-        </button>
-      ))}
-    </div>
-
-    <div class="portfolio__grid">
-      {items.map((item) => (
-        <a
-          href={item.url || '#'}
-          class="portfolio__item"
-          data-category={item.category}
-          {...(item.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-        >
-          <div class="portfolio__item-image">
-            <div class="portfolio__item-placeholder" aria-hidden="true">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
+    <div class="portfolio-accordion">
+      {portfolioData.map((category, index) => (
+        <details class="accordion-section" open={index === 0}>
+          <summary class="accordion-header">
+            <span class="accordion-icon">{category.icon}</span>
+            <span class="accordion-title">{category.name}</span>
+            <span class="accordion-count">{category.items.length} site{category.items.length !== 1 ? 's' : ''}</span>
+            <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="accordion-body">
+            <div class="portfolio-grid">
+              {category.items.map((item) => (
+                <a
+                  href={item.url || '#'}
+                  class="portfolio-card"
+                  {...(item.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  <div class="portfolio-card__image">
+                    <img
+                      src={item.image}
+                      alt={`${item.title} — ${item.description}`}
+                      loading="lazy"
+                      decoding="async"
+                      width="640"
+                      height="400"
+                    />
+                  </div>
+                  <div class="portfolio-card__info">
+                    <h3 class="portfolio-card__title">{item.title}</h3>
+                    <p class="portfolio-card__desc">{item.description}</p>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
-          <div class="portfolio__item-info">
-            <span class="portfolio__item-category">{item.category}</span>
-            <h3 class="portfolio__item-title">{item.title}</h3>
-            <p class="portfolio__item-desc">{item.description}</p>
-          </div>
-        </a>
+        </details>
       ))}
     </div>
 
@@ -142,44 +233,95 @@ const items: PortfolioItem[] = [
 </section>
 
 <style>
-  .portfolio__filters {
+  /* ===== Accordion ===== */
+  .portfolio-accordion {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-2);
-    margin-bottom: var(--space-10);
+    flex-direction: column;
+    gap: var(--space-3);
   }
 
-  .portfolio__filter {
-    padding: var(--space-2) var(--space-4);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-gray-600);
-    background-color: var(--color-gray-100);
-    border: none;
-    border-radius: 999px;
+  .accordion-section {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-100);
+    border-radius: var(--radius-xl);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .accordion-section[open] {
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-md);
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    user-select: none;
+    list-style: none;
+    font-weight: 600;
+    color: var(--color-gray-800);
+    transition: background-color var(--transition-fast);
+    border-radius: var(--radius-xl);
   }
 
-  .portfolio__filter:hover,
-  .portfolio__filter[aria-selected="true"] {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  .accordion-header::-webkit-details-marker {
+    display: none;
   }
 
-  .portfolio__grid {
+  .accordion-header:hover {
+    background-color: var(--color-gray-50);
+  }
+
+  .accordion-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .accordion-title {
+    font-size: var(--text-base);
+    flex: 1;
+  }
+
+  .accordion-count {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-gray-400);
+    background-color: var(--color-gray-100);
+    padding: var(--space-1) var(--space-2);
+    border-radius: 999px;
+  }
+
+  .accordion-chevron {
+    flex-shrink: 0;
+    color: var(--color-gray-400);
+    transition: transform var(--transition-fast);
+  }
+
+  .accordion-section[open] .accordion-chevron {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  .accordion-body {
+    padding: 0 var(--space-5) var(--space-5);
+  }
+
+  /* ===== Grid ===== */
+  .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 
-  .portfolio__item {
+  /* ===== Card ===== */
+  .portfolio-card {
     display: flex;
     flex-direction: column;
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-100);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     text-decoration: none;
     color: inherit;
@@ -187,51 +329,47 @@ const items: PortfolioItem[] = [
     cursor: pointer;
   }
 
-  .portfolio__item:hover {
+  .portfolio-card:hover {
     border-color: var(--color-primary-light);
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
   }
 
-  .portfolio__item-image {
+  .portfolio-card__image {
     aspect-ratio: 16 / 10;
     background-color: var(--color-gray-50);
     overflow: hidden;
   }
 
-  .portfolio__item-placeholder {
+  .portfolio-card__image img {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-gray-300);
+    object-fit: cover;
+    transition: transform var(--transition-slow);
   }
 
-  .portfolio__item-info {
-    padding: var(--space-4) var(--space-5);
+  .portfolio-card:hover .portfolio-card__image img {
+    transform: scale(1.03);
   }
 
-  .portfolio__item-category {
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .portfolio-card__info {
+    padding: var(--space-3) var(--space-4);
   }
 
-  .portfolio__item-title {
-    font-size: var(--text-base);
-    margin-top: var(--space-1);
-    margin-bottom: var(--space-1);
-  }
-
-  .portfolio__item-desc {
+  .portfolio-card__title {
     font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-gray-800);
+    margin-bottom: 2px;
+  }
+
+  .portfolio-card__desc {
+    font-size: var(--text-xs);
     color: var(--color-gray-500);
     line-height: 1.5;
   }
 
+  /* ===== CTA ===== */
   .portfolio__cta {
     text-align: center;
     margin-top: var(--space-12);
@@ -248,42 +386,29 @@ const items: PortfolioItem[] = [
   }
 
   @media (max-width: 768px) {
-    .portfolio__grid {
+    .portfolio-grid {
       grid-template-columns: 1fr;
     }
 
-    .portfolio__filters {
-      gap: var(--space-1);
+    .accordion-header {
+      padding: var(--space-3) var(--space-4);
     }
 
-    .portfolio__filter {
-      font-size: var(--text-xs);
-      padding: var(--space-1) var(--space-3);
+    .accordion-body {
+      padding: 0 var(--space-4) var(--space-4);
     }
   }
 </style>
 
 <script>
-  // Simple category filter
-  document.querySelectorAll('.portfolio__filter').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const category = btn.getAttribute('data-category');
-
-      // Update active state
-      document.querySelectorAll('.portfolio__filter').forEach((b) => {
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.setAttribute('aria-selected', 'true');
-
-      // Filter items
-      document.querySelectorAll('.portfolio__item').forEach((item) => {
-        const itemCategory = item.getAttribute('data-category');
-        if (category === 'All' || itemCategory === category) {
-          (item as HTMLElement).style.display = '';
-        } else {
-          (item as HTMLElement).style.display = 'none';
-        }
-      });
+  // Only one accordion section open at a time
+  document.querySelectorAll('.accordion-section').forEach(function(detail) {
+    detail.addEventListener('toggle', function() {
+      if (this.open) {
+        document.querySelectorAll('.accordion-section').forEach(function(other) {
+          if (other !== detail) other.open = false;
+        });
+      }
     });
   });
 </script>
