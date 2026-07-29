@@ -60,30 +60,6 @@ const currentUrl = canonical || 'https://dividesignpro.com';
 
     <Header />
 
-    <!-- Visual breadcrumb -->
-    <nav class="breadcrumb container" aria-label="Breadcrumb">
-      <ol class="breadcrumb__list">
-        <li><a href="/">Home</a></li>
-        {Astro.url.pathname.startsWith('/blog/') && Astro.url.pathname !== '/blog/' && (
-          <li><a href="/blog/">Blog</a></li>
-        )}
-        {Astro.url.pathname === '/blog/' && (
-          <li><span aria-current="page">Blog</span></li>
-        )}
-        {Astro.url.pathname === '/portfolio/' && (
-          <li><span aria-current="page">Portfolio</span></li>
-        )}
-        {Astro.url.pathname.startsWith('/category/') && (
-          <>
-            <li><a href="/blog/">Blog</a></li>
-            <li><span aria-current="page">
-              {Astro.url.pathname.replace('/category/', '').replace(/\/$/, '').replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}
-            </span></li>
-          </>
-        )}
-      </ol>
-    </nav>
-
     <main id="main-content">
       <slot />
     </main>
