@@ -5,7 +5,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://dividesignpro.com',
+  site: 'https://www.dividesignpro.com',
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/category/'),
