@@ -1,0 +1,37 @@
+# DiviDesignPro — Freelance Divi Designer & WordPress Developer
+
+## About
+DiviDesignPro is the freelance portfolio of Muhammad Omar Farooq (Omar), a Divi 5 expert and WordPress designer with 10+ years of experience. Pixel-Perfect Divi Design. Clean Code. On Time.
+
+## Contact
+- Email: omee00@gmail.com
+- Phone: +923101418307
+- LinkedIn: https://www.linkedin.com/in/muhammad-omar-farooq-wp/
+- Facebook: https://www.facebook.com/divithemesolution
+
+## Services
+- Custom Divi 5 Website Design
+- AI-to-WordPress / Divi Conversion
+- Figma to Divi Conversion
+- Theme Customization
+- Mobile-Responsive Optimization
+- On-Page SEO
+- Speed & Performance Optimization
+- Divi Fixes & Updates
+- White Label Divi Services
+
+## Credentials
+- 100+ websites built
+- 50+ Divi projects
+- Master's degree in Computer Science (Germany)
+- Divi 5 expert since beta
+- 10+ years WordPress experience
+
+## Site Structure
+- Homepage: https://dividesignpro.com
+- Blog: https://dividesignpro.com/blog/
+- Portfolio: https://dividesignpro.com/portfolio/
+- RSS Feed: https://dividesignpro.com/rss.xml
+
+## Blog Topics
+Divi 5 tutorials, WordPress optimization, SEO, freelancing, AI-to-WordPress conversion, Divi theme customization, speed optimization, and hiring guides.
