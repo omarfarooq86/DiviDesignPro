@@ -26,6 +26,8 @@ const {
   publishedTime,
   modifiedTime,
 } = Astro.props;
+
+const currentUrl = canonical || 'https://dividesignpro.com';
 ---
 
 <!doctype html>
@@ -42,7 +44,7 @@ const {
       modifiedTime={modifiedTime}
     />
 
-    <!-- Fonts (self-hosted Inter) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -53,13 +55,164 @@ const {
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   </head>
   <body>
+    <!-- Skip to content (accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <Header />
-    <main>
+
+    <!-- Visual breadcrumb -->
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="/">Home</a></li>
+        {Astro.url.pathname.startsWith('/blog/') && Astro.url.pathname !== '/blog/' && (
+          <li><a href="/blog/">Blog</a></li>
+        )}
+        {Astro.url.pathname === '/blog/' && (
+          <li><span aria-current="page">Blog</span></li>
+        )}
+        {Astro.url.pathname === '/portfolio/' && (
+          <li><span aria-current="page">Portfolio</span></li>
+        )}
+        {Astro.url.pathname.startsWith('/category/') && (
+          <>
+            <li><a href="/blog/">Blog</a></li>
+            <li><span aria-current="page">
+              {Astro.url.pathname.replace('/category/', '').replace(/\/$/, '').replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}
+            </span></li>
+          </>
+        )}
+      </ol>
+    </nav>
+
+    <main id="main-content">
       <slot />
     </main>
+
     <Footer />
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
 
     <JsonLd type="Person" />
     <JsonLd type="WebSite" />
   </body>
 </html>
+
+<style is:global>
+  /* ===== Skip link ===== */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--space-4);
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-2) var(--space-4);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    z-index: 100;
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* ===== Breadcrumb ===== */
+  .breadcrumb {
+    padding-top: calc(var(--header-height) + var(--space-4));
+    padding-bottom: 0;
+  }
+
+  .breadcrumb__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    list-style: none;
+    font-size: var(--text-sm);
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb__list li:not(:last-child)::after {
+    content: '/';
+    margin-left: var(--space-2);
+    color: var(--color-gray-300);
+  }
+
+  .breadcrumb__list a {
+    color: var(--color-gray-500);
+    text-decoration: none;
+  }
+
+  .breadcrumb__list a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb__list [aria-current="page"] {
+    color: var(--color-gray-700);
+    font-weight: 500;
+  }
+
+  /* ===== Back to top ===== */
+  .back-to-top {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition-base);
+    z-index: 40;
+    box-shadow: var(--shadow-md);
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .back-to-top:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .back-to-top--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  // Back to top button visibility
+  const btn = document.getElementById('backToTop');
+  if (btn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        btn.classList.add('back-to-top--visible');
+      } else {
+        btn.classList.remove('back-to-top--visible');
+      }
+    });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

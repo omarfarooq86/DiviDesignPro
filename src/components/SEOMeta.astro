@@ -15,7 +15,7 @@ const {
   title,
   description,
   canonical,
-  ogImage = '/og-images/default-og.png',
+  ogImage = '/og-images/default-og.svg',
   ogType = 'website',
   noindex = false,
   publishedTime,
@@ -68,6 +68,11 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
 ) : (
   <meta name="robots" content="index, follow, max-image-preview:large" />
 )}
+
+<!-- Security headers -->
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
 <!-- Misc -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
