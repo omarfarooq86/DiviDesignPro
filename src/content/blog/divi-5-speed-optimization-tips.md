@@ -3,7 +3,7 @@ title: 'Divi 5 Speed Optimization: Make Your Site Faster and Rank Higher'
 description: 'Practical Divi 5 speed optimization guide covering hosting, image compression, caching, CDNs, font loading, and Core Web Vitals. Improve your rankings with a faster site.'
 date: 2026-05-14
 category: 'Divi Tips'
-featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/05/divi-5-speed-optimization-tips.jpg'
+featuredImage: '/blog-images/divi-loop-builder.jpg'
 ---
 
 Page speed is a direct Google ranking factor through Core Web Vitals. If your site takes four seconds to load, you're losing visitors before they even see your content.

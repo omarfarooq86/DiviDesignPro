@@ -3,7 +3,7 @@ title: 'Divi 5 vs Divi 4: What Changed and Which Should You Use?'
 description: 'Detailed comparison of Divi 5 vs Divi 4: architecture, performance, Global Variables, Presets, Loop Builder, and migration guidance. Make the right choice for your project.'
 date: 2026-05-14
 category: 'Divi Tips'
-featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/05/divi-4-vs-divi-5.png'
+featuredImage: '/blog-images/divi-loop-builder.jpg'
 ---
 
 After building with both versions extensively, here's an honest, detailed comparison of Divi 5 vs Divi 4.

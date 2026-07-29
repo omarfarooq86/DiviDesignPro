@@ -3,7 +3,7 @@ title: 'What Is Divi 5 and Why You Should Upgrade'
 description: 'Everything you need to know about Divi 5: what changed, why it matters for your site, key features explained, and the upgrade process from Divi 4.'
 date: 2026-05-14
 category: 'Divi Tips'
-featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/05/divi-5.jpg'
+featuredImage: '/blog-images/divi-loop-builder.jpg'
 ---
 
 Divi 5 is not a minor update — it's a **complete rebuild** of the Divi platform. Elegant Themes rewrote the core architecture to be faster, more flexible, and better suited for modern WordPress development.

@@ -3,7 +3,7 @@ title: 'Sticky Sidebar Not Working in Divi? Here Is the Simple Fix'
 description: 'Fix the sticky sidebar issue in Divi with one layout change. Learn why it happens, the quick solution, and alternative approaches when reordering is not an option.'
 date: 2026-05-02
 category: 'Divi Tips'
-featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/05/divi-sticky-issue.jpg'
+featuredImage: '/blog-images/divi-hide-section.webp'
 ---
 
 If your sidebar won't stick while scrolling in Divi, the fix is surprisingly simple: **place the sidebar above the main content in the layout structure.**

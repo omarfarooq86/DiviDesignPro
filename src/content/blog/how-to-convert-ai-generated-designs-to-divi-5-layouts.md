@@ -3,7 +3,7 @@ title: 'How to Convert AI Generated Designs to Divi 5 Layouts'
 description: 'Step-by-step guide to converting AI-generated designs into professional Divi 5 layouts. Learn analysis, variables, presets, responsiveness, and scalability best practices.'
 date: 2026-06-12
 category: 'Divi Tips'
-featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/06/gemini_generated_image_191maw191maw191m-clean-1080x675.jpg'
+featuredImage: '/blog-images/divi-ai-design.jpg'
 ---
 
 AI tools like ChatGPT, Claude, and Midjourney can generate impressive website mockups in minutes. But a mockup is not a website.

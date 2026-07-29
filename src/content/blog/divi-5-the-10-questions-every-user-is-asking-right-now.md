@@ -3,7 +3,7 @@ title: 'Divi 5: The 10 Questions Every User Is Asking Right Now'
 description: 'Get clear answers to the 10 most common Divi 5 questions — speed, compatibility, migration, Global Variables, Loop Builder, SEO impact, and upgrade timing.'
 date: 2026-05-21
 category: 'Divi Tips'
-featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/05/divi-questions.jpg'
+featuredImage: '/blog-images/divi-hide-section.webp'
 ---
 
 Divi 5 is a complete rebuild — new architecture, new visual builder, new performance model. That kind of change raises questions. Here are the ten we see most often, answered clearly.
