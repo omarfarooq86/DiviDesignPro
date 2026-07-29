@@ -140,13 +140,13 @@
   .hero__spotlight {
     position: absolute;
     z-index: 1;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
     pointer-events: none;
     transform: translate(-50%, -50%);
-    transition: opacity 0.4s;
+    transition: opacity 0.3s;
   }
 
   @keyframes floatOrb {
@@ -161,6 +161,8 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-16);
     align-items: center;
+    position: relative;
+    z-index: 2;
   }
 
   .hero__badge {

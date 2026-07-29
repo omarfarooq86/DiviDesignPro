@@ -35,14 +35,12 @@
 
         <form
           class="contact__form"
-          action="https://api.web3forms.com/submit"
+          action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST"
+          id="contactForm"
         >
-          <!-- Replace with your Web3Forms access key -->
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="New inquiry from DiviDesignPro" />
-          <input type="hidden" name="redirect" value="https://dividesignpro.com/thank-you/" />
-          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="New inquiry from DiviDesignPro" />
+          <input type="hidden" name="_next" value="https://dividesignpro.com/#contact" />
 
           <div class="form-group">
             <label for="name" class="form-label">Name</label>
@@ -76,15 +74,46 @@
             <textarea id="message" name="message" class="form-input form-textarea" rows="4" required placeholder="Tell me about your project, goals, and timeline..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn--primary btn--lg form-submit">
-            Send Inquiry
+          <button type="submit" class="btn btn--primary btn--lg form-submit" id="formSubmitBtn">
+            <span class="form-submit__text">Send Inquiry</span>
+            <span class="form-submit__success" hidden>Sent! I'll get back to you soon.</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
         </form>
+        <div class="form-success" id="formSuccess" hidden>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Thank you for reaching out!</h3>
+          <p>I'll review your inquiry and get back to you within 24 hours.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const successMsg = document.getElementById('formSuccess');
+  const submitBtn = document.getElementById('formSubmitBtn');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.classList.add('form-submit--loading');
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.setAttribute('hidden', '');
+          successMsg.removeAttribute('hidden');
+        }
+      } catch (error) {
+        submitBtn.classList.remove('form-submit--loading');
+      }
+    });
+  }
+</script>
 
 <style>
   .contact__grid {
@@ -187,6 +216,33 @@
     width: 100%;
     justify-content: center;
     margin-top: var(--space-2);
+  }
+
+  .form-submit--loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .form-submit--loading .form-submit__text {
+    visibility: hidden;
+  }
+
+  .form-success {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .form-success svg {
+    color: var(--color-accent);
+    margin: 0 auto var(--space-4);
+  }
+
+  .form-success h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .form-success p {
+    color: var(--color-text-secondary);
   }
 
   @media (max-width: 768px) {
