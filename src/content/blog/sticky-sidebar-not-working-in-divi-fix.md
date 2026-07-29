@@ -36,6 +36,11 @@ If reordering your layout isn't practical:
 
 But for most users, simply placing the sidebar column before the main content column fixes it instantly.
 
+## Related Posts
+
+- [How to Hide a Section in Divi 5](/blog/how-to-hide-a-section-in-divi-5/) — Another common layout issue with a quick Divi fix
+- [Divi 5 Speed Optimization Tips](/blog/divi-5-speed-optimization-tips/) — Layout fixes are just one part of a fast Divi site
+
 ## Quick Checklist
 
 - [ ] Sidebar column appears **before** main content in the row

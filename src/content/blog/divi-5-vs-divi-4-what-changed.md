@@ -61,3 +61,9 @@ The new architecture is more standardized and extensible. Custom modules, API in
 ## The Bottom Line
 
 Divi 5 is the future. Elegant Themes will continue supporting Divi 4, but new features and improvements go into Divi 5. If you're on Divi 4, start planning your upgrade — **it's genuinely worth it.**
+
+## Related Posts
+
+- [What Is Divi 5 and Why You Should Upgrade](/blog/what-is-divi-5-and-why-you-should-upgrade/) — Everything you need to know before upgrading
+- [Divi 5: The 10 Questions Every User Is Asking](/blog/divi-5-the-10-questions-every-user-is-asking-right-now/) — Quick answers to the most common Divi 5 upgrade questions
+- [Divi 5 Speed Optimization Tips](/blog/divi-5-speed-optimization-tips/) — Maximize Divi 5's built-in performance advantages

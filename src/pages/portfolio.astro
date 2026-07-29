@@ -1,22 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const portfolioCategories = [
-  'Outdoor Ads',
-  'Medical',
-  'Technology',
-  'Wedding',
-  'Logistics',
-  'Services',
-  'Education',
-  'Adventure',
-];
+import Portfolio from '../components/Portfolio.astro';
 ---
 
 <BaseLayout
   title="Portfolio | Divi Website Projects"
-  description="I have built 50+ Divi websites across industries including outdoor advertising, dental, construction, guided tours, music, life coaching, AI chatbots, weddings, freight logistics, and more. Every site is custom-designed, mobile-responsive, speed-optimized, and SEO-ready."
-  ogImage="/og-images/portfolio-og.png"
+  description="50+ Divi websites across outdoor advertising, dental, construction, weddings, freight logistics, plumbing, chimney services, education, and adventure. Custom-designed, SEO-optimized."
+  ogImage="/og-images/default-og.svg"
 >
   <section class="page-header">
     <div class="container">
@@ -24,38 +14,21 @@ const portfolioCategories = [
       <p class="page-header__desc">
         I have built 50+ Divi websites across industries including outdoor advertising,
         dental, construction, guided tours, music, life coaching, AI chatbots, weddings,
-        freight logistics, plumbing, home construction, painting, chimney services, bat
-        removal, education, and adventure. Every site is custom-designed, mobile-responsive,
+        freight logistics, plumbing, home construction, painting, chimney services,
+        education, and adventure. Every site is custom-designed, mobile-responsive,
         speed-optimized, and SEO-ready. Want a site like these? Get in touch.
       </p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="portfolio-categories">
-        {portfolioCategories.map((cat) => (
-          <span class="portfolio-cat-tag">{cat}</span>
-        ))}
-      </div>
-
-      <div class="portfolio-note">
-        <h2>Want to see my full portfolio?</h2>
-        <p>
-          Due to client confidentiality, my full portfolio is available upon request.
-          Contact me for industry-specific examples relevant to your business.
-        </p>
-        <a href="/#contact" class="btn btn--primary btn--lg">Request Portfolio Access</a>
-      </div>
-    </div>
-  </section>
+  <Portfolio />
 </BaseLayout>
 
 <style>
   .page-header {
     padding-top: calc(var(--header-height) + var(--space-12));
     padding-bottom: var(--space-10);
-    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
     text-align: center;
   }
 
@@ -66,41 +39,8 @@ const portfolioCategories = [
   .page-header__desc {
     max-width: 720px;
     margin-inline: auto;
-    color: var(--color-gray-500);
+    color: var(--color-text-secondary);
     font-size: var(--text-lg);
     line-height: 1.7;
-  }
-
-  .portfolio-categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-2);
-    margin-bottom: var(--space-10);
-  }
-
-  .portfolio-cat-tag {
-    padding: var(--space-2) var(--space-4);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    background-color: var(--color-primary-light);
-    color: var(--color-primary-dark);
-    border-radius: 999px;
-  }
-
-  .portfolio-note {
-    text-align: center;
-    padding: var(--space-12);
-    background-color: var(--color-gray-50);
-    border-radius: var(--radius-2xl);
-  }
-
-  .portfolio-note h2 {
-    margin-bottom: var(--space-3);
-  }
-
-  .portfolio-note p {
-    color: var(--color-gray-500);
-    margin-bottom: var(--space-6);
   }
 </style>

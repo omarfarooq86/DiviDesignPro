@@ -52,3 +52,9 @@ For most straightforward sites, **no** — the upgrade runs through the WordPres
 ## The Bottom Line
 
 Divi 5 is a genuine improvement, not just a version bump. It's faster, more flexible, and better positioned for the future of WordPress development. If you're on Divi 4, the upgrade is worth planning.
+
+## Related Posts
+
+- [What Is Divi 5 and Why You Should Upgrade](/blog/what-is-divi-5-and-why-you-should-upgrade/) — The full story behind the Divi 5 rebuild
+- [Divi 5 vs Divi 4: What Changed](/blog/divi-5-vs-divi-4-what-changed/) — Detailed feature-by-feature comparison
+- [Divi 5 Speed Optimization Tips](/blog/divi-5-speed-optimization-tips/) — Answers to question #1: "Is Divi 5 faster?"

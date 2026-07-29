@@ -48,3 +48,9 @@ Your existing layouts and content carry over — the upgrade is designed to be b
 If your site is mission-critical and currently performing perfectly, waiting a few weeks for others to find edge cases is reasonable. But for new builds and most existing sites, **Divi 5 is stable, faster, and genuinely better.** There's no compelling reason to stay on Divi 4 for new projects.
 
 The direction is clear: Divi 5 is where Elegant Themes is investing. Upgrading isn't just about new features — it's about being on the platform that will receive ongoing improvements, support, and innovation.
+
+## Related Posts
+
+- [Divi 5 vs Divi 4: What Changed](/blog/divi-5-vs-divi-4-what-changed/) — Detailed side-by-side comparison for upgrade planning
+- [Divi 5: The 10 Questions Every User Is Asking](/blog/divi-5-the-10-questions-every-user-is-asking-right-now/) — Quick answers to common upgrade concerns
+- [Divi 5 Global Variables: Complete Guide](/blog/divi-5-global-variables-complete-guide/) — Master one of Divi 5's best new features

@@ -85,3 +85,9 @@ You can't improve what you don't measure. Use these tools regularly:
 Divi 5 gives you a strong performance foundation. Combine it with quality hosting, optimized images, smart caching, and plugin discipline, and you'll have a site that loads fast, ranks well, and keeps visitors engaged.
 
 **Speed optimization isn't a one-time task.** It's an ongoing practice that pays dividends in traffic and conversions.
+
+## Related Posts
+
+- [Divi 5 vs Divi 4: What Changed](/blog/divi-5-vs-divi-4-what-changed/) — Divi 5's new architecture already gives you a performance head start
+- [What Is Divi 5 and Why You Should Upgrade](/blog/what-is-divi-5-and-why-you-should-upgrade/) — The performance improvements in Divi 5 explained
+- [Divi 5 Loop Builder: Dynamic Content Made Easy](/blog/divi-5-loop-builder-dynamic-content-made-easy/) — Build fast, dynamic layouts without bloating your site
