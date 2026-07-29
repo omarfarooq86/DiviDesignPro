@@ -1,34 +1,43 @@
 ---
-title: 'Sticky Sidebar Not Working in Divi? Place the Sidebar on Top to Fix It'
-description: 'Fix the common sticky sidebar issue in Divi by placing the sidebar above the main content in the layout structure. Simple solution with technical explanation.'
+title: 'Sticky Sidebar Not Working in Divi? Here Is the Simple Fix'
+description: 'Fix the sticky sidebar issue in Divi with one layout change. Learn why it happens, the quick solution, and alternative approaches when reordering is not an option.'
 date: 2026-05-02
 category: 'Divi Tips'
 ---
 
-If you want your sidebar to stick while scrolling in Divi, the most important rule is simple: the sidebar must be placed above the main content in the layout structure. If it is placed below, the sticky behavior will not work properly.
-
-## Why This Matters
-
-Divi's sticky position relies on CSS `position: sticky`, which works based on the element's position within its parent container. When the sidebar is placed below the main content, the sticky calculation is thrown off — the sidebar doesn't have the right reference point to stick against.
-
-## The Fix
-
-1. Open the page in the Divi Visual Builder
-2. Locate your sidebar section
-3. In the row settings, ensure the sidebar column appears before the main content column in the layout structure
-4. If needed, use the drag-and-drop interface to reorder the columns
-5. Save and test on the front end
+If your sidebar won't stick while scrolling in Divi, the fix is surprisingly simple: **place the sidebar above the main content in the layout structure.**
 
 ## Why This Happens
 
-CSS `position: sticky` positions an element relative to its nearest scrolling ancestor. For the sticky effect to work as expected, the sidebar needs to be earlier in the DOM order than the content it should scroll alongside. When the sidebar comes after the main content, the sticky calculation doesn't have the right context.
+Divi's sticky positioning relies on CSS `position: sticky`, which calculates position based on an element's location within its parent container.
+
+When the sidebar is placed **below** the main content in the DOM order, the sticky calculation loses its reference point. The sidebar doesn't know what to stick against, so it just scrolls normally.
+
+## The Fix (3 Steps)
+
+1. Open the page in the **Divi Visual Builder**
+2. Locate your sidebar row and ensure the **sidebar column comes before the main content column** in the layout structure
+3. Use drag-and-drop to reorder if needed, then **save and test**
+
+This solves the problem in 90% of cases. The sidebar now has the correct DOM context for `position: sticky` to work.
+
+## Why It Works
+
+`position: sticky` positions an element relative to its **nearest scrolling ancestor**. When the sidebar appears earlier in the DOM than the content it scrolls alongside, the browser can calculate the correct sticky offset. When it comes after, the calculation context is wrong.
 
 ## Alternative Solutions
 
 If reordering your layout isn't practical:
 
-1. **Use custom CSS** — Manually set the sidebar to `position: sticky; top: 0;` and ensure the parent container has the correct `align-items` setting
-2. **Use a different layout** — Switch from a two-column row to a specialized sidebar layout
-3. **Use a plugin** — Some sticky sidebar plugins handle the positioning logic more robustly than Divi's built-in options
+- **Custom CSS** — Manually set `position: sticky; top: 0;` on the sidebar and verify the parent container's `align-items` setting
+- **Different row structure** — Switch from a two-column row to a specialized layout where the sidebar naturally sits first
+- **Sticky plugin** — Some dedicated plugins handle sticky positioning more robustly than Divi's built-in options
 
-But for 90% of cases, simply placing the sidebar column before the main content column in Divi's row structure solves the problem completely. It's one of those fixes that seems too simple to work — but it does.
+But for most users, simply placing the sidebar column before the main content column fixes it instantly.
+
+## Quick Checklist
+
+- [ ] Sidebar column appears **before** main content in the row
+- [ ] Sticky position is enabled in the module settings
+- [ ] No conflicting CSS in your child theme or custom code
+- [ ] Clear all caches before testing

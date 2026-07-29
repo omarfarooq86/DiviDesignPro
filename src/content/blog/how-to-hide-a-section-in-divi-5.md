@@ -1,47 +1,48 @@
 ---
-title: 'How to Hide a Section in Divi 5'
-description: 'Learn multiple ways to hide a section in Divi 5 without deleting it. Covers visibility settings, device-specific hiding, CSS methods, and library-saving for future use.'
+title: 'How to Hide a Section in Divi 5 — 4 Methods Explained'
+description: 'Learn four ways to hide a section in Divi 5: visibility settings, device-specific hiding, CSS, and Divi Library. Keep your designs safe without deleting anything.'
 date: 2026-06-12
 category: 'Divi Tips'
 featuredImage: 'https://dividesignpro.com/wp-content/uploads/2026/06/gemini_generated_image_35g8ih35g8ih35g8-clean-1080x675.webp'
 ---
 
-When building a website with Divi 5, there are many situations where you may want to temporarily hide a section without deleting it. Whether you're working on a new design, running seasonal promotions, testing layouts, or preparing content for a future launch, Divi makes it easy to hide sections from visitors while keeping them available inside the builder.
+When building with Divi 5, you'll often want to temporarily hide a section — for seasonal promotions, A/B testing, client approvals, or preparing future content. Divi gives you multiple ways to do it **without losing your work**.
 
-## Why Hide a Section Instead of Deleting It?
+## Why Hide Instead of Delete?
 
-Hiding a section allows you to preserve your design work, temporarily remove content from visitors, test new layouts safely, schedule future content updates, keep backup versions of sections, and run seasonal promotions without rebuilding them later.
+Deleting content you might need later creates unnecessary rework. Hiding a section lets you:
 
-Instead of recreating everything from scratch, you can simply unhide the section whenever needed.
+- Preserve your design work for future use
+- Temporarily remove content from visitors
+- Test new layouts safely with live backups
+- Schedule content for future campaigns
+- Keep alternate versions of sections
 
-## Method 1: Disable a Section Using Visibility Settings
+## Method 1: Built-in Visibility Settings (Recommended)
 
-This is the most common method for hiding a section.
+This is the simplest approach for most users.
 
-1. Open the page where your section is located and launch the Divi 5 Visual Builder.
-2. Hover over the section you want to hide and click the Settings icon.
-3. In the settings panel, locate the Visibility settings.
-4. Turn off the visibility option for the section.
+1. Open the page in the **Divi 5 Visual Builder**
+2. Hover over the section and click the **Settings icon**
+3. Navigate to the **Visibility options** panel
+4. **Disable the section**
 
-Once disabled, the section will remain inside the builder but will not appear on the front end of the website.
+The section remains visible inside the builder but disappears from the front end. It's fast, requires no code, and preserves all content and styling.
 
-**Benefits:** Fast and simple, no code required, easy to restore later, preserves all content and styling.
+## Method 2: Hide on Specific Devices
 
-## Method 2: Hide a Section on Specific Devices
+Sometimes you only want to hide a section on mobile, tablet, or desktop. For example, a large hero section may work beautifully on desktop but overwhelm a phone screen.
 
-Sometimes you only want to hide a section on mobile, tablet, or desktop. For example, a large hero section may look great on desktop but not on mobile.
-
-**Steps:**
-1. Open the section settings
+1. Open section settings
 2. Go to Visibility options
-3. Choose which devices should hide the section (Desktop, Tablet, Mobile)
+3. Choose which devices to hide on: **Desktop**, **Tablet**, or **Mobile**
 4. Save your changes
 
-Divi will automatically display or hide the section based on the visitor's device.
+Divi automatically shows or hides the section based on the visitor's device.
 
-## Method 3: Hide a Section Using CSS
+## Method 3: CSS-Based Hiding
 
-Advanced users may prefer using CSS. You can assign a custom CSS class to the section and hide it using code:
+For advanced scenarios, CSS gives you precise control. Assign a custom CSS class to the section:
 
 ```css
 .hidden-section {
@@ -49,24 +50,39 @@ Advanced users may prefer using CSS. You can assign a custom CSS class to the se
 }
 ```
 
-The section remains in the page structure but becomes invisible to visitors. Use CSS for conditional display scenarios, custom development projects, dynamic JavaScript interactions, and advanced visibility control.
+The section stays in the page structure but becomes invisible. This is ideal for conditional display scenarios, custom JavaScript interactions, and advanced visibility control.
 
-## Method 4: Save Sections for Future Use
+## Method 4: Save to the Divi Library
 
-If you're hiding content for a long period, consider saving it to the Divi Library. This keeps pages clean, reduces clutter in the builder, creates reusable design assets, and makes future updates easier.
+If you're hiding content long-term, consider saving it to the **Divi Library** instead.
 
-After saving the section to the library, you can safely remove it from the page and reinsert it whenever needed.
+**Benefits:**
+- Keeps your active page clean and clutter-free
+- Creates reusable design assets for other projects
+- Makes future restoration instant
+
+After saving, you can safely remove the section from the page and reinsert it whenever needed.
 
 ## Common Use Cases
 
-- **Seasonal Promotions** – Hide holiday banners after a campaign ends and reactivate them next year
-- **Website Redesigns** – Build replacement sections while keeping original versions as backups
-- **A/B Testing** – Create multiple versions of a section and selectively display them during testing
-- **Client Approval Workflows** – Keep unfinished sections hidden until clients approve them
-- **Upcoming Features** – Prepare future content before launch and reveal it when ready
+| Scenario | Best Method |
+|---|---|
+| Seasonal holiday banners | Visibility settings — toggle on/off yearly |
+| Website redesigns | Divi Library — keep originals as backups |
+| A/B testing layouts | CSS or visibility — show different versions to segments |
+| Client approval workflows | Visibility — hide until approved |
+| Upcoming feature launches | Visibility — prepare now, reveal later |
+
+## Troubleshooting
+
+**Section still appears after hiding?** Check device-specific visibility settings, custom CSS overrides, caching plugins, and your browser cache.
+
+**Section disappeared in the builder?** Verify you haven't accidentally deleted it. Hidden sections should still appear inside the Visual Builder.
+
+**Changes not showing on the front end?** Clear Divi cache, website cache, CDN cache, and browser cache — then refresh.
 
 ## Best Practice
 
-For most users, the built-in Visibility settings in Divi 5 are the recommended solution. They are easy to use, require no code, and allow sections to be restored instantly whenever needed. Use CSS-based hiding only when you need advanced control or custom functionality.
+For most users, **Divi 5's built-in Visibility settings are the recommended solution**. They're easy, code-free, and allow instant restoration.
 
-Hiding a section in Divi 5 is a simple but powerful feature that can improve your workflow and make website management easier. By using Divi 5's visibility options, device-specific controls, and reusable design features, you can build websites more efficiently while keeping your layouts organized and flexible.
+Use CSS-based hiding only when you need advanced control or custom functionality that the built-in options don't cover.
