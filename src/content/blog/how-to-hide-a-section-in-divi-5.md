@@ -3,7 +3,7 @@ title: 'How to Hide a Section in Divi 5 — 4 Methods Explained'
 description: 'Learn four ways to hide a section in Divi 5: visibility settings, device-specific hiding, CSS, and Divi Library. Keep your designs safe without deleting anything.'
 date: 2026-06-12
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-hide-section.webp'
+featuredImage: '/blog-images/how-to-hide-a-section-in-divi-5-ai.webp'
 ---
 
 When building with Divi 5, you'll often want to temporarily hide a section — for seasonal promotions, A/B testing, client approvals, or preparing future content. Divi gives you multiple ways to do it **without losing your work**.

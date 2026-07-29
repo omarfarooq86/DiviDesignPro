@@ -3,7 +3,7 @@ title: 'Divi 5 Loop Builder: Dynamic Content Made Easy'
 description: 'Master the Divi 5 Loop Builder for dynamic blogs, portfolios, team pages, and WooCommerce displays. Build repeatable layouts without custom code or plugins.'
 date: 2026-06-12
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-loop-builder.jpg'
+featuredImage: '/blog-images/divi-5-loop-builder-dynamic-content-made-easy-ai.webp'
 ---
 
 Divi 5's Loop Builder is one of its most powerful additions. It lets you create **dynamic, repeatable layouts** without custom code or third-party plugins.

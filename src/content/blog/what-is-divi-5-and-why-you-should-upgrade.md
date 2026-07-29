@@ -3,7 +3,7 @@ title: 'What Is Divi 5 and Why You Should Upgrade'
 description: 'Everything you need to know about Divi 5: what changed, why it matters for your site, key features explained, and the upgrade process from Divi 4.'
 date: 2026-05-14
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-loop-builder.jpg'
+featuredImage: '/blog-images/what-is-divi-5-and-why-you-should-upgrade-ai.webp'
 ---
 
 Divi 5 is not a minor update — it's a **complete rebuild** of the Divi platform. Elegant Themes rewrote the core architecture to be faster, more flexible, and better suited for modern WordPress development.
@@ -47,7 +47,7 @@ Your existing layouts and content carry over — the upgrade is designed to be b
 
 If your site is mission-critical and currently performing perfectly, waiting a few weeks for others to find edge cases is reasonable. But for new builds and most existing sites, **Divi 5 is stable, faster, and genuinely better.** There's no compelling reason to stay on Divi 4 for new projects.
 
-The direction is clear: Divi 5 is where Elegant Themes is investing. Upgrading isn't just about new features — it's about being on the platform that will receive ongoing improvements, support, and innovation.
+The direction is clear: Divi 5 is where Elegant Themes is investing. [Get Divi here](https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=81533) — upgrading isn't just about new features, it's about being on the platform that will receive ongoing improvements, support, and innovation.
 
 ## Related Posts
 

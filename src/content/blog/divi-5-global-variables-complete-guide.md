@@ -3,7 +3,7 @@ title: 'Divi 5 Global Variables: The Complete Guide for Faster, Consistent Desig
 description: 'Master Divi 5 Global Variables (Design Variables) with this hands-on guide. Learn colors, fonts, numbers, fluid sizing, presets, and real freelancer workflows for consistent sites that are easier to maintain.'
 date: 2026-07-29
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/divi-5-global-variables-complete-guide-ai.webp'
 ---
 
 Global Variables in Divi 5 let you define a design token once — a color, a font, a spacing value — and reuse it everywhere. Change the variable, and **every element referencing it updates across your entire site automatically.**

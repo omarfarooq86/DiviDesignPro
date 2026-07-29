@@ -67,13 +67,53 @@ Read ALL of these files before writing a single word:
   - Answer the main question directly at the top (optimized for featured snippet)
   - Include an FAQ section with questions from "People Also Ask"
 
-### 1.5 Find images
+### 1.5 Generate featured image with Gemini
 
-- Read `PexelAPIkey` from the project root
-- Search Pexels API: `https://api.pexels.com/v1/search?query=[topic]&per_page=6&orientation=landscape&size=medium`
-- Use the API key as the Authorization header
-- Select 3-4 relevant images
-- Place them above H2 sections in the post
+**Primary method — Gemini API (no external dependencies):**
+
+1. Read the post content and craft an image generation prompt that captures the topic visually
+2. Call the Gemini image generation API:
+
+```bash
+curl -s "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-lite-image:generateContent?key=API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"contents":[{"parts":[{"text":"Blog featured image 1200x630. <visual description of post topic>"}]}],"generationConfig":{"responseModalities":["IMAGE","TEXT"]}}' \
+  -o temp-response.json
+```
+
+3. Extract the base64 image from the JSON response:
+
+```python
+import json, base64
+with open('temp-response.json') as f:
+    data = json.load(f)
+for part in data['candidates'][0]['content']['parts']:
+    if 'inlineData' in part:
+        img = base64.b64decode(part['inlineData']['data'])
+        with open('public/blog-images/post-slug-gen.png', 'wb') as out:
+            out.write(img)
+```
+
+4. Compress to WebP (target < 50 KB):
+
+```bash
+node -e "const sharp=require('sharp');sharp('public/blog-images/post-slug-gen.png').resize(800,450,{fit:'cover'}).webp({quality:80}).toFile('public/blog-images/post-slug-featured.webp')"
+```
+
+5. Set the post's `featuredImage` to `/blog-images/post-slug-featured.webp`
+
+**Prompt guidelines:**
+- Start with "Blog featured image 1200x630."
+- Describe the visual concept, not just the topic
+- Specify color scheme and mood
+- Use "dark professional background" or "clean modern design" as appropriate
+- Avoid requesting text in the image (it often comes out garbled)
+- One sentence, focused on a single visual concept
+
+**Fallback — Pexels API:**
+- Read `PexelAPIkey` from the project root if exists
+- Search: `https://api.pexels.com/v1/search?query=[topic]&per_page=6&orientation=landscape&size=medium`
+- Select best matching image
 
 ---
 
