@@ -34,6 +34,25 @@ const navItems = [
     <a href="/#contact" class="btn btn--primary header__cta">
       Hire Me
     </a>
+
+    <button class="header__menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="6" x2="20" y2="6" class="menu-line menu-line--top"/>
+        <line x1="4" y1="12" x2="20" y2="12" class="menu-line menu-line--mid"/>
+        <line x1="4" y1="18" x2="20" y2="18" class="menu-line menu-line--bot"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <ul class="mobile-nav__list">
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href} class="mobile-nav__link">{item.label}</a>
+        </li>
+      ))}
+    </ul>
+    <a href="/#contact" class="btn btn--primary mobile-nav__cta">Hire Me</a>
   </div>
 </header>
 
@@ -103,11 +122,82 @@ const navItems = [
     padding: var(--space-2) var(--space-4);
   }
 
+  .header__menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    color: var(--color-text);
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .header__nav { display: none; }
-    .header__cta {
-      font-size: var(--text-xs);
-      padding: var(--space-1) var(--space-3);
+    .header__cta { display: none; }
+    .header__menu-btn { display: flex; align-items: center; justify-content: center; }
+
+    .mobile-nav {
+      display: block;
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-surface);
+      padding: var(--space-6);
+      z-index: 49;
+    }
+
+    .mobile-nav[hidden] { display: none; }
+
+    .mobile-nav__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .mobile-nav__link {
+      display: block;
+      padding: var(--space-4);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--color-text);
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-nav__link:hover {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+
+    .mobile-nav__cta {
+      margin-top: var(--space-4);
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
+
+<script>
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function() {
+      var isOpen = !mobileNav.hasAttribute('hidden');
+      mobileNav.toggleAttribute('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+</script>

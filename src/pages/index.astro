@@ -9,6 +9,33 @@ import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import ContactForm from '../components/ContactForm.astro';
 import JsonLd from '../components/JsonLd.astro';
+
+const faqData = [
+  {
+    question: 'What is Divi and how is it different from other WordPress themes?',
+    answer: 'Divi is a premium WordPress theme and visual page builder by Elegant Themes. Unlike traditional themes, Divi gives you complete drag-and-drop control over every element. Divi 5 has been rebuilt for better performance and a smoother editing experience.'
+  },
+  {
+    question: 'What is new in Divi 5 compared to Divi 4?',
+    answer: 'Divi 5 is a complete rewrite with a new architecture, Global Variables for design consistency, Design Presets, an advanced Loop Builder for dynamic content, and significantly faster performance. The visual builder is snappier and code output is cleaner.'
+  },
+  {
+    question: 'Do I need to know how to code to use Divi?',
+    answer: 'No — Divi\'s visual builder lets you create professional websites without writing code. For advanced customizations, CSS and JavaScript knowledge helps. I handle the technical aspects so you can focus on your business.'
+  },
+  {
+    question: 'Will my WordPress website be slow if I use Divi?',
+    answer: 'Not if built correctly. Divi 5 has significantly improved performance. Combined with proper optimization — image compression, caching, clean code — a Divi site achieves excellent Core Web Vitals scores.'
+  },
+  {
+    question: 'Can I edit my Divi website myself after it is built?',
+    answer: 'Absolutely. Divi\'s visual builder is designed for non-technical users. You can update text, swap images, add pages, and manage content without touching code. I provide documentation so you feel confident managing your site.'
+  },
+  {
+    question: 'How much does it cost to hire a Divi freelancer?',
+    answer: 'Pricing varies based on scope, complexity, and timeline. I provide transparent, project-based quotes after understanding your requirements. Contact me for a free consultation and estimate.'
+  },
+];
 ---
 
 <BaseLayout
@@ -24,4 +51,6 @@ import JsonLd from '../components/JsonLd.astro';
   <Testimonials />
   <FAQ />
   <ContactForm />
+
+  <JsonLd type="FAQ" data={{ questions: faqData }} />
 </BaseLayout>

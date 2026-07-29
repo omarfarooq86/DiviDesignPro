@@ -19,7 +19,7 @@ export default defineConfig({
     webAnalytics: { enabled: true },
   }),
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: 'auto',
   },
   trailingSlash: 'always',
 });
