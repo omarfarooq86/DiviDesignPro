@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.dividesignpro.com" }],
+      "destination": "https://dividesignpro.com/$1",
+      "permanent": true
+    },
+    {
       "source": "/author/omee00/",
       "destination": "/",
       "permanent": true
