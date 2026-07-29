@@ -1,54 +1,61 @@
 <section class="hero" id="hero">
   <div class="container hero__inner">
     <div class="hero__content">
-      <span class="hero__badge">WordPress Designer & Developer</span>
+      <div class="hero__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Top Rated WordPress Developer
+      </div>
       <h1 class="hero__title">
         Your <span class="hero__highlight">Divi Freelancer</span> for Stunning WordPress Sites
       </h1>
       <p class="hero__subtitle">
-        With over a decade of experience as a WordPress developer using the Divi theme,
-        I craft pixel-perfect websites that are fast, responsive, and tailored to your
-        business goals. Specializing in the latest Divi 5 framework for modern,
-        high-converting designs.
+        With over a decade of experience, I craft pixel-perfect Divi websites that are fast,
+        responsive, and built for conversions. Specializing in Divi 5 for modern,
+        high-performing designs.
       </p>
       <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary btn--lg">Hire Me Today</a>
+        <a href="#contact" class="btn btn--primary btn--lg">Start Your Project</a>
         <a href="#portfolio" class="btn btn--outline btn--lg">View Portfolio</a>
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
-          <span class="hero__stat-number">7+</span>
+          <span class="hero__stat-number">100<span class="hero__stat-plus">+</span></span>
+          <span class="hero__stat-label">Websites Built</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number">10<span class="hero__stat-plus">+</span></span>
           <span class="hero__stat-label">Years Experience</span>
         </div>
+        <div class="hero__stat-divider"></div>
         <div class="hero__stat">
-          <span class="hero__stat-number">50+</span>
+          <span class="hero__stat-number">50<span class="hero__stat-plus">+</span></span>
           <span class="hero__stat-label">Divi Projects</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-number">Divi 5</span>
-          <span class="hero__stat-label">Expert</span>
         </div>
       </div>
     </div>
     <div class="hero__visual" aria-hidden="true">
       <div class="hero__card hero__card--1">
-        <div class="hero__card-dot"></div>
-        <div class="hero__card-line"></div>
-        <div class="hero__card-line short"></div>
-      </div>
-      <div class="hero__card hero__card--2">
-        <div class="hero__card-circle"></div>
-        <div class="hero__card-row">
-          <div class="hero__card-block"></div>
-          <div class="hero__card-block"></div>
+        <div class="hero__card-badge">Divi 5 Expert</div>
+        <div class="hero__card-metric">
+          <span class="hero__card-metric-value">98</span>
+          <span class="hero__card-metric-label">PageSpeed Score</span>
+        </div>
+        <div class="hero__card-bars">
+          <div class="hero__card-bar" style="--h: 98%"><span>Performance</span></div>
+          <div class="hero__card-bar" style="--h: 100%"><span>Accessibility</span></div>
+          <div class="hero__card-bar" style="--h: 100%"><span>Best Practices</span></div>
+          <div class="hero__card-bar" style="--h: 100%"><span>SEO</span></div>
         </div>
       </div>
-      <div class="hero__card hero__card--3">
-        <div class="hero__card-bars">
-          <div class="hero__card-bar" style="height:60%"></div>
-          <div class="hero__card-bar" style="height:90%"></div>
-          <div class="hero__card-bar" style="height:40%"></div>
-          <div class="hero__card-bar" style="height:75%"></div>
+      <div class="hero__card hero__card--2">
+        <div class="hero__card-avatar">MO</div>
+        <div class="hero__card-name">Muhammad Omar</div>
+        <div class="hero__card-role">Divi Freelancer</div>
+        <div class="hero__card-tags">
+          <span>WordPress</span>
+          <span>Divi 5</span>
+          <span>SEO</span>
         </div>
       </div>
     </div>
@@ -57,9 +64,9 @@
 
 <style>
   .hero {
-    padding-top: calc(var(--header-height) + var(--space-16));
-    padding-bottom: var(--space-20);
-    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    padding-top: calc(var(--header-height) + var(--space-20));
+    padding-bottom: var(--space-24);
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
     overflow: hidden;
   }
 
@@ -71,46 +78,66 @@
   }
 
   .hero__badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     background-color: var(--color-primary-light);
     color: var(--color-primary-dark);
     font-size: var(--text-sm);
     font-weight: 600;
-    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-body);
+    padding: var(--space-2) var(--space-4);
     border-radius: 999px;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__badge svg {
+    color: #F59E0B;
   }
 
   .hero__title {
     font-size: var(--text-6xl);
-    font-weight: 800;
-    line-height: 1.1;
+    font-weight: 700;
+    line-height: 1.08;
     margin-bottom: var(--space-6);
+    letter-spacing: -0.02em;
   }
 
   .hero__highlight {
-    background: linear-gradient(135deg, var(--color-primary), #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-primary);
+    position: relative;
+  }
+
+  .hero__highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-primary-light);
+    border-radius: 2px;
+    z-index: -1;
   }
 
   .hero__subtitle {
     font-size: var(--text-lg);
-    color: var(--color-gray-500);
+    color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: var(--space-8);
-    max-width: 540px;
+    max-width: 520px;
+    font-family: var(--font-body);
   }
 
   .hero__actions {
     display: flex;
     gap: var(--space-4);
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-12);
   }
 
   .hero__stats {
     display: flex;
+    align-items: center;
     gap: var(--space-8);
   }
 
@@ -120,135 +147,179 @@
   }
 
   .hero__stat-number {
-    font-size: var(--text-2xl);
-    font-weight: 800;
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
     color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .hero__stat-plus {
+    color: var(--color-accent);
   }
 
   .hero__stat-label {
     font-size: var(--text-sm);
-    color: var(--color-gray-500);
+    color: var(--color-text-muted);
+    margin-top: var(--space-1);
+    font-family: var(--font-body);
   }
 
-  /* Decorative visual */
+  .hero__stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: var(--color-border);
+  }
+
+  /* Decorative cards */
   .hero__visual {
     position: relative;
-    height: 400px;
+    height: 420px;
   }
 
   .hero__card {
     position: absolute;
-    background: var(--color-white);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-lg);
     padding: var(--space-6);
+    animation: fadeInUp 0.7s ease forwards;
   }
 
   .hero__card--1 {
     top: 0;
-    left: 0;
-    width: 200px;
-    height: 160px;
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  .hero__card-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--color-primary);
-    margin-bottom: var(--space-4);
-  }
-
-  .hero__card-line {
-    height: 8px;
-    background-color: var(--color-gray-200);
-    border-radius: 4px;
-    margin-bottom: var(--space-3);
-    width: 100%;
-  }
-
-  .hero__card-line.short {
-    width: 60%;
-  }
-
-  .hero__card--2 {
-    top: 40px;
-    right: 0;
-    width: 220px;
-    height: 180px;
-    animation: fadeInUp 0.6s ease 0.15s forwards;
-    opacity: 0;
-  }
-
-  .hero__card-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary), #a78bfa);
-    margin-bottom: var(--space-4);
-  }
-
-  .hero__card-row {
-    display: flex;
-    gap: var(--space-3);
-  }
-
-  .hero__card-block {
-    flex: 1;
-    height: 60px;
-    background-color: var(--color-gray-100);
-    border-radius: var(--radius-md);
-  }
-
-  .hero__card--3 {
-    bottom: 0;
     left: 40px;
-    width: 180px;
-    height: 160px;
-    animation: fadeInUp 0.6s ease 0.3s forwards;
-    opacity: 0;
+    width: 240px;
+  }
+
+  .hero__card-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-primary-light);
+    padding: var(--space-1) var(--space-2);
+    border-radius: 999px;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__card-metric {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__card-metric-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .hero__card-metric-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
   }
 
   .hero__card-bars {
     display: flex;
-    align-items: flex-end;
-    gap: var(--space-3);
-    height: 100%;
+    flex-direction: column;
+    gap: var(--space-2);
   }
 
   .hero__card-bar {
-    flex: 1;
-    background: linear-gradient(180deg, var(--color-primary), #c4b5fd);
-    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    height: 8px;
+    background-color: var(--color-border-light);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero__card-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: var(--h);
+    background-color: var(--color-accent);
+    border-radius: 4px;
+  }
+
+  .hero__card-bar span {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .hero__card--2 {
+    bottom: 40px;
+    right: 0;
+    width: 200px;
+    text-align: center;
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .hero__card-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), #3B82F6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    margin: 0 auto var(--space-3);
+  }
+
+  .hero__card-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .hero__card-role {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__card-tags {
+    display: flex;
+    gap: var(--space-1);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero__card-tags span {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    background-color: var(--color-surface-alt);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
   }
 
   @media (max-width: 1024px) {
-    .hero__title {
-      font-size: var(--text-5xl);
-    }
+    .hero__title { font-size: var(--text-5xl); }
   }
 
   @media (max-width: 768px) {
-    .hero__inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-8);
-    }
-
-    .hero__visual {
-      display: none;
-    }
-
-    .hero__title {
-      font-size: var(--text-4xl);
-    }
-
-    .hero__actions {
-      flex-direction: column;
-    }
-
-    .hero__stats {
-      gap: var(--space-4);
-    }
+    .hero__inner { grid-template-columns: 1fr; gap: var(--space-8); }
+    .hero__visual { display: none; }
+    .hero__title { font-size: var(--text-4xl); }
+    .hero__actions { flex-direction: column; }
+    .hero__stats { gap: var(--space-4); }
   }
 </style>
