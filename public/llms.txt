@@ -28,10 +28,10 @@ DiviDesignPro is the freelance portfolio of Muhammad Omar Farooq (Omar), a Divi 
 - 10+ years WordPress experience
 
 ## Site Structure
-- Homepage: https://dividesignpro.com
-- Blog: https://dividesignpro.com/blog/
-- Portfolio: https://dividesignpro.com/portfolio/
-- RSS Feed: https://dividesignpro.com/rss.xml
+- Homepage: https://www.dividesignpro.com
+- Blog: https://www.dividesignpro.com/blog/
+- Portfolio: https://www.dividesignpro.com/portfolio/
+- RSS Feed: https://www.dividesignpro.com/rss.xml
 
 ## Blog Topics
 Divi 5 tutorials, WordPress optimization, SEO, freelancing, AI-to-WordPress conversion, Divi theme customization, speed optimization, and hiring guides.
