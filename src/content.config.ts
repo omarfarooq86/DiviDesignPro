@@ -13,6 +13,8 @@ const blogCollection = defineCollection({
     featuredImage: z.string().optional(),
     ogImage: z.string().optional(),
     draft: z.boolean().default(false),
+    hasFAQ: z.boolean().optional(),
+    faqData: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   }),
 });
 

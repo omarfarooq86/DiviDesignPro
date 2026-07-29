@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, category, featuredImage, ogImage } = post.data;
+const { title, description, date, category, featuredImage, ogImage, hasFAQ, faqData } = post.data;
 const slug = post.id.replace(/\.md$/, '');
 const html = marked.parse(post.body || '');
 ---
@@ -29,6 +29,8 @@ const html = marked.parse(post.body || '');
   featuredImage={featuredImage}
   ogImage={ogImage}
   slug={slug}
+  hasFAQ={hasFAQ}
+  faqData={faqData}
 >
   <div class="prose" set:html={html} />
 </BlogPostLayout>
