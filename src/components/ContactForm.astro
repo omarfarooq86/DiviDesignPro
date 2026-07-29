@@ -1,0 +1,202 @@
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <div class="contact__info">
+        <h2 class="section__title" style="text-align:left;">Contact Me</h2>
+        <p class="contact__text">
+          I'd be delighted to explore how I can enhance your website and strengthen your
+          online presence. Whether you're looking for a custom Divi design, quick fixes,
+          or continuous theme customization, I offer personalized solutions designed to
+          fit your business objectives.
+        </p>
+        <p class="contact__text">
+          Get in touch today for a prompt response and a free consultation. Let's
+          collaborate to turn your Divi-powered website into a high-impact digital asset
+          that drives results.
+        </p>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            <a href="mailto:omee00@gmail.com">omee00@gmail.com</a>
+          </div>
+          <div class="contact__detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+923101418307">+92 310 1418307</a>
+          </div>
+          <div class="contact__detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Available worldwide — remote freelancer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__form-wrapper">
+        <h3 class="contact__form-title">Get a Free Quote</h3>
+
+        <form
+          class="contact__form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <!-- Replace with your Web3Forms access key -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New inquiry from DiviDesignPro" />
+          <input type="hidden" name="redirect" value="https://dividesignpro.com/thank-you/" />
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" />
+
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="Your name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="you@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="website" class="form-label">Current Website URL (if any)</label>
+            <input type="url" id="website" name="website" class="form-input" placeholder="https://" />
+          </div>
+
+          <div class="form-group">
+            <label for="inquiry" class="form-label">What is this inquiry about?</label>
+            <select id="inquiry" name="inquiry" class="form-input">
+              <option value="">Select an option</option>
+              <option>I need a new website</option>
+              <option>I have a website and want to update it</option>
+              <option>I need maintenance and hosting</option>
+              <option>I need a Divi Expert for my project</option>
+              <option>AI design to WordPress conversion</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Project Details</label>
+            <textarea id="message" name="message" class="form-input form-textarea" rows="4" required placeholder="Tell me about your project, goals, and timeline..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg form-submit">
+            Send Inquiry
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .contact__text {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    line-height: 1.7;
+  }
+
+  .contact__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .contact__detail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-gray-600);
+    font-size: var(--text-sm);
+  }
+
+  .contact__detail svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .contact__detail a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .contact__detail a:hover {
+    color: var(--color-primary);
+  }
+
+  .contact__form-wrapper {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-100);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact__form-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: var(--space-4);
+  }
+
+  .form-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-gray-700);
+    margin-bottom: var(--space-2);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+    font-family: var(--font-sans);
+    color: var(--color-gray-800);
+    background-color: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+    background-color: var(--color-white);
+  }
+
+  .form-input::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--space-2);
+  }
+
+  @media (max-width: 768px) {
+    .contact__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .contact__form-wrapper {
+      padding: var(--space-6);
+    }
+  }
+</style>

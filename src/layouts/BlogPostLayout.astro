@@ -1,0 +1,249 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  category?: string;
+  featuredImage?: string;
+  ogImage?: string;
+  slug: string;
+}
+
+const {
+  title,
+  description,
+  date,
+  category = 'Divi Tips',
+  featuredImage,
+  ogImage,
+  slug,
+} = Astro.props;
+
+const siteUrl = 'https://dividesignpro.com';
+const postUrl = `${siteUrl}/blog/${slug}/`;
+const isoDate = date.toISOString();
+const ogImageUrl = ogImage || featuredImage || `${siteUrl}/og-images/default-og.png`;
+
+const breadcrumbItems = [
+  { name: 'Home', url: siteUrl },
+  { name: 'Blog', url: `${siteUrl}/blog/` },
+  { name: title, url: postUrl },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={postUrl}
+  ogImage={ogImageUrl}
+  ogType="article"
+  publishedTime={isoDate}
+  modifiedTime={isoDate}
+>
+  <article class="blog-post">
+    <header class="blog-post__header">
+      <div class="container">
+        {category && (
+          <a href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}/`} class="blog-post__category">
+            {category}
+          </a>
+        )}
+        <h1 class="blog-post__title">{title}</h1>
+        <div class="blog-post__meta">
+          <time datetime={isoDate}>
+            {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span class="blog-post__meta-sep">·</span>
+          <span>by Omar</span>
+          <span class="blog-post__meta-sep">·</span>
+          <span>4 min read</span>
+        </div>
+        {featuredImage && (
+          <img
+            src={featuredImage}
+            alt={title}
+            class="blog-post__featured-img"
+            loading="eager"
+            decoding="async"
+          />
+        )}
+      </div>
+    </header>
+
+    <div class="container blog-post__body">
+      <div class="blog-post__content">
+        <slot />
+      </div>
+    </div>
+  </article>
+
+  <JsonLd
+    type="Article"
+    data={{
+      title,
+      description,
+      image: ogImageUrl,
+      datePublished: isoDate,
+      dateModified: isoDate,
+      url: postUrl,
+    }}
+  />
+
+  <JsonLd
+    type="BreadcrumbList"
+    data={{ items: breadcrumbItems }}
+  />
+</BaseLayout>
+
+<style>
+  .blog-post {
+    padding-top: calc(var(--header-height) + var(--space-8));
+    padding-bottom: var(--space-16);
+  }
+
+  .blog-post__header {
+    text-align: center;
+    padding-bottom: var(--space-10);
+    margin-bottom: var(--space-10);
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+
+  .blog-post__category {
+    display: inline-block;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    margin-bottom: var(--space-4);
+    text-decoration: none;
+  }
+
+  .blog-post__title {
+    max-width: 800px;
+    margin-inline: auto;
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-post__meta {
+    color: var(--color-gray-500);
+    font-size: var(--text-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+  }
+
+  .blog-post__meta-sep {
+    margin-inline: var(--space-1);
+  }
+
+  .blog-post__featured-img {
+    max-width: 800px;
+    margin-inline: auto;
+    margin-top: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .blog-post__body {
+    display: flex;
+    justify-content: center;
+  }
+
+  .blog-post__content {
+    max-width: 720px;
+    width: 100%;
+  }
+
+  .blog-post__content :global(h2) {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-3xl);
+  }
+
+  .blog-post__content :global(h3) {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-xl);
+  }
+
+  .blog-post__content :global(p) {
+    margin-bottom: var(--space-4);
+    line-height: 1.8;
+  }
+
+  .blog-post__content :global(ul),
+  .blog-post__content :global(ol) {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+  }
+
+  .blog-post__content :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-post__content :global(pre) {
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-100);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    margin-bottom: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .blog-post__content :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--color-gray-100);
+    padding: 0.15em 0.4em;
+    border-radius: var(--radius-sm);
+  }
+
+  .blog-post__content :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .blog-post__content :global(blockquote) {
+    border-left: 4px solid var(--color-primary);
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-4);
+    color: var(--color-gray-600);
+    font-style: italic;
+  }
+
+  .blog-post__content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .blog-post__content :global(th) {
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .blog-post__content :global(td) {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .blog-post__content :global(figure) {
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-post__content :global(.wp-block-table) {
+    overflow-x: auto;
+  }
+</style>

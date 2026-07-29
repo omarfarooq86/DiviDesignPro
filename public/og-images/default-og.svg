@@ -1,0 +1,6 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1e1b4b"/>
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="none" stroke="#6c2bd9" stroke-width="2" opacity="0.4"/>
+  <text x="600" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="white">Divi<span fill="#a78bfa">Design</span>Pro</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" fill="#a78bfa">Pixel-Perfect Divi Design. Clean Code. On Time.</text>
+</svg>

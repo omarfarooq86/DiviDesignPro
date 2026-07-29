@@ -1,0 +1,87 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const categories = [...new Set(posts.map((p) => p.data.category || 'Uncategorized'))];
+
+  return categories.map((category) => ({
+    params: { category: category.toLowerCase().replace(/\s+/g, '-') },
+    props: {
+      category,
+      posts: posts
+        .filter((p) => p.data.category === category)
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+    },
+  }));
+}
+
+interface Props {
+  category: string;
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { category, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`${category} Articles | DiviDesignPro Blog`}
+  description={`Browse all ${category} articles on the DiviDesignPro blog. Tips and tutorials from a Divi 5 expert.`}
+>
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">{category}</h1>
+      <p class="page-header__desc">{posts.length} article{posts.length !== 1 ? 's' : ''} in this category</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+
+      <div class="back-link">
+        <a href="/blog/" class="btn btn--outline">← Back to Blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: calc(var(--header-height) + var(--space-12));
+    padding-bottom: var(--space-10);
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    text-align: center;
+  }
+
+  .page-header__title {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__desc {
+    color: var(--color-gray-500);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: var(--space-10);
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

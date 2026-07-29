@@ -1,0 +1,32 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, date, category, featuredImage, ogImage } = post.data;
+const slug = post.id.replace(/\.md$/, '');
+---
+
+<BlogPostLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  featuredImage={featuredImage}
+  ogImage={ogImage}
+  slug={slug}
+>
+  <div class="prose" set:html={post.body} />
+</BlogPostLayout>

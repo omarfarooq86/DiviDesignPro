@@ -1,0 +1,112 @@
+---
+interface Props {
+  type: 'Person' | 'WebSite' | 'Article' | 'BreadcrumbList' | 'FAQ';
+  data?: Record<string, any>;
+}
+
+const { type, data = {} } = Astro.props;
+
+function getPersonSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Muhammad Omar Farooq',
+    url: 'https://dividesignpro.com',
+    jobTitle: 'Freelance Divi Designer & WordPress Developer',
+    email: 'omee00@gmail.com',
+    telephone: '+923101418307',
+    sameAs: [
+      'https://www.facebook.com/divithemesolution',
+      'https://www.linkedin.com/in/muhammad-omar-farooq-wp/',
+    ],
+    knowsAbout: ['WordPress', 'Divi Theme', 'Web Design', 'SEO', 'Frontend Development'],
+  };
+}
+
+function getWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'DiviDesignPro',
+    url: 'https://dividesignpro.com',
+    description: 'Freelance Divi Designer crafting pixel-perfect WordPress sites.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://dividesignpro.com/search?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}
+
+function getArticleSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    description: data.description,
+    image: data.image,
+    datePublished: data.datePublished,
+    dateModified: data.dateModified || data.datePublished,
+    author: {
+      '@type': 'Person',
+      name: 'Muhammad Omar Farooq',
+      url: 'https://dividesignpro.com',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Muhammad Omar Farooq',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': data.url,
+    },
+  };
+}
+
+function getBreadcrumbSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: data.items.map((item: { name: string; url: string }, index: number) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+function getFAQSchema() {
+  const mainEntity = data.questions.map((q: { question: string; answer: string }) => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: q.answer,
+    },
+  }));
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity,
+  };
+}
+
+const schemas: Record<string, () => object> = {
+  Person: getPersonSchema,
+  WebSite: getWebSiteSchema,
+  Article: getArticleSchema,
+  BreadcrumbList: getBreadcrumbSchema,
+  FAQ: getFAQSchema,
+};
+
+const schema = schemas[type] ? schemas[type]() : null;
+---
+
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />
+)}

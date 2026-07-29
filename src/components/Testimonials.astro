@@ -1,0 +1,139 @@
+<section class="section section--alt" id="testimonials">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">What Clients Say About My Work</h2>
+      <p class="section__subtitle">
+        Trusted by businesses worldwide for exceptional WordPress and Divi theme development.
+      </p>
+    </div>
+
+    <div class="testimonials__grid">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="testimonial-card__quote">
+          "Omar worked with me to edit and improve an existing website that was already
+          partially built, which made the project more complex than starting from scratch.
+          He did a great job navigating that and staying flexible throughout."
+        </blockquote>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">SM</div>
+          <div>
+            <strong class="testimonial-card__name">Sarah Mitchell</strong>
+            <span class="testimonial-card__role">Marketing Director, Bray Outdoor Inc.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="testimonial-card__quote">
+          "Incredible attention to detail. Our Divi website was transformed from slow and
+          cluttered to fast and professional. Omar's understanding of Divi 5 made a
+          noticeable difference in load times and user experience."
+        </blockquote>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">JD</div>
+          <div>
+            <strong class="testimonial-card__name">James Davidson</strong>
+            <span class="testimonial-card__role">CEO, TechFlow Solutions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote class="testimonial-card__quote">
+          "We needed a complex multi-language Divi site and Omar delivered beyond expectations.
+          His communication was clear throughout the project and the deadline was met
+          without any issues. Highly recommended for any Divi work."
+        </blockquote>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">AK</div>
+          <div>
+            <strong class="testimonial-card__name">Anna Koval</strong>
+            <span class="testimonial-card__role">Founder, LinguaPro</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .testimonial-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-100);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card__stars {
+    color: #f59e0b;
+    font-size: var(--text-lg);
+    letter-spacing: 2px;
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonial-card__quote {
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+    line-height: 1.8;
+    margin-bottom: var(--space-6);
+    flex: 1;
+    font-style: italic;
+  }
+
+  .testimonial-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    border-top: 1px solid var(--color-gray-100);
+    padding-top: var(--space-4);
+  }
+
+  .testimonial-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), #a78bfa);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+  }
+
+  .testimonial-card__name {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-gray-800);
+  }
+
+  .testimonial-card__role {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+  }
+
+  @media (max-width: 1024px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

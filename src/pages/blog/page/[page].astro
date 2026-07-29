@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const POSTS_PER_PAGE = 10;
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+  // Generate pages 2 through totalPages (page 1 is handled by /blog/index.astro)
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const pageNum = i + 2; // Start from page 2
+    const start = (pageNum - 1) * POSTS_PER_PAGE;
+    return {
+      params: { page: String(pageNum) },
+      props: {
+        posts: sortedPosts.slice(start, start + POSTS_PER_PAGE),
+        currentPage: pageNum,
+        totalPages,
+      },
+    };
+  });
+}
+
+interface Props {
+  posts: ReturnType<typeof getCollection> extends Promise<infer T> ? T : never;
+  currentPage: number;
+  totalPages: number;
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<BaseLayout
+  title={`Blog | Page ${currentPage} of ${totalPages}`}
+  description={`Tips, tutorials, and guides from a professional WordPress designer and Divi 5 expert. Page ${currentPage}.`}
+  ogImage="/og-images/blog-og.png"
+>
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Blog</h1>
+      <p class="page-header__desc">Page {currentPage} of {totalPages}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post: any) => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+
+      <nav class="pagination" aria-label="Blog pagination">
+        {currentPage > 2 ? (
+          <a href={`/blog/page/${currentPage - 1}/`} class="btn btn--outline">← Newer Posts</a>
+        ) : (
+          <a href="/blog/" class="btn btn--outline">← Newer Posts</a>
+        )}
+        <span class="pagination__current">Page {currentPage} of {totalPages}</span>
+        {currentPage < totalPages ? (
+          <a href={`/blog/page/${currentPage + 1}/`} class="btn btn--outline">Older Posts →</a>
+        ) : (
+          <span />
+        )}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: calc(var(--header-height) + var(--space-12));
+    padding-bottom: var(--space-10);
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    text-align: center;
+  }
+
+  .page-header__title {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__desc {
+    color: var(--color-gray-500);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-gray-100);
+  }
+
+  .pagination__current {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

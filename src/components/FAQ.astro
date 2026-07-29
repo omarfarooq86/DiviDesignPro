@@ -1,0 +1,115 @@
+---
+const faqs = [
+  {
+    question: 'What is Divi and how is it different from other WordPress themes?',
+    answer: 'Divi is a premium WordPress theme and visual page builder by Elegant Themes. Unlike traditional themes that lock you into predefined layouts, Divi gives you complete drag-and-drop control over every element on your page. Divi 5, the latest version, has been rebuilt from the ground up for better performance, modern architecture, and a smoother editing experience.',
+  },
+  {
+    question: 'What is new in Divi 5 compared to Divi 4?',
+    answer: 'Divi 5 is a complete rewrite of the platform. It introduces a new architecture that dramatically improves builder performance, Global Variables for design consistency, Design Presets for reusable styles, an advanced Loop Builder for dynamic content, and significantly faster page load times. The visual builder is snappier, and the code output is cleaner and more efficient.',
+  },
+  {
+    question: 'Do I need to know how to code to use Divi?',
+    answer: 'No — Divi\'s visual builder allows you to create professional websites without writing any code. However, for advanced customizations, CSS and JavaScript knowledge is helpful. As your Divi freelancer, I handle the technical aspects so you can focus on your business.',
+  },
+  {
+    question: 'Will my WordPress website be slow if I use Divi?',
+    answer: 'Not if built correctly. While Divi has a reputation for being heavy, Divi 5 has significantly improved performance. Combined with proper optimization (image compression, caching, clean code), a Divi site can achieve excellent Core Web Vitals scores. I specialize in building Divi sites that are fast and well-optimized.',
+  },
+  {
+    question: 'Can I edit my Divi website myself after it is built?',
+    answer: 'Absolutely. Divi\'s visual builder is designed for non-technical users. Once your site is built, you can easily update text, swap images, add new pages, and manage content without touching a line of code. I provide documentation and guidance so you feel confident managing your site.',
+  },
+  {
+    question: 'How much does it cost to hire a Divi freelancer?',
+    answer: 'Pricing varies based on project scope, complexity, and timeline. A simple landing page might cost less, while a full custom website with advanced functionality requires more investment. I provide transparent, project-based quotes after understanding your requirements. Contact me for a free consultation and estimate.',
+  },
+];
+---
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Frequently Asked Questions</h2>
+      <p class="section__subtitle">
+        Straight answers about Divi, Divi 5, and WordPress, from a freelancer who builds with it every day.
+      </p>
+    </div>
+
+    <div class="faq__list">
+      {faqs.map((faq, index) => (
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span>{faq.question}</span>
+            <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="faq__answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq__list {
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq__item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-100);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-fast);
+  }
+
+  .faq__item[open] {
+    border-color: var(--color-primary-light);
+  }
+
+  .faq__question {
+    padding: var(--space-5) var(--space-6);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-gray-800);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__icon {
+    flex-shrink: 0;
+    color: var(--color-gray-400);
+    transition: transform var(--transition-fast);
+  }
+
+  .faq__item[open] .faq__icon {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  .faq__answer {
+    padding: 0 var(--space-6) var(--space-5);
+  }
+
+  .faq__answer p {
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+    line-height: 1.8;
+  }
+</style>

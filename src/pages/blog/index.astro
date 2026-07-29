@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const POSTS_PER_PAGE = 10;
+const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+const currentPosts = posts.slice(0, POSTS_PER_PAGE);
+---
+
+<BaseLayout
+  title="Blog | Insights on Divi, Divi 5 & WordPress"
+  description="Tips, tutorials, and guides from a professional WordPress designer and Divi 5 expert. Learn how to build stunning websites with the world's most popular WordPress theme."
+  ogImage="/og-images/blog-og.png"
+>
+  <section class="page-header">
+    <div class="container">
+      <span class="page-header__badge">The DiviDesignPro Blog</span>
+      <h1 class="page-header__title">Insights on Divi, Divi 5 & WordPress</h1>
+      <p class="page-header__desc">
+        Tips, tutorials, and guides from a professional WordPress designer and Divi 5 expert.
+        Learn how to build stunning websites with the world's most popular WordPress theme.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {currentPosts.length > 0 ? (
+        <div class="blog-grid">
+          {currentPosts.map((post) => (
+            <BlogCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <div class="blog-empty">
+          <p>No posts yet. Check back soon for Divi tips and tutorials!</p>
+        </div>
+      )}
+
+      {totalPages > 1 && (
+        <nav class="pagination" aria-label="Blog pagination">
+          <span class="pagination__current">Page 1 of {totalPages}</span>
+          <a href="/blog/page/2/" class="btn btn--outline">Older Posts →</a>
+        </nav>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: calc(var(--header-height) + var(--space-12));
+    padding-bottom: var(--space-10);
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    text-align: center;
+  }
+
+  .page-header__badge {
+    display: inline-block;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+
+  .page-header__title {
+    margin-bottom: var(--space-4);
+  }
+
+  .page-header__desc {
+    max-width: 600px;
+    margin-inline: auto;
+    color: var(--color-gray-500);
+    font-size: var(--text-lg);
+    line-height: 1.7;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  .blog-empty {
+    text-align: center;
+    padding: var(--space-16);
+    color: var(--color-gray-500);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-gray-100);
+  }
+
+  .pagination__current {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
