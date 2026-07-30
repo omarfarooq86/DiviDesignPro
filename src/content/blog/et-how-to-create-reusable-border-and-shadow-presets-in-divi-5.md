@@ -3,7 +3,7 @@ title: 'How To Create Reusable Border and Shadow Presets In Divi 5'
 description: 'Divi 5 lets you save border and shadow styles as reusable presets. Define your design system once, then apply consistent borders and shadows across your entire site.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/how-to-create-reusable-border-and-shadow-presets-in-divi-5.webp'
 ---
 
 Elegant Themes published a tutorial on [creating reusable border and shadow presets in Divi 5](https://www.elegantthemes.com/blog/divi-resources/how-to-create-reusable-border-and-shadow-presets-in-divi-5). This is a natural extension of Divi 5's Global Variables and Presets system — now you can save complete border and shadow configurations as reusable styles.

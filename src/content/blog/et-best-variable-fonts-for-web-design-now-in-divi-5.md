@@ -3,7 +3,7 @@ title: '10 Best Variable Fonts For Web Design — Now In Divi 5'
 description: 'Divi 5 now supports variable fonts natively. Elegant Themes highlights 10 best variable fonts that reduce page weight while giving more typography control.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/best-variable-fonts-for-web-design-now-in-divi-5.webp'
 ---
 
 Elegant Themes published a guide to the [10 best variable fonts for web design](https://www.elegantthemes.com/blog/divi-resources/best-variable-fonts-for-web-design-now-in-divi-5). Variable fonts pack multiple weights, widths, and styles into a single file — reducing HTTP requests while improving typographic control. Divi 5 added native support in its typography settings.

@@ -3,7 +3,7 @@ title: 'The Beauty Of Divi 5 Gradient Variables — What It Means for Divi Users
 description: 'Divi 5 now lets you save gradients as reusable variables. Define gradient colors, angles, and opacity once, then apply them site-wide. No more recreating the same gradient on every module.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/the-beauty-of-divi-5s-gradient-variables.webp'
 ---
 
 Elegant Themes just published a deep dive on [Divi 5's gradient variables](https://www.elegantthemes.com/blog/divi-resources/the-beauty-of-divi-5s-gradient-variables). You can now define gradient colors, angles, and opacity as reusable design tokens — the same way you handle solid colors in Divi 5's Global Variables system.

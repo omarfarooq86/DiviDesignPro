@@ -3,7 +3,7 @@ title: 'Everything About Workspaces In Divi 5 — Save Your Builder Layout'
 description: 'Divi 5 Workspaces let you save different builder layouts and switch between them instantly. Perfect for agencies managing multiple project types.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/everything-you-need-to-know-about-workspaces-in-divi-5.webp'
 ---
 
 Elegant Themes published a complete guide on [Workspaces in Divi 5](https://www.elegantthemes.com/blog/divi-resources/everything-you-need-to-know-about-workspaces-in-divi-5). Workspaces save your builder layout — panel positions, toolbar settings, zoom level — and let you switch between configurations instantly.

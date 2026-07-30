@@ -3,7 +3,7 @@ title: 'Exploring Divi 5 New Text Fill Options — Text Gradients and Image Mask
 description: 'Divi 5 new text fill options let you create gradient text and image-masked typography. No custom CSS needed — all handled inside the Visual Builder.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/exploring-divi-5s-new-text-fill-options-create-text-gradient.webp'
 ---
 
 Elegant Themes published a tutorial on [Divi 5's new text fill options](https://www.elegantthemes.com/blog/divi-resources/exploring-divi-5s-new-text-fill-options-create-text-gradients-and-image-masks). You can now apply gradients to text and mask text with background images — all inside the Visual Builder without custom CSS.

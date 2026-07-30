@@ -3,7 +3,7 @@ title: '5 Hover Effects With Aspect Ratio and Framing In Divi 5'
 description: 'Create 5 hover effects in Divi 5 using aspect ratio and framing controls. Zoom, reveal, and overlay effects without custom CSS. All built in the Visual Builder.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/hover-effects-you-can-create-with-aspect-ratio-and-framing-i.webp'
 ---
 
 Elegant Themes published a tutorial on [5 hover effects using Divi 5's aspect ratio and framing controls](https://www.elegantthemes.com/blog/divi-resources/hover-effects-you-can-create-with-aspect-ratio-and-framing-in-divi-5). These effects — image zooms, overlays, and reveal animations — are all built inside the Visual Builder without custom CSS.

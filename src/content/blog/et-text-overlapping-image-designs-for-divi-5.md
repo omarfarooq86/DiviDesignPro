@@ -3,7 +3,7 @@ title: '7 Text Overlapping Image Designs For Divi 5 — Free Download'
 description: 'Elegant Themes released 7 free text-overlapping-image designs for Divi 5. Modern layout techniques where text creatively overlaps images without custom CSS.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/text-overlapping-image-designs-for-divi-5.webp'
 ---
 
 Elegant Themes released [7 free text-overlapping-image designs for Divi 5](https://www.elegantthemes.com/blog/divi-resources/text-overlapping-image-designs-for-divi-5). These layouts use Divi 5's positioning and spacing controls to create modern designs where text creatively overlaps images — a technique previously requiring custom CSS.

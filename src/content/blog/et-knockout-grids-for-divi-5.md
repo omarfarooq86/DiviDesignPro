@@ -3,7 +3,7 @@ title: '7 Knockout Grids For Divi 5 — Free Download'
 description: 'Elegant Themes released 7 free knockout grid layouts for Divi 5. Download these ready-made grid designs and customize them for your portfolio, blog, or product pages.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/knockout-grids-for-divi-5.webp'
 ---
 
 Elegant Themes released [7 free knockout grid layouts for Divi 5](https://www.elegantthemes.com/blog/divi-resources/knockout-grids-for-divi-5). These are ready-made grid designs you can import directly into Divi and customize for your portfolio, blog, or product pages.

@@ -3,7 +3,7 @@ title: 'Mastering Flexbox Part 7 — Flexible Button, Menu, and Link Rows In Div
 description: 'Part 7 of Elegant Themes Flexbox series covers building flexible buttons, menus, and link rows in Divi 5. Pure CSS Flexbox techniques inside the Visual Builder.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/part-7-of-mastering-flexbox-building-flexible-button-menu-an.webp'
 ---
 
 Elegant Themes continues their Flexbox mastery series with [Part 7: building flexible button, menu, and link rows](https://www.elegantthemes.com/blog/divi-resources/part-7-of-mastering-flexbox-building-flexible-button-menu-and-link-rows). This installment focuses on using Flexbox inside Divi 5 to create responsive button groups, navigation-like link rows, and evenly spaced CTA layouts.

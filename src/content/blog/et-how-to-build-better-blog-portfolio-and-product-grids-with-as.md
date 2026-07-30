@@ -3,7 +3,7 @@ title: 'Build Better Grids With Aspect Ratio In Divi 5'
 description: 'Learn how to build consistent blog, portfolio, and product grids using Divi 5 aspect ratio controls. No more mismatched image heights — every card stays perfectly aligned.'
 date: 2026-07-30
 category: 'Divi Tips'
-featuredImage: '/blog-images/divi-ai-design.jpg'
+featuredImage: '/blog-images/how-to-build-better-blog-portfolio-and-product-grids-with-as.webp'
 ---
 
 Elegant Themes published a tutorial on [building better grids with Divi 5's aspect ratio controls](https://www.elegantthemes.com/blog/divi-resources/how-to-build-better-blog-portfolio-and-product-grids-with-aspect-ratio-in-divi-5). The aspect ratio setting ensures every image in a grid maintains the same proportions — no more mismatched card heights or uneven layouts.
