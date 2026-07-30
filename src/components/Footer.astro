@@ -3,7 +3,7 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <a href="/" class="footer__logo">
-          Divi<span class="footer__logo-highlight">Design</span>Pro
+          <img src="/logo.png" alt="DiviDesignPro" class="footer__logo-img" width="200" height="48" />
         </a>
         <p class="footer__tagline">
           Pixel-perfect Divi design. Clean code. On time. Freelance Divi &amp; WordPress specialist with 10+ years of experience.
@@ -82,7 +82,12 @@
     text-decoration: none;
   }
 
-  .footer__logo-highlight { color: #60A5FA; }
+  .footer__logo-img {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
 
   .footer__tagline {
     margin-top: var(--space-3);
