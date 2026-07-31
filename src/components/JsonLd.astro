@@ -30,14 +30,6 @@ function getWebSiteSchema() {
     name: 'DiviDesignPro',
     url: 'https://www.dividesignpro.com',
     description: 'Freelance Divi Designer crafting pixel-perfect WordPress sites.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://www.dividesignpro.com/search?q={search_term_string}',
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -47,7 +39,7 @@ function getArticleSchema() {
     '@type': 'BlogPosting',
     headline: data.title,
     description: data.description,
-    image: data.image,
+    image: data.image?.startsWith('/') ? `https://www.dividesignpro.com${data.image}` : data.image,
     datePublished: data.datePublished,
     dateModified: data.dateModified || data.datePublished,
     author: {
