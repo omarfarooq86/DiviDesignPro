@@ -1,58 +1,46 @@
 /* ===== CSS Custom Properties ===== */
 :root {
-  /* Colors — Warm Editorial / Design Craft */
-  --color-primary: #B8450E;
-  --color-primary-dark: #8B3308;
-  --color-primary-light: #FDF2EB;
-  --color-primary-surface: #FFF8F4;
+  /* Colors — Professional Blue + Trust */
+  --color-primary: #1E40AF;
+  --color-primary-dark: #1E3A8A;
+  --color-primary-light: #DBEAFE;
+  --color-primary-surface: #EFF6FF;
 
-  --color-accent: #2D6A4F;
-  --color-accent-dark: #1B4332;
-  --color-accent-light: #ECF7F1;
+  --color-accent: #16A34A;
+  --color-accent-dark: #15803D;
+  --color-accent-light: #DCFCE7;
 
-  --color-surface: #FAF9F7;
-  --color-surface-alt: #F3F1EE;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
   --color-surface-raised: #FFFFFF;
 
-  --color-border: #E8E4DE;
-  --color-border-light: #F2EFEA;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
 
-  --color-text: #1A1816;
-  --color-text-secondary: #5C5650;
-  --color-text-muted: #9C9690;
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
   --color-text-inverse: #FFFFFF;
 
-  --color-white: #FFFFFF;
-  --color-gray-50: #F8F7F6;
-  --color-gray-100: #F0EEEC;
-  --color-gray-200: #E4E1DD;
-  --color-gray-300: #C4C0BA;
-  --color-gray-400: #A09A94;
-  --color-gray-500: #7A746E;
-  --color-gray-600: #5C5650;
-  --color-gray-700: #3D3733;
-  --color-gray-800: #282420;
-  --color-gray-900: #141210;
-
-  --color-success: #2D6A4F;
-  --color-error: #C1292E;
-  --color-warning: #E6A817;
+  --color-success: #16A34A;
+  --color-error: #DC2626;
+  --color-warning: #F59E0B;
 
   /* Typography */
   --font-display: 'Archivo', system-ui, -apple-system, sans-serif;
   --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
-  --text-xs: 0.8125rem;
-  --text-sm: 0.9375rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
-  --text-2xl: 1.625rem;
-  --text-3xl: 2rem;
-  --text-4xl: 2.5rem;
-  --text-5xl: 3.25rem;
-  --text-6xl: 4rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -109,7 +97,7 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--color-text-secondary);
   background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
@@ -173,7 +161,9 @@ strong {
 }
 
 .section__header {
-  max-width: 800px;
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
   margin-bottom: var(--space-12);
 }
 
@@ -186,7 +176,6 @@ strong {
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
   line-height: 1.7;
-  max-width: 640px;
 }
 
 /* ===== Buttons ===== */
@@ -220,11 +209,6 @@ strong {
   box-shadow: var(--shadow-lg);
 }
 
-.btn--primary:active {
-  transform: scale(0.97) translateY(0);
-  transition: transform 150ms ease-out;
-}
-
 .btn--outline {
   background-color: transparent;
   color: var(--color-primary);
@@ -234,11 +218,6 @@ strong {
 .btn--outline:hover {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
-}
-
-.btn--outline:active {
-  transform: scale(0.97);
-  transition: transform 150ms ease-out;
 }
 
 .btn--lg {
@@ -313,7 +292,6 @@ strong {
     --text-6xl: 3rem;
     --text-5xl: 2.5rem;
     --text-4xl: 2rem;
-    --text-3xl: 1.75rem;
   }
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
@@ -328,8 +306,4 @@ strong {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .section { padding-block: var(--space-12); }
   .container { padding-inline: var(--space-4); }
-
-  input, select, textarea, .form-input {
-    font-size: 1rem !important;
-  }
 }
