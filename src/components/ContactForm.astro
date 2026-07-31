@@ -82,8 +82,14 @@
         </form>
         <div class="form-success" id="formSuccess" hidden>
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <h3>Thank you for reaching out!</h3>
+          <h3>Thank you for reaching out</h3>
           <p>I'll review your inquiry and get back to you within 24 hours.</p>
+        </div>
+        <div class="form-error" id="formError" hidden>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <h3>Something went wrong</h3>
+          <p>The form couldn't send. Check your connection and try again, or email me directly at <a href="mailto:omee00@gmail.com">omee00@gmail.com</a>.</p>
+          <button type="button" class="btn btn--outline form-retry" id="formRetry">Try again</button>
         </div>
       </div>
     </div>
@@ -93,11 +99,14 @@
 <script>
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
   const submitBtn = document.getElementById('formSubmitBtn');
+  const retryBtn = document.getElementById('formRetry');
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       submitBtn.classList.add('form-submit--loading');
+      errorMsg.setAttribute('hidden', '');
       try {
         const response = await fetch(form.action, {
           method: 'POST',
@@ -107,10 +116,20 @@
         if (response.ok) {
           form.setAttribute('hidden', '');
           successMsg.removeAttribute('hidden');
+        } else {
+          submitBtn.classList.remove('form-submit--loading');
+          errorMsg.removeAttribute('hidden');
         }
       } catch (error) {
         submitBtn.classList.remove('form-submit--loading');
+        errorMsg.removeAttribute('hidden');
       }
+    });
+  }
+  if (retryBtn) {
+    retryBtn.addEventListener('click', function() {
+      errorMsg.setAttribute('hidden', '');
+      form.removeAttribute('hidden');
     });
   }
 </script>
@@ -188,7 +207,7 @@
     width: 100%;
     padding: var(--space-3) var(--space-4);
     font-size: var(--text-sm);
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     color: var(--color-gray-800);
     background-color: var(--color-gray-50);
     border: 1px solid var(--color-gray-200);
@@ -243,6 +262,29 @@
 
   .form-success p {
     color: var(--color-text-secondary);
+  }
+
+  .form-error {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .form-error svg {
+    color: var(--color-error);
+    margin: 0 auto var(--space-4);
+  }
+
+  .form-error h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .form-error p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-5);
+  }
+
+  .form-retry {
+    display: inline-flex;
   }
 
   @media (max-width: 768px) {

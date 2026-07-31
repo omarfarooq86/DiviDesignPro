@@ -2,7 +2,7 @@
   <div class="container">
     <div class="about__grid">
       <div class="about__content">
-        <h2 class="section__title" style="text-align:left;">About Me</h2>
+        <h2 class="section__title">About Me</h2>
         <p>
           I hold a Master's degree in Computer Science from Germany and bring over
           a decade of experience in web development. My journey with Divi began more
@@ -16,31 +16,30 @@
           and design insight to deliver outstanding results.
         </p>
 
-        <div class="about__stats">
-          <div class="about__stat">
-            <span class="about__stat-number">100+</span>
-            <span class="about__stat-label">Websites Built</span>
+        <div class="about__proof">
+          <div class="about__proof-item">
+            <span class="about__proof-highlight">Snoop Dogg</span>
+            <span>Official website — one of the 100+ sites I've built</span>
           </div>
-          <div class="about__stat">
-            <span class="about__stat-number">10+</span>
-            <span class="about__stat-label">Years Experience</span>
+          <div class="about__proof-item">
+            <span class="about__proof-highlight">Oxford Scholastica</span>
+            <span>Summer school platform — complex multi-page Divi build</span>
           </div>
-          <div class="about__stat">
-            <span class="about__stat-number">Divi 5</span>
-            <span class="about__stat-label">Expert</span>
+          <div class="about__proof-item">
+            <span class="about__proof-highlight">8+ Industries</span>
+            <span>Outdoor, medical, home services, education, entertainment, logistics, e-commerce</span>
           </div>
-          <div class="about__stat">
-            <span class="about__stat-number">Figma</span>
-            <span class="about__stat-label">to WordPress</span>
+          <div class="about__proof-item">
+            <span class="about__proof-highlight">M.Sc. Computer Science</span>
+            <span>Graduate degree from Germany — engineering rigor in every build</span>
           </div>
         </div>
       </div>
 
       <div class="about__features">
-        <h3 class="about__features-title">Why Choose a Divi Freelancer?</h3>
+        <h3 class="about__features-title">Why Work With Me</h3>
         <p class="about__features-text">
-          I build responsive, mobile-optimized websites using the Divi theme. Your site
-          will look sharp and function flawlessly across every device.
+          Beyond Divi expertise, you get a partner who treats your site like it's their own. Here's what that means in practice.
         </p>
 
         <div class="about__feature-grid">
@@ -48,37 +47,25 @@
             <span class="about__feature-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <div><strong>Easy to Use</strong><span>Edit content as easily as working in a Word document</span></div>
+            <div><strong>Direct Communication</strong><span>You talk to me, not a project manager or an account rep</span></div>
           </div>
           <div class="about__feature">
             <span class="about__feature-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <div><strong>Responsive Design</strong><span>Seamless experience across all devices</span></div>
+            <div><strong>No Subcontracting</strong><span>Every line of code comes from me. Quality stays consistent</span></div>
           </div>
           <div class="about__feature">
             <span class="about__feature-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <div><strong>Typography Excellence</strong><span>Visually appealing and easy-to-read text</span></div>
+            <div><strong>You Own Everything</strong><span>No lock-in. Full admin access. Your site, your data, your control</span></div>
           </div>
           <div class="about__feature">
             <span class="about__feature-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <div><strong>SEO Optimized</strong><span>Better structure for higher search rankings</span></div>
-          </div>
-          <div class="about__feature">
-            <span class="about__feature-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <div><strong>Ongoing Maintenance</strong><span>Consistent updates for peak performance</span></div>
-          </div>
-          <div class="about__feature">
-            <span class="about__feature-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <div><strong>Google Analytics</strong><span>Data-driven insights to optimize your site</span></div>
+            <div><strong>Post-Launch Support</strong><span>I stick around after go-live. Updates, training, maintenance</span></div>
           </div>
         </div>
       </div>
@@ -100,34 +87,34 @@
     line-height: 1.7;
   }
 
-  .about__stats {
+  .about__proof {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-4);
-    margin-top: var(--space-8);
+    margin-top: var(--space-6);
   }
 
-  .about__stat {
-    background-color: var(--color-surface);
+  .about__proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--color-surface-raised);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-4);
-    text-align: center;
+    border-radius: var(--radius-md);
   }
 
-  .about__stat-number {
-    display: block;
+  .about__proof-highlight {
     font-family: var(--font-display);
-    font-size: var(--text-xl);
     font-weight: 700;
+    font-size: var(--text-base);
     color: var(--color-primary);
   }
 
-  .about__stat-label {
-    display: block;
+  .about__proof-item span:last-child {
     font-size: var(--text-xs);
     color: var(--color-text-muted);
-    margin-top: var(--space-1);
+    line-height: 1.5;
   }
 
   .about__features-title {
@@ -180,6 +167,6 @@
 
   @media (max-width: 768px) {
     .about__grid { grid-template-columns: 1fr; }
-    .about__stats { grid-template-columns: repeat(2, 1fr); }
+    .about__proof { grid-template-columns: 1fr; }
   }
 </style>
