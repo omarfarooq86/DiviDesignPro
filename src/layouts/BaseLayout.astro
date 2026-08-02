@@ -67,17 +67,18 @@ const currentUrl = canonical || 'https://dividesignpro.com';
     <Footer />
 
     <a
-      href="https://wa.me/923101418307?text=Hello%2C%20I%20would%20like%20to%20discuss%20my%20project.%20Can%20you%20help%3F"
+      href="https://wa.me/13074453714?text=Hello%2C%20I%20would%20like%20to%20discuss%20my%20project.%20Can%20you%20help%3F"
       class="whatsapp-float"
       aria-label="Chat on WhatsApp"
       title="Chat on WhatsApp"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="whatsapp-float__icon">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.478-1.761-1.651-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.174.199-.298.299-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.521.074-.792.372-.271.297-1.035 1.018-1.035 2.483 0 1.464 1.061 2.883 1.207 3.081.146.198 2.089 3.18 5.062 4.461.707.304 1.258.485 1.688.621.708.226 1.352.194 1.863.118.568-.085 1.758-.719 2.006-1.413.248-.694.248-1.287.174-1.412-.074-.125-.273-.198-.571-.347Z" fill="currentColor"/>
         <path d="M20.52 3.48A11.98 11.98 0 0 0 12 .002C5.37.002 0 5.372 0 12c0 2.117.553 4.17 1.6 5.96L0 24l6.16-1.61A11.95 11.95 0 0 0 12 23.998c6.63 0 12-5.37 12-12 0-3.2-1.25-6.24-3.48-8.52ZM12 21.6c-1.92 0-3.8-.52-5.45-1.5l-.39-.24-3.65.95.98-3.56-.25-.38A9.57 9.57 0 0 1 2.4 12c0-5.3 4.3-9.6 9.6-9.6 2.56 0 4.97 1 6.77 2.8A9.56 9.56 0 0 1 21.6 12c0 5.3-4.3 9.6-9.6 9.6Z" fill="currentColor"/>
       </svg>
+      <span class="whatsapp-float__text">Chat</span>
     </a>
 
     <!-- Back to top button -->
@@ -152,28 +153,56 @@ const currentUrl = canonical || 'https://dividesignpro.com';
     position: fixed;
     bottom: var(--space-6);
     right: var(--space-6);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-accent), #25D366);
-    color: var(--color-text-inverse);
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
     box-shadow: var(--shadow-lg);
     z-index: 50;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: all var(--transition-base);
   }
 
   .whatsapp-float:hover,
   .whatsapp-float:focus-visible {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
   }
 
-  .whatsapp-float svg {
-    width: 28px;
-    height: 28px;
+  .whatsapp-float__icon {
+    width: 22px;
+    height: 22px;
+    color: #25D366;
+    flex-shrink: 0;
+  }
+
+  .whatsapp-float__text {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-float__text { display: none; }
+    .whatsapp-float {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--color-surface);
+    }
+    .whatsapp-float__icon {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   /* ===== Back to top ===== */

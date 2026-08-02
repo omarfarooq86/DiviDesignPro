@@ -5,7 +5,7 @@
     <div class="hero__content">
       <div class="hero__badge">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Top Rated WordPress Developer
+        Trusted by 50+ Businesses Worldwide
       </div>
       <h1 class="hero__title">
         Your <span class="hero__highlight">Divi Freelancer</span> for Stunning WordPress Sites
@@ -437,5 +437,44 @@
     hero.addEventListener('mouseleave', function() {
       spotlight.style.opacity = '0';
     });
+  }
+
+  // Animated stat counters on scroll
+  const statsSection = document.querySelector('.hero__stats');
+  const statNumbers = document.querySelectorAll('.hero__stat-number');
+
+  function animateCounter(el, target, suffix) {
+    const duration = 1500;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.innerHTML = current + '<span class="hero__stat-plus">' + suffix + '</span>';
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (statsSection && statNumbers.length) {
+    const targets = [100, 10, 50];
+    const suffixes = ['+', '+', '+'];
+    let animated = false;
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          statNumbers.forEach(function(el, i) {
+            animateCounter(el, targets[i], suffixes[i]);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(statsSection);
   }
 </script>

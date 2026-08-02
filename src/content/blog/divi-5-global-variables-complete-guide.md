@@ -22,7 +22,7 @@ Divi 5 calls them **Design Variables**. They're reusable values stored at the si
 | **Fonts** | Heading font, body font, accent font | Inter, 600 weight |
 | **Numbers** | Spacing, border-radius, font sizes, widths | Section padding: `60px` |
 | **Images** | Logos, background patterns | Company logo |
-| **Text** | Phone, address, taglines, CTAs | `+92 310 1418307` |
+| **Text** | Phone, address, taglines, CTAs | `+1 (307) 445-3714` |
 | **Links** | Social profiles, contact page, main CTA | `/contact/` |
 
 This expands the old Divi 4 "Global Colors" into a full **design token system**. It's the single biggest workflow improvement in Divi 5.
