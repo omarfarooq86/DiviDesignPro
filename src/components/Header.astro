@@ -150,7 +150,12 @@ const navItems = [
       top: var(--header-height);
       left: 0;
       right: 0;
-      bottom: 0;
+      /* Explicit height, not `bottom: 0`: the header's backdrop-filter makes it
+         the containing block for this fixed child, so top + bottom would resolve
+         against the 80px header and collapse the panel. */
+      height: calc(100vh - var(--header-height));
+      height: calc(100dvh - var(--header-height));
+      overflow-y: auto;
       background-color: var(--color-surface);
       padding: var(--space-6);
       z-index: 49;

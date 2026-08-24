@@ -20,7 +20,7 @@ const {
   noindex = false,
   publishedTime,
   modifiedTime,
-  author = 'Muhammad Omar Farooq',
+  author = 'DiviDesignPro',
 } = Astro.props;
 
 const fullTitle = `${title} | DiviDesignPro`;
@@ -69,8 +69,8 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
   <meta name="robots" content="index, follow, max-image-preview:large" />
 )}
 
-<!-- Security headers -->
-<meta http-equiv="X-Frame-Options" content="DENY" />
+<!-- Security headers (X-Frame-Options is set as a real HTTP header in vercel.json;
+     it is ignored as a <meta> tag, so it is intentionally not duplicated here) -->
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 

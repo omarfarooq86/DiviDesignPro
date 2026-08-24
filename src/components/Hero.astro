@@ -39,9 +39,10 @@
     <div class="hero__visual" aria-hidden="true">
       <div class="hero-card">
         <div class="hero-card__top">
-          <div class="hero-card__avatar">MO</div>
+          <div class="hero-card__avatar">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
           <div class="hero-card__profile">
-            <div class="hero-card__name">Muhammad Omar Farooq</div>
             <div class="hero-card__role">Divi Freelancer & WordPress Developer</div>
             <div class="hero-card__stars" title="5-star rated">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -91,21 +92,30 @@
   .hero {
     padding-top: calc(var(--header-height) + var(--space-20));
     padding-bottom: var(--space-24);
-    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
+    background:
+      radial-gradient(60% 55% at 50% 0%, rgba(59, 130, 246, 0.08), transparent 70%),
+      linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
     overflow: hidden;
     position: relative;
     isolation: isolate;
   }
 
-  /* Dot grid pattern overlay */
+  /* Dev grid — blueprint/IDE lines + graph-paper dots, drifts slowly */
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 0.25;
-    background-image: radial-gradient(circle, #1E40AF 1px, transparent 1px);
-    background-size: 32px 32px;
+    background-image:
+      linear-gradient(to right, rgba(30, 64, 175, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 64, 175, 0.12) 1px, transparent 1px),
+      radial-gradient(circle, rgba(30, 64, 175, 0.22) 1.4px, transparent 1.8px);
+    background-size: 56px 56px;
+    /* Fade the grid toward the edges → soft glow in the centre + keeps text crisp */
+    -webkit-mask-image: radial-gradient(125% 100% at 50% 12%, #000 0%, rgba(0, 0, 0, 0.65) 52%, transparent 88%);
+            mask-image: radial-gradient(125% 100% at 50% 12%, #000 0%, rgba(0, 0, 0, 0.65) 52%, transparent 88%);
+    animation: gridDrift 20s linear infinite;
+    will-change: background-position;
   }
 
   /* Floating blue orb */
@@ -154,6 +164,12 @@
     25% { transform: translate(40px, -30px) scale(1.05); }
     50% { transform: translate(-20px, 20px) scale(0.95); }
     75% { transform: translate(30px, 10px) scale(1.02); }
+  }
+
+  /* Slow diagonal drift — one full 56px tile, so it loops seamlessly */
+  @keyframes gridDrift {
+    from { background-position: 0 0; }
+    to   { background-position: 56px 56px; }
   }
 
   .hero__inner {
@@ -301,14 +317,6 @@
     font-size: var(--text-xl);
   }
 
-  .hero-card__name {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: var(--text-lg);
-    color: var(--color-text);
-    margin-bottom: var(--space-1);
-  }
-
   .hero-card__role {
     font-size: var(--text-xs);
     color: var(--color-text-muted);
@@ -418,6 +426,15 @@
     .hero__title { font-size: var(--text-4xl); }
     .hero__actions { flex-direction: column; }
     .hero__stats { gap: var(--space-4); }
+  }
+
+  /* Respect users who prefer less motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero::before,
+    .hero::after,
+    .hero__orb,
+    .hero-card,
+    .hero-card__dot { animation: none; }
   }
 </style>
 

@@ -23,3 +23,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# secrets / API keys (do not commit)
+PexelAPIkey
+*.key
+
+# Claude Code local config
+.claude/

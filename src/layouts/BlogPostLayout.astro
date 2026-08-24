@@ -66,7 +66,7 @@ const breadcrumbItems = [
             {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </time>
           <span class="blog-post__meta-sep">·</span>
-          <span>by <strong>Muhammad Omar Farooq</strong></span>
+          <span>by <strong>DiviDesignPro</strong></span>
           <span class="blog-post__meta-sep">·</span>
           <span>{readingTime}</span>
           {updated && updated.getTime() !== date.getTime() && (
@@ -105,14 +105,15 @@ const breadcrumbItems = [
 
       <!-- Author bio -->
       <div class="author-bio">
-        <div class="author-bio__avatar" aria-hidden="true">MO</div>
+        <div class="author-bio__avatar" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
         <div class="author-bio__info">
-          <h3 class="author-bio__name">Muhammad Omar Farooq</h3>
+          <h3 class="author-bio__name">DiviDesignPro</h3>
           <p class="author-bio__text">
             Freelance Divi designer and WordPress developer with a Master's in Computer Science and 10+ years of experience. Built 100+ Divi websites across industries. Specializes in Divi 5, performance optimization, and on-page SEO.
           </p>
           <div class="author-bio__links">
-            <a href="https://www.linkedin.com/in/muhammad-omar-farooq-wp/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="mailto:contact@dividesignpro.com">Email</a>
             <a href="/#contact">Hire Me</a>
           </div>
@@ -192,7 +193,7 @@ const breadcrumbItems = [
   }
 
   .blog-post__updated {
-    color: var(--color-gray-400);
+    color: var(--color-gray-500);
     font-style: italic;
   }
 
