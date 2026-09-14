@@ -1,0 +1,171 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { business } from '../data/business';
+
+const sections = [
+  {
+    id: 'overview',
+    heading: 'Overview',
+    body: [
+      `This Privacy Policy explains how <strong>${business.legalName}</strong>, trading as <strong>${business.tradingAs}</strong>, collects, uses, stores and shares personal information when you visit dividesignpro.com, contact us, or engage us for services.`,
+      'We are the data controller for the personal information described in this policy. We keep the amount of information we collect to the minimum needed to quote for, deliver and support the work you ask us to do.',
+    ],
+  },
+  {
+    id: 'information-we-collect',
+    heading: 'Information we collect',
+    body: ['Depending on how you interact with us, we may collect the following categories of information:'],
+    list: [
+      '<strong>Identity and contact details</strong> — your name, email address and phone number.',
+      '<strong>Project information</strong> — your business name, website address, branding material, content, and any files or credentials you share so we can carry out the work.',
+      '<strong>Enquiry content</strong> — the message you send through our contact form, by email, or by WhatsApp.',
+      '<strong>Transaction details</strong> — the services purchased, amounts invoiced, and payment status. Card numbers are not collected or stored by us; they are handled by our payment processor.',
+      '<strong>Technical and usage data</strong> — pages viewed, approximate location derived from IP address, referring source, browser and device type, and date and time of access.',
+    ],
+  },
+  {
+    id: 'how-we-collect',
+    heading: 'How we collect information',
+    list: [
+      '<strong>Directly from you</strong>, when you complete our contact form, email us, message us on WhatsApp, or send us project files.',
+      '<strong>Automatically</strong>, through privacy-friendly analytics that record aggregate page views without using tracking cookies or building a profile of you.',
+      '<strong>From payment processors</strong>, who confirm to us that a payment succeeded or failed and provide the billing name and email associated with the transaction.',
+    ],
+  },
+  {
+    id: 'how-we-use',
+    heading: 'How we use your information',
+    list: [
+      'To respond to your enquiry and prepare a quotation.',
+      'To deliver the services you have engaged us for, including design, development and deployment.',
+      'To issue invoices, process payments and keep accounting records.',
+      'To provide post-launch support during the included support period.',
+      'To improve our website and services using aggregate, non-identifying usage statistics.',
+      'To comply with legal, tax and regulatory obligations.',
+      'To detect and prevent fraud, abuse and security incidents.',
+    ],
+  },
+  {
+    id: 'legal-basis',
+    heading: 'Legal basis for processing',
+    body: [
+      'We process personal information only where we have a lawful reason to do so. Those reasons are: performing a contract with you or taking steps at your request before entering one; our legitimate interest in running and improving our business; your consent, which you may withdraw at any time; and compliance with legal obligations to which we are subject.',
+    ],
+  },
+  {
+    id: 'payments',
+    heading: 'Payments',
+    body: [
+      `Card payments on this website are processed by <strong>Safepay</strong>, a third-party payment gateway. When you pay by card, your card details are entered on the processor's secure checkout and are transmitted directly to them. We do not receive or store your full card number, expiry date or security code.`,
+      'Our payment processor may share your name, email address, billing country and the outcome of the transaction with us so that we can reconcile the payment against your invoice. The processor handles your card data under its own privacy policy and its own regulatory obligations.',
+      'Bank transfers and transfers made through third-party money transfer services are handled by your bank or that provider, and are also subject to their own policies.',
+    ],
+  },
+  {
+    id: 'analytics-cookies',
+    heading: 'Analytics and cookies',
+    body: [
+      'This website uses Vercel Web Analytics to understand how visitors find and use the site. It reports aggregate statistics such as page views and referring sources, and is designed to work without cookies and without cross-site tracking or individual profiling.',
+      'This website does not set advertising or marketing cookies, and we do not use your visit to build an advertising profile or to retarget you elsewhere. Because no tracking cookies are set, there is no cookie consent banner to dismiss.',
+      'You can block or delete cookies in your browser settings at any time. Doing so will not prevent you from using this website.',
+    ],
+  },
+  {
+    id: 'sharing',
+    heading: 'When we share information',
+    body: ['We do not sell, rent or trade your personal information. We share it only in the following limited circumstances:'],
+    list: [
+      '<strong>Service providers</strong> who help us operate — our payment gateway, our web host, our email provider and our analytics provider. These providers act on our instructions and are bound to protect the information they handle.',
+      '<strong>Professional advisers</strong> such as accountants, where reasonably necessary to run the business.',
+      '<strong>Legal requirements</strong>, where we are required to disclose information by law, court order or a competent authority.',
+      '<strong>Business transfer</strong>, if the business is ever sold or transferred, in which case client information may transfer as part of it. We will notify affected clients before that happens.',
+    ],
+  },
+  {
+    id: 'international-transfers',
+    heading: 'International transfers',
+    body: [
+      `We are based in Pakistan and this website is served from infrastructure located outside Pakistan. Our payment, hosting, email and analytics providers may store or process your information in countries other than your own, including the United States and the European Union.`,
+      'Where personal information is transferred internationally, we take reasonable steps to ensure it continues to receive an appropriate level of protection, including relying on the safeguards our providers have in place for cross-border transfers.',
+    ],
+  },
+  {
+    id: 'retention',
+    heading: 'How long we keep information',
+    list: [
+      '<strong>Enquiries that do not become projects</strong> — retained for up to 12 months, then deleted.',
+      '<strong>Project and client records</strong> — retained for the duration of the engagement and for as long afterwards as our accounting and tax obligations require.',
+      '<strong>Invoices and payment records</strong> — retained for the period required by applicable tax and accounting law.',
+      '<strong>Project files and credentials</strong> — deleted or returned once the work is complete and the support period has ended, unless you ask us to retain them for ongoing maintenance.',
+      'Analytics data is retained by our provider in aggregate form and is not linked to you as an individual.',
+    ],
+  },
+  {
+    id: 'security',
+    heading: 'Security',
+    body: [
+      'We take reasonable technical and organisational measures to protect personal information against unauthorised access, loss, misuse or alteration. These include encrypted connections to this website, access controls on the accounts and systems we use, and limiting access to client information to those who need it to do the work.',
+      'No method of transmission or storage over the internet is completely secure. If we become aware of a breach that affects your personal information, we will notify you and any relevant authority without undue delay, as required by applicable law.',
+    ],
+  },
+  {
+    id: 'your-rights',
+    heading: 'Your rights',
+    body: ['You have the right to:'],
+    list: [
+      'Ask what personal information we hold about you and request a copy of it.',
+      'Ask us to correct information that is inaccurate or incomplete.',
+      'Ask us to delete information we no longer have a lawful reason to keep.',
+      'Object to, or ask us to restrict, certain processing.',
+      'Withdraw consent where our processing is based on consent.',
+      'Ask us to transfer information you gave us to another provider, where technically feasible.',
+      'Complain to the relevant data protection authority in your country.',
+    ],
+  },
+  {
+    id: 'rights-requests',
+    heading: 'How to exercise your rights',
+    body: [
+      `To make any request under the section above, email <a href="mailto:${business.email}">${business.email}</a> or call us on <a href="tel:${business.phoneLocal.href}">${business.phoneLocal.display}</a>. Please describe what you are asking for clearly enough that we can act on it.`,
+      `We will acknowledge your request within <strong>${business.complaintAcknowledgement}</strong> and respond in full within <strong>${business.complaintResolution}</strong>. We may need to verify your identity before we act, to make sure we do not disclose information to the wrong person.`,
+      'There is no charge for making a request, unless it is manifestly unfounded or excessive, in which case we may charge a reasonable fee or decline to act and explain why.',
+    ],
+  },
+  {
+    id: 'children',
+    heading: 'Children',
+    body: [
+      'Our services are intended for businesses and adults. This website is not directed at children, and we do not knowingly collect personal information from anyone under 18. If you believe a child has provided us with personal information, please contact us and we will delete it.',
+    ],
+  },
+  {
+    id: 'third-party-links',
+    heading: 'Third-party links',
+    body: [
+      'This website links to third-party sites, including client projects and affiliate partners. We are not responsible for the privacy practices or content of those sites. We recommend reading the privacy policy of any site you visit through a link from ours.',
+    ],
+  },
+  {
+    id: 'changes',
+    heading: 'Changes to this policy',
+    body: [
+      'We may update this policy to reflect changes in our practices, our providers or the law. When we do, we will revise the "Last updated" date at the top of this page. If a change materially affects how we handle your personal information, we will make that clear on this page.',
+    ],
+  },
+  {
+    id: 'contact',
+    heading: 'Contact us',
+    body: [
+      `If you have any question about this policy or about how your personal information is handled, contact us at <a href="mailto:${business.email}">${business.email}</a>, or use the business details listed at the foot of this page.`,
+    ],
+  },
+];
+---
+
+<LegalLayout
+  title="Privacy Policy"
+  description="How DiviDesignPro collects, uses, stores and shares personal information, including payments processed by Safepay, analytics, retention periods and your data rights."
+  badge="Legal"
+  intro="How we collect, use and protect your personal information when you visit this website, contact us, or engage us for services."
+  sections={sections}
+/>

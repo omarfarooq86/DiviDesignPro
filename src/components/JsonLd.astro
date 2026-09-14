@@ -1,4 +1,6 @@
 ---
+import { business } from '../data/business';
+
 interface Props {
   type: 'Person' | 'WebSite' | 'Article' | 'BreadcrumbList' | 'FAQ';
   data?: Record<string, any>;
@@ -10,11 +12,20 @@ function getPersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'DiviDesignPro',
-    url: 'https://www.dividesignpro.com',
+    name: business.legalName,
+    alternateName: business.tradingAs,
+    url: business.siteUrl,
     jobTitle: 'Freelance Divi Designer & WordPress Developer',
-    email: 'contact@dividesignpro.com',
-    telephone: '+13074453714',
+    email: business.email,
+    telephone: [business.phoneLocal.href, business.phoneInternational.href],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${business.address.line1}, ${business.address.line2}`,
+      addressLocality: business.address.city,
+      addressRegion: business.address.region,
+      postalCode: business.address.postalCode,
+      addressCountry: 'PK',
+    },
     sameAs: [
       'https://www.facebook.com/divithemesolution',
     ],

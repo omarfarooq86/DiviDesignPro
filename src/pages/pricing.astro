@@ -210,6 +210,15 @@ const addOns = [
         Value-driven packages tailored for businesses of all sizes.
         No hidden fees, no surprises — just great work at fair prices.
       </p>
+      <p class="page-header__currency">
+        All prices are in <strong>US Dollars (USD)</strong>. A 50% deposit starts your project;
+        the balance is due on completion. Card payments are processed securely by Safepay.
+      </p>
+      <p class="page-header__legal-note">
+        Refunds and cancellations are covered by our
+        <a href="/refund-policy/">Refund &amp; Cancellation Policy</a> and
+        <a href="/terms-and-conditions/">Terms and Conditions</a>.
+      </p>
     </div>
   </section>
 
@@ -294,7 +303,7 @@ const addOns = [
             <h4 class="policy-card__title">Payment</h4>
             <p class="policy-card__text">
               50% upfront to start the project, 50% upon completion and before final delivery.
-              All payments via bank transfer, credit card, or Wise.
+              All payments via bank transfer, credit card via Safepay, or Wise. Prices in USD.
             </p>
           </div>
           <div class="policy-card">
@@ -305,17 +314,20 @@ const addOns = [
             </p>
           </div>
           <div class="policy-card">
-            <h4 class="policy-card__title">Support</h4>
+            <h4 class="policy-card__title">Cancellation &amp; Refunds</h4>
             <p class="policy-card__text">
-              Standard email support included for 30 days after launch. Extended support available
-              through maintenance plans.
+              Cancel before work begins for a full deposit refund. Once work has started the
+              deposit is non-refundable; amounts paid for undelivered work are refunded within
+              7–14 business days. See our
+              <a href="/refund-policy/">Refund &amp; Cancellation Policy</a>.
             </p>
           </div>
           <div class="policy-card">
             <h4 class="policy-card__title">Ownership</h4>
             <p class="policy-card__text">
               Upon full payment, you own everything — designs, code, content, and all assets.
-              No lock-in. No hidden licensing fees.
+              No lock-in. No hidden licensing fees. See our
+              <a href="/ownership-statement/">Ownership Statement</a>.
             </p>
           </div>
         </div>
@@ -439,6 +451,28 @@ const addOns = [
     color: var(--color-text-secondary);
     font-size: var(--text-lg);
     line-height: 1.7;
+  }
+
+  .page-header__currency {
+    max-width: 620px;
+    margin: var(--space-4) auto 0;
+    color: var(--color-text);
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+
+  .page-header__legal-note {
+    max-width: 620px;
+    margin: var(--space-2) auto 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .page-header__legal-note a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* ===== Tabs ===== */
@@ -701,6 +735,12 @@ const addOns = [
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     line-height: 1.7;
+  }
+
+  .policy-card__text a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* ===== FAQ ===== */

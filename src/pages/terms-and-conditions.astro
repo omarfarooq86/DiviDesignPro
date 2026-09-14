@@ -1,0 +1,225 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { business } from '../data/business';
+
+const sections = [
+  {
+    id: 'agreement',
+    heading: 'Agreement to these terms',
+    body: [
+      `These Terms and Conditions govern your use of this website and any design, development or related services you purchase from us. By browsing this website, requesting a quotation, paying a deposit or engaging us for work, you agree to be bound by these terms.`,
+      `These terms are entered into between you (the "client") and <strong>${business.legalName}</strong>, trading as <strong>${business.tradingAs}</strong> ("we", "us", "our"). Our full business details, including our registered address, appear at the foot of this page.`,
+      'If you do not agree with any part of these terms, please do not use this website or engage our services. If you are agreeing on behalf of a company or other legal entity, you confirm that you have authority to bind that entity to these terms.',
+    ],
+  },
+  {
+    id: 'definitions',
+    heading: 'Definitions',
+    list: [
+      '<strong>"Services"</strong> means the web design, WordPress and Divi development, AI-assisted build, SEO, speed optimisation and related work we provide.',
+      '<strong>"Project"</strong> means the specific scope of work described in the quotation or proposal we issue to you.',
+      '<strong>"Deliverables"</strong> means the websites, designs, layouts, code, content and files we produce for you under a Project.',
+      '<strong>"Deposit"</strong> means the advance payment we require before work begins.',
+      '<strong>"Balance"</strong> means the remaining amount payable on completion and before final handover.',
+    ],
+  },
+  {
+    id: 'services',
+    heading: 'Services we provide',
+    body: [
+      'We provide freelance web design and WordPress development services, specialising in the Divi theme and in AI-accelerated build workflows. Packages and starting prices are set out on our <a href="/pricing/">Pricing</a> page.',
+      'The exact scope of any Project is the scope described in the written quotation we send you. Any work not expressly listed in that quotation — additional pages, added functionality, integrations, content writing, or third-party subscriptions — is out of scope and will be quoted separately before it is carried out.',
+      'We may use AI-assisted tools as part of the design and build process. All work produced with those tools is reviewed and finalised by us before it is delivered, and we remain responsible for the quality of the finished Deliverables.',
+    ],
+  },
+  {
+    id: 'quotes-pricing',
+    heading: 'Quotations, pricing and currency',
+    list: [
+      'All prices are quoted and charged in <strong>United States Dollars (USD)</strong> unless we state otherwise in writing.',
+      'Quotations are valid for <strong>30 days</strong> from the date we issue them, after which prices may be revised.',
+      'Prices shown on our Pricing page are starting prices "from". The final price depends on the scope confirmed in your quotation.',
+      'Where a card payment is made from a card denominated in another currency, your bank or card issuer will convert the amount and may apply its own exchange rate and fees. We have no control over those charges.',
+      'Amounts are exclusive of any taxes, duties or levies that may apply in your jurisdiction. Where such a charge is legally payable by you, it is your responsibility.',
+    ],
+  },
+  {
+    id: 'payment',
+    heading: 'Payment terms',
+    list: [
+      'A <strong>50% deposit</strong> is payable before work begins.',
+      'The remaining <strong>50% balance</strong> is payable on completion and before final handover of the Deliverables.',
+      'We accept payment by bank transfer, by credit or debit card through our payment gateway <strong>Safepay</strong>, and by third-party transfer services such as Wise.',
+      'Work begins only once the deposit has cleared. Timelines run from the date the deposit clears, not from the date the Project is agreed.',
+      'Invoices are due on presentation. We reserve the right to suspend work, withhold handover, or withdraw a live staging site where an invoice remains unpaid.',
+      'Card payments are processed by Safepay under their own terms. We never see or store your full card details.',
+    ],
+  },
+  {
+    id: 'client-responsibilities',
+    heading: 'Your responsibilities',
+    body: ['Delivering a website depends on contributions from both sides. You agree to:'],
+    list: [
+      'Provide all content, images, branding, copy and login credentials needed for the Project, in a usable format.',
+      'Respond to questions, review drafts and supply feedback within a reasonable time.',
+      'Hold the rights to any content, images or trademarks you supply, or have permission to use them.',
+      'Ensure the content you supply is accurate, lawful, and does not infringe anyone else\'s rights.',
+      'Nominate a single point of contact with authority to approve work on your behalf.',
+      'Maintain your own hosting, domain and third-party licences after handover.',
+    ],
+  },
+  {
+    id: 'timelines',
+    heading: 'Project timelines',
+    body: [
+      'Indicative timelines are set out on our Pricing page and in your quotation. They are estimates given in good faith, not guaranteed dates.',
+      'Timelines assume you provide content and feedback promptly. Where content or feedback is delayed, the schedule moves by at least the length of the delay. We will tell you when a delay affects your delivery date.',
+      'Third-party factors outside our control — hosting outages, plugin or theme updates, domain or DNS issues, and similar — can also affect timelines. We will keep you informed and will not treat such delays as chargeable.',
+    ],
+  },
+  {
+    id: 'revisions',
+    heading: 'Revisions and changes',
+    list: [
+      'Each package includes the number of revision rounds stated in your quotation or on our Pricing page.',
+      'A revision round means a consolidated set of changes submitted in one batch. Feedback sent in fragments counts as separate rounds.',
+      'Additional revisions beyond those included are billed at <strong>$50 per hour</strong>, quoted and approved by you before we begin.',
+      'Changes that alter the agreed scope — new pages, new functionality, a change of direction after approval — are treated as new work and quoted separately.',
+      'Once you approve a design or a milestone in writing, changes to it are chargeable.',
+    ],
+  },
+  {
+    id: 'delivery',
+    heading: 'Delivery and handover',
+    body: [
+      'Our Services are delivered digitally. There is no physical product and nothing is shipped to you.',
+      'Delivery is complete when we hand over the Deliverables — by publishing the site to your hosting, transferring files to you, or granting you the relevant access — and you have been notified.',
+      'We serve clients both <strong>locally within Pakistan</strong> and <strong>internationally</strong>. Delivery method and timeline are the same in both cases, and no shipping charges of any kind apply. All communication and handover are handled by email, file transfer and, where needed, a call or video meeting.',
+      'Typical handover occurs on the timeline stated in your quotation, subject to the assumptions in the "Project timelines" section above.',
+      'After handover, the standard support period stated in your package begins.',
+    ],
+  },
+  {
+    id: 'cancellation',
+    heading: 'Cancellation',
+    body: ['Either party may cancel a Project before delivery, subject to the following:'],
+    list: [
+      '<strong>Cancellation before work begins</strong> — you may cancel at any time before the deposit clears and we begin work. Your deposit is returned in full.',
+      '<strong>Cancellation after work begins</strong> — you may cancel at any time, but the 50% deposit becomes non-refundable, because it compensates us for time and resources already committed to your Project.',
+      '<strong>Any balance already paid</strong> — where you have paid beyond the deposit and we have not delivered the corresponding work, the excess is refunded to you.',
+      '<strong>Cancellation by us</strong> — we may cancel if you materially breach these terms, fail to supply content or feedback for more than 60 days, or act abusively towards us. In that case we will refund any amount you have paid for work we have not delivered.',
+      '<strong>Cancellation must be in writing</strong> — send it to our email address. It takes effect on the date we acknowledge it, or the next business day if sent outside working hours.',
+    ],
+  },
+  {
+    id: 'refunds',
+    heading: 'Refunds',
+    body: [
+      'Our refund terms are set out in full in our <a href="/refund-policy/">Refund and Cancellation Policy</a>, which forms part of these terms. In summary: deposits are non-refundable once work has begun, amounts paid for undelivered work are refundable, and approved or completed work is not refundable.',
+      `Approved refunds are processed within <strong>${business.refundTurnaround}</strong>, back to the original payment method where possible.`,
+    ],
+  },
+  {
+    id: 'ip',
+    heading: 'Intellectual property and ownership',
+    body: [
+      'Ownership of the Deliverables is addressed in our <a href="/ownership-statement/">Ownership Statement</a>, which forms part of these terms.',
+      'In summary: on receipt of full payment, ownership of the custom design and code we created for you passes to you. Until full payment is received, we retain ownership of the Deliverables. Content you supplied remains yours throughout.',
+    ],
+  },
+  {
+    id: 'third-party',
+    heading: 'Third-party services and licences',
+    body: [
+      'Projects frequently rely on third-party products — the Divi theme and Elegant Themes, WordPress itself, hosting, domain registration, plugins, fonts and stock assets. These are licensed to you directly by their providers and are governed by their terms and renewal pricing.',
+      'Unless expressly included in your quotation, the cost of third-party licences, subscriptions and renewals is your responsibility, as is maintaining them after handover.',
+      'We are an independent provider. We are not affiliated with, endorsed by, or an agent of Elegant Themes, Inc. "Divi" is a registered trademark of Elegant Themes, Inc.',
+    ],
+  },
+  {
+    id: 'confidentiality',
+    heading: 'Confidentiality',
+    body: [
+      'Each party will keep the other\'s confidential information — including unpublished business plans, credentials, client lists and internal data — private, and will use it only for the purposes of the Project. This obligation survives the end of the engagement.',
+      'We will not disclose your project or your identity publicly beyond the portfolio rights described in the Ownership Statement, unless confidentiality is agreed in writing before work begins.',
+    ],
+  },
+  {
+    id: 'warranties',
+    heading: 'Warranties',
+    body: [
+      'We warrant that we will carry out the Services with reasonable skill and care, and that the Deliverables will materially conform to the specification in your approved quotation.',
+      'We warrant that we own, or have the right to use and assign, the custom work we create for you.',
+      'We do not warrant that any website will be uninterrupted, error-free or immune to security incidents, nor do we guarantee any particular search engine ranking, traffic volume, conversion rate or commercial result.',
+      'The support period included with your package covers defects in our work. It does not cover issues caused by your own edits, third-party updates, hosting changes, or new feature requests.',
+    ],
+  },
+  {
+    id: 'liability',
+    heading: 'Limitation of liability',
+    body: [
+      'Nothing in these terms excludes or limits liability that cannot lawfully be excluded or limited, including liability for fraud, or for death or personal injury caused by negligence.',
+      'Subject to that, our total liability arising out of or in connection with a Project is limited to the total fees you have paid us for that Project.',
+      'We are not liable for indirect or consequential losses, including lost profits, lost revenue, lost business, loss of data, or business interruption, whether or not we were advised such losses were possible.',
+      'We are not responsible for losses arising from third-party services, hosting outages, security breaches at your providers, or your failure to maintain backups and updates.',
+    ],
+  },
+  {
+    id: 'complaints',
+    heading: 'Complaints handling',
+    body: [
+      `We want to resolve any concern quickly and directly. If you are unhappy with any aspect of our work or service, please raise it with us as soon as possible using the contact details below.`,
+    ],
+    list: [
+      `<strong>How to contact us</strong> — email <a href="mailto:${business.email}">${business.email}</a> or call <a href="tel:${business.phoneLocal.href}">${business.phoneLocal.display}</a> (Pakistan) or <a href="tel:${business.phoneInternational.href}">${business.phoneInternational.display}</a> (international). Please include your name, the Project or invoice it relates to, and a clear description of the issue.`,
+      `<strong>Acknowledgement</strong> — we will acknowledge your complaint within <strong>${business.complaintAcknowledgement}</strong>.`,
+      `<strong>Resolution</strong> — we will investigate and provide a substantive response, together with a proposed solution or explanation, within <strong>${business.complaintResolution}</strong> of acknowledgement. If a matter is genuinely complex we will tell you why and give you a revised date rather than let it go silent.`,
+      '<strong>Escalation</strong> — if you remain dissatisfied with our response, you may ask for the matter to be reviewed at a higher level, and we will confirm the outcome in writing.',
+      '<strong>Payment disputes</strong> — please raise any billing concern with us before contacting your bank. We can correct genuine errors faster directly than through a chargeback.',
+    ],
+  },
+  {
+    id: 'termination',
+    heading: 'Termination and suspension',
+    body: [
+      'We may suspend or terminate a Project if an invoice is overdue, if you breach these terms and do not remedy the breach within 14 days of written notice, or if continuing would require us to act unlawfully.',
+      'On termination, you remain liable for work carried out and costs committed up to that point, and we will hand over completed work on payment of all outstanding amounts.',
+    ],
+  },
+  {
+    id: 'governing-law',
+    heading: 'Governing law and jurisdiction',
+    body: [
+      'These terms and any dispute arising out of them or out of a Project are governed by the laws of the Islamic Republic of Pakistan.',
+      'The courts of Lahore, Punjab, Pakistan have exclusive jurisdiction over any dispute that cannot be resolved through the complaints process above. Nothing in this clause prevents either party from seeking urgent injunctive relief where necessary, or from bringing a claim in the courts of the client\'s own country where mandatory local law gives the client that right.',
+    ],
+  },
+  {
+    id: 'general',
+    heading: 'General',
+    list: [
+      '<strong>Entire agreement</strong> — these terms, together with your quotation, the Refund and Cancellation Policy and the Ownership Statement, form the whole agreement between us and supersede any earlier discussion.',
+      '<strong>Changes</strong> — we may update these terms for future engagements. The version in force when you engage us governs your Project. The current version is always published on this page.',
+      '<strong>Severability</strong> — if any provision is found unenforceable, the rest remains in force.',
+      '<strong>No waiver</strong> — if we do not enforce a right on one occasion, that does not waive it.',
+      '<strong>Assignment</strong> — you may not transfer your rights under these terms without our written consent.',
+      '<strong>Notices</strong> — formal notices must be sent to our email address below and are treated as received on the next business day.',
+    ],
+  },
+  {
+    id: 'contact',
+    heading: 'Contact',
+    body: [
+      `Questions about these terms, a quotation, or an invoice should be directed to <a href="mailto:${business.email}">${business.email}</a>, or to either of the telephone numbers listed in the business details at the foot of this page.`,
+    ],
+  },
+];
+---
+
+<LegalLayout
+  title="Terms and Conditions"
+  description="Terms and Conditions for DiviDesignPro web design and WordPress development services: pricing in USD, 50/50 payment terms, revisions, delivery, cancellation, liability and complaints handling."
+  badge="Legal"
+  intro="The terms on which we provide web design and WordPress development services, including payment, delivery, cancellation and how to raise a complaint."
+  sections={sections}
+/>

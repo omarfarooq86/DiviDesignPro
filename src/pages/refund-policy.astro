@@ -1,0 +1,135 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { business } from '../data/business';
+
+const sections = [
+  {
+    id: 'overview',
+    heading: 'Overview',
+    body: [
+      `This Refund and Cancellation Policy explains when you are entitled to a refund, how to request one, and how long a refund takes to reach you. It applies to all web design, WordPress, Divi and related services purchased from <strong>${business.legalName}</strong>, trading as <strong>${business.tradingAs}</strong>.`,
+      'This policy forms part of our <a href="/terms-and-conditions/">Terms and Conditions</a>. Because our services are delivered digitally and are built to your specification, the refund terms differ from those you would expect from a retailer selling physical goods. Please read this page before paying a deposit.',
+      `If you have any question about whether a refund applies to your situation, email <a href="mailto:${business.email}">${business.email}</a> before you pay and we will confirm in writing.`,
+    ],
+  },
+  {
+    id: 'summary',
+    heading: 'Refund summary',
+    body: ['The table below is a plain-language summary. The sections that follow set out the full terms.'],
+    list: [
+      '<strong>Cancelled before work begins</strong> — deposit refunded in full.',
+      '<strong>Cancelled after work begins</strong> — deposit is non-refundable; any amount paid beyond the deposit is refunded for work not delivered.',
+      '<strong>We fail to deliver</strong> — full refund of everything paid for undelivered work.',
+      '<strong>Work completed and approved</strong> — not refundable.',
+      '<strong>Third-party costs</strong> (domains, hosting, theme and plugin licences) — non-refundable once purchased.',
+      '<strong>Refund turnaround</strong> — 7 to 14 business days after approval, back to the original payment method where possible.',
+    ],
+  },
+  {
+    id: 'before-work',
+    heading: 'Cancellation before work begins',
+    body: [
+      'You may cancel a Project at any time before the deposit has cleared and we have begun work. If you do, your deposit is refunded to you in full.',
+      'Once your deposit has cleared, work is scheduled and time is reserved for your Project. From that point the terms in the next section apply.',
+    ],
+  },
+  {
+    id: 'after-work',
+    heading: 'Cancellation after work begins',
+    body: [
+      'You may cancel a Project at any time after work has begun. Because your deposit reserves our time and covers work already carried out, <strong>the 50% deposit is non-refundable</strong> once work has started.',
+      'If you have paid more than the deposit — for example, where you have paid the balance before completion — the amount you have paid above the deposit is refunded, less the value of any work already delivered and approved and less any non-refundable third-party costs we have incurred on your behalf.',
+      'You will not be charged for work that has not been started at the date you cancel.',
+    ],
+  },
+  {
+    id: 'non-refundable',
+    heading: 'Non-refundable items',
+    list: [
+      '<strong>The deposit</strong>, once work has begun.',
+      '<strong>Completed and approved milestones</strong> — design rounds, layouts or pages you have signed off.',
+      '<strong>Third-party purchases</strong> — domains, hosting plans, Divi or Elegant Themes licences, premium plugins, fonts and stock assets bought for your Project. These are licensed in your name and cannot be returned.',
+      '<strong>Work by third parties</strong> — copywriting, photography, translation or specialist services we have commissioned on your behalf with your approval.',
+      '<strong>Additional revision hours</strong> already worked, billed at $50 per hour.',
+    ],
+  },
+  {
+    id: 'our-failure',
+    heading: 'If we fail to deliver',
+    body: [
+      'If we are unable to deliver the agreed scope for reasons within our control, you are entitled to a full refund of all amounts paid for the undelivered portion, regardless of the stage the Project has reached.',
+      'Before a refund is issued in these circumstances, we will offer you the option of a remedy: completing the outstanding work at no extra cost, or applying the value already paid to a different Project. If neither suits you, the refund is processed without argument.',
+      'If we cancel a Project for our own reasons, any amount paid for work not delivered is refunded to you.',
+    ],
+  },
+  {
+    id: 'no-refund',
+    heading: 'Circumstances where refunds do not apply',
+    list: [
+      'You have approved and received the Deliverables and then change your mind about the design direction.',
+      'The website launched successfully and you later decide you no longer need it.',
+      'You are dissatisfied with search engine rankings, traffic levels, conversion rates or sales results, which we do not and cannot guarantee.',
+      'The site has been affected by changes you made yourself, or by third-party updates to WordPress, Divi, plugins or hosting.',
+      'You supplied content, images or branding that you did not have the right to use, and the site had to be taken down as a result.',
+      'You failed to provide content, feedback or access for an extended period, causing the Project to stall.',
+      'You purchased a third-party product directly from its own vendor — that purchase is governed by the vendor\'s refund policy, not ours.',
+    ],
+  },
+  {
+    id: 'how-to-request',
+    heading: 'How to request a refund',
+    body: [
+      `Send your request to <a href="mailto:${business.email}">${business.email}</a>, or call <a href="tel:${business.phoneLocal.href}">${business.phoneLocal.display}</a> (Pakistan) or <a href="tel:${business.phoneInternational.href}">${business.phoneInternational.display}</a> (international).`,
+      'Please include your name, the invoice number or date of payment, the amount in question, and the reason for your request. If your request concerns work already delivered, tell us which milestone or deliverable it relates to.',
+      `We will acknowledge your request within <strong>${business.complaintAcknowledgement}</strong>, and give you our decision, with reasons, within <strong>${business.complaintResolution}</strong>.`,
+    ],
+  },
+  {
+    id: 'turnaround',
+    heading: 'Refund processing and turnaround time',
+    body: [
+      `Once a refund is approved, we initiate it within <strong>${business.complaintAcknowledgement}</strong>, and the funds are returned to you within <strong>${business.refundTurnaround}</strong> of approval.`,
+      'Refunds are sent back to the original payment method wherever that is possible.',
+    ],
+    list: [
+      '<strong>Cards processed through Safepay</strong> — refunded to the same card. The money is released by us within the period above; the exact time it appears on your statement depends on your card issuer and is typically 5 to 10 business days after release.',
+      '<strong>Bank transfers</strong> — returned to the account the payment came from. International transfers may take longer and any bank charges deducted by the receiving or intermediary bank are outside our control.',
+      '<strong>Wise or similar transfer services</strong> — returned through the same service, subject to their processing times and any fee they apply.',
+      'Where a refund is not possible to the original method — for example, where the card used has since expired — we will contact you to arrange an alternative.',
+      'Currency conversion differences between the original payment and the refund are outside our control, as are fluctuations in exchange rates.',
+    ],
+  },
+  {
+    id: 'chargebacks',
+    heading: 'Payment disputes and chargebacks',
+    body: [
+      'If you believe a payment was taken in error, please contact us first at the email address above. We aim to resolve genuine billing errors within the acknowledgement and resolution periods stated in this policy.',
+      'Raising a chargeback with your bank without contacting us first slows the process down for both sides and may result in your site access being suspended while the dispute is investigated.',
+      'We keep records of all quotations, approvals and delivery milestones for every Project, and we will provide them in response to any formal dispute.',
+    ],
+  },
+  {
+    id: 'complaints',
+    heading: 'Complaints',
+    body: [
+      `If you are unhappy with how a refund request has been handled, email <a href="mailto:${business.email}">${business.email}</a> or call <a href="tel:${business.phoneLocal.href}">${business.phoneLocal.display}</a> and ask for the matter to be escalated. We will acknowledge within <strong>${business.complaintAcknowledgement}</strong> and give you a final written response within <strong>${business.complaintResolution}</strong>.`,
+      'Our full complaints handling procedure is set out in our <a href="/terms-and-conditions/#complaints">Terms and Conditions</a>.',
+    ],
+  },
+  {
+    id: 'your-rights',
+    heading: 'Your statutory rights',
+    body: [
+      'Nothing in this policy is intended to exclude or limit any right you have under mandatory consumer protection law that applies to you. Where such a right gives you protection greater than this policy provides, that right prevails.',
+    ],
+  },
+];
+---
+
+<LegalLayout
+  title="Refund and Cancellation Policy"
+  description="Refund and cancellation terms for DiviDesignPro services: deposit refundability, non-refundable items, how to request a refund, and the 7 to 14 business day refund turnaround."
+  badge="Legal"
+  intro="When you can cancel, when a refund is due, how to request one, and how long a refund takes to reach you."
+  sections={sections}
+/>

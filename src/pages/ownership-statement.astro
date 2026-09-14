@@ -1,0 +1,106 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { business } from '../data/business';
+
+const sections = [
+  {
+    id: 'business-ownership',
+    heading: 'Ownership of this business and website',
+    body: [
+      `This website, dividesignpro.com, and the business trading as <strong>${business.tradingAs}</strong> are owned and operated solely by <strong>${business.legalName}</strong>, a sole proprietor based in Lahore, Punjab, Pakistan.`,
+      'There is no parent company, franchise, investor or third-party owner behind this business. It is not a franchise, a reseller, or an agent of any other organisation. All services offered on this website are provided directly by the owner.',
+      'This website is not affiliated with, endorsed by, sponsored by or otherwise connected to Elegant Themes, Inc., Automattic Inc., or any other theme, plugin or platform vendor referenced on this site. "Divi" and "WordPress" are the trademarks of their respective owners and are used here only to describe the services offered and the technology used.',
+      `Unless stated otherwise, all content on this website — text, layout, graphics, logos and code — is the property of ${business.legalName} and may not be copied or reproduced without written permission.`,
+    ],
+  },
+  {
+    id: 'your-ownership',
+    heading: 'Ownership of work we create for you',
+    body: [
+      'When you engage us for a Project, this section governs who owns the finished work.',
+      'On receipt of <strong>full and final payment</strong>, ownership of the custom design and custom code we created specifically for your Project transfers to you. That covers the layout designs, the Divi builder layouts, the custom CSS and JavaScript we wrote, and the finished website files.',
+      'You may then use, modify, host, move or extend the work as you wish, without further payment to us and without any licence fee, attribution requirement or restriction.',
+    ],
+  },
+  {
+    id: 'work-in-progress',
+    heading: 'Ownership before full payment',
+    body: [
+      'Until full payment has been received, ownership of the Deliverables remains with us. Staging sites, draft layouts, design mockups and work-in-progress files stay our property until the account is settled.',
+      'We may withhold handover, withdraw a staging site, or decline to publish a site to your hosting where an invoice is outstanding. This is not intended as leverage over a good-faith client — it protects us against the small number of clients who take delivery and then decline to pay.',
+      'The moment your final payment clears, this restriction falls away and the ownership transfer in the previous section takes effect.',
+    ],
+  },
+  {
+    id: 'your-content',
+    heading: 'Content you supply',
+    body: [
+      'Anything you give us — your logo, photography, written copy, product data, trademarks and brand assets — remains yours at all times. We claim no ownership over it and we will not reuse it elsewhere.',
+      'You confirm that you own or have permission to use everything you supply to us. We are not responsible for verifying the rights to content you provide, and any claim arising from it remains your responsibility.',
+    ],
+  },
+  {
+    id: 'third-party-assets',
+    heading: 'Third-party and licensed assets',
+    body: [
+      'Some elements of a website are not ours to give away, and they are not covered by the ownership transfer above. These include:',
+    ],
+    list: [
+      'The Divi theme and any other commercial theme, which is licensed by Elegant Themes and governed by your own licence with them.',
+      'WordPress itself, which is free software released under the GNU General Public License, and carries its own licensing terms.',
+      'Premium or free plugins, each governed by its own licence and its own renewal terms.',
+      'Licensed fonts, icon sets and stock imagery, which remain subject to the licences under which they were obtained.',
+      'Hosting, domain names and third-party services, which are contracted in your name and governed by those providers\' terms.',
+    ],
+  },
+  {
+    id: 'third-party-note',
+    heading: 'What this means in practice',
+    body: [
+      'You own the website we build for you. You do not, by virtue of our work, acquire ownership of the commercial products used to build it — you hold your own licences for those, as every WordPress site owner does.',
+      'Where a licence needs to be in your name to keep working after handover — a Divi licence or a plugin subscription, for example — we will tell you which ones and help you transfer or purchase them.',
+    ],
+  },
+  {
+    id: 'portfolio-rights',
+    heading: 'Our right to display the work',
+    body: [
+      'Unless we agree otherwise in writing before your Project begins, we reserve the right to display the finished website in our <a href="/portfolio/">portfolio</a> and to reference it in case studies, proposals and marketing material. We may show screenshots of the public-facing design and describe the work in general terms.',
+      'This right is limited to material that is already publicly visible on your live website. It does not extend to your private data, internal documents, credentials, unpublished plans or anything behind a login.',
+      'If you need your Project kept confidential — common in agency white-label work and in regulated industries — tell us before work begins and we will sign your confidentiality agreement or add a confidentiality clause to your quotation.',
+    ],
+  },
+  {
+    id: 'no-lock-in',
+    heading: 'No lock-in and no hidden licensing fees',
+    body: [
+      'Once your Project is paid for and handed over, you are free to take it anywhere. You do not need to keep working with us to keep your website running, and we do not charge a licence fee, a seat fee or a recurring fee for the design and code we produced.',
+      'Nothing in our work is deliberately built to lock you into a maintenance contract. If you choose one of our ongoing maintenance plans, that is a separate optional service you can cancel, not a condition of owning your site.',
+      'We will hand over the files, the layouts and the access you need for another developer to work on the site without us.',
+    ],
+  },
+  {
+    id: 'source-files',
+    heading: 'Source files and handover',
+    body: [
+      'On final payment and completion we provide the finished website, the Divi layouts and custom CSS, and access to your hosting and WordPress dashboard. If you need the full source files, the exports or a repository transfer, ask us and we will provide them at handover.',
+      'We recommend keeping your own backup of all files and access details once your Project is complete. We are not responsible for files lost after handover.',
+    ],
+  },
+  {
+    id: 'contact',
+    heading: 'Questions about ownership',
+    body: [
+      `If anything on this page is unclear, or you need written confirmation of ownership for a lender, an acquirer, a tax authority or a payment provider, contact <a href="mailto:${business.email}">${business.email}</a> or call <a href="tel:${business.phoneLocal.href}">${business.phoneLocal.display}</a>. We are happy to put our confirmation in writing.`,
+    ],
+  },
+];
+---
+
+<LegalLayout
+  title="Ownership Statement"
+  description="Ownership of DiviDesignPro and of the work we create: who owns this business and website, when intellectual property transfers to you on full payment, licensed third-party assets, portfolio rights and no lock-in."
+  badge="Legal"
+  intro="Who owns this business and this website, when ownership of the work we build transfers to you, and how our portfolio and licensing rights work."
+  sections={sections}
+/>
