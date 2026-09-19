@@ -1,5 +1,57 @@
 # Backlink Strategy — DiviDesignPro
 
+## Audit: where the profile stands (19 September 2026)
+
+Pulled from the DataForSEO Backlinks API. The short version: **the site has no
+earned backlinks at all.**
+
+| Metric | Value |
+|---|---|
+| Referring domains | 22 |
+| Total backlinks | 24 |
+| Legitimate referring domains | **0** |
+| Overall spam score | 55 |
+
+Every one of the 22 domains falls into one of two auto-generated networks:
+
+**1. A link-selling PBN — 12 domains, dofollow.** Page titles read
+"Boost your Google rankings with Premium PBN & Link Building", and the anchor
+text is itself an advertisement for paid links: *"High Quality Dofollow
+Backlinks DA 50 PA 40 Premium PBN Network Service … Buy Backlinks Online
+Cheap"*. Spam scores 60–70. Includes fashionclothingnews.com, uncledspizza.com,
+betwinnermirror.com, homesforsaleoldgreenwichct.com.
+
+**2. A "domain report" network — 10 domains, nofollow.** Auto-generated report
+and URL-share pages, most sharing the single IP 195.20.19.178. Anchor text is
+just the bare domain. Includes quero.party, screenshots.wiki, drjack.world.
+
+Neither was built by hand — the domain was swept up automatically.
+
+### What this means
+
+**This is not what is holding the site back.** Google's spam systems already
+ignore links like these, they pass no value, and there is no sign of a manual
+action. Disavowing them is cheap insurance and nothing more. Do not expect a
+ranking to move because of it.
+
+**The real problem is the opposite one — there is nothing to disavow *for*.**
+Zero legitimate referring domains means nothing external vouches for the site,
+which is what makes competitive terms like "hire wordpress developer"
+(KD 12–23) hard no matter how good the page is. The phases below are the actual
+work; the disavow is housekeeping.
+
+A ready-to-submit disavow file is at `disavow.txt`. Submit it via Search Console
+→ Indexing → Disavow links. It is reversible.
+
+### Measuring whether any of this works
+
+`scripts/rank-tracker.py` records where the site sits for its target keywords
+and appends each run to `scripts/rank-history.json`. The September 2026 baseline
+is zero keywords ranking. Run it monthly and watch that number. Setup is two
+environment variables — see the header of the script.
+
+---
+
 ## Phase 1: Foundation (Week 1 — Free & Fast)
 
 | Platform | Action | Link To |

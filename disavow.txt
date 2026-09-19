@@ -1,0 +1,46 @@
+# Disavow file for dividesignpro.com
+# Generated 19 September 2026
+#
+# Every domain below is auto-generated link spam. None of it was earned.
+#
+# The dofollow entries sit on pages whose titles literally read "Boost your
+# Google rankings with Premium PBN & Link Building", carrying anchor text that
+# advertises paid links for sale. They are a link-selling network that swept
+# the domain up automatically; nobody built these by hand.
+#
+# The nofollow entries come from a single "domain report" network that mostly
+# shares one IP (195.20.19.178).
+#
+# Honest expectation: this is cheap insurance, not a fix. Google's spam systems
+# already ignore links like these, so disavowing them will not, on its own,
+# move any ranking. The real backlink problem is the opposite one — see the
+# accompanying note in the backlink audit.
+#
+# Submit at: https://search.google.com/search-console/disavow-links
+# (Search Console -> Indexing -> Disavow links -> Upload)
+
+# --- Dofollow PBN network (link-selling pages, spam score 60-70) ---
+domain:fashionclothingnews.com
+domain:fittyfoody.com
+domain:uncledspizza.com
+domain:quotesblom.com
+domain:theforbestimes.com
+domain:betwinnermirror.com
+domain:betulcrime.com
+domain:homesforsaleoldgreenwichct.com
+domain:hostprinter.com
+domain:bazerdaily.com
+domain:ggmap.us.com
+domain:five.co.in
+
+# --- Nofollow domain-report network (already inert; listed for completeness) ---
+domain:shortenurls.eu
+domain:anchorurl.cloud
+domain:quero.party
+domain:screenshots.wiki
+domain:drjack.world
+domain:bye.fyi
+domain:ready.pro
+domain:buzzshrink.website
+domain:jake.eu
+domain:web.thecloudherald.com

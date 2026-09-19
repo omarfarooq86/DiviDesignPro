@@ -28,5 +28,8 @@ pnpm-debug.log*
 PexelAPIkey
 *.key
 
+# rank tracker credentials (see scripts/rank-tracker.env.example)
+scripts/rank-tracker.env
+
 # Claude Code local config
 .claude/
