@@ -5,6 +5,9 @@ const blogCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
+    // Optional meta-title override. `title` stays the on-page H1, breadcrumb
+    // label, image alt and Article headline; this only changes <title>.
+    seoTitle: z.string().optional(),
     description: z.string(),
     date: z.date(),
     updated: z.date().optional(),

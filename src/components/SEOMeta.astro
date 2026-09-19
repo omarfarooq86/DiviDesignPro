@@ -23,7 +23,18 @@ const {
   author = 'DiviDesignPro',
 } = Astro.props;
 
-const fullTitle = `${title} | DiviDesignPro`;
+// Append the brand only when it fits within the ~60 char SERP display limit.
+// Titles that are already brand-aware (the homepage, category pages) are left
+// alone so the brand is never emitted twice — this guard is brand-aware, not
+// purely length-driven.
+const BRAND_SUFFIX = ' | DiviDesignPro';
+const MAX_TITLE_LENGTH = 60;
+const alreadyBranded = /dividesignpro/i.test(title);
+const fullTitle =
+  alreadyBranded || title.length + BRAND_SUFFIX.length > MAX_TITLE_LENGTH
+    ? title
+    : title + BRAND_SUFFIX;
+
 const siteUrl = 'https://www.dividesignpro.com';
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---

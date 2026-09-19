@@ -16,13 +16,14 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, category, featuredImage, ogImage, hasFAQ, faqData } = post.data;
+const { title, seoTitle, description, date, category, featuredImage, ogImage, hasFAQ, faqData } = post.data;
 const slug = post.id.replace(/\.md$/, '');
 const html = marked.parse(post.body || '');
 ---
 
 <BlogPostLayout
   title={title}
+  seoTitle={seoTitle}
   description={description}
   date={date}
   category={category}

@@ -225,6 +225,9 @@ const addOns = [
   <!-- Pricing Tabs -->
   <section class="section" id="pricing-tabs">
     <div class="container">
+      <!-- The tab labels are <button role="tab">, not headings, so without this
+           the nine tier <h3>s would sit directly under the <h1>. -->
+      <h2 class="sr-only">Pricing Packages</h2>
       <div class="pricing-tabs" role="tablist">
         {pricingTabs.map((tab, i) => (
           <button
@@ -300,21 +303,21 @@ const addOns = [
         <h2 class="policies__title">How I Work</h2>
         <div class="policies__grid">
           <div class="policy-card">
-            <h4 class="policy-card__title">Payment</h4>
+            <h3 class="policy-card__title">Payment</h3>
             <p class="policy-card__text">
               50% upfront to start the project, 50% upon completion and before final delivery.
               All payments via bank transfer, credit card via Safepay, or Wise. Prices in USD.
             </p>
           </div>
           <div class="policy-card">
-            <h4 class="policy-card__title">Revisions</h4>
+            <h3 class="policy-card__title">Revisions</h3>
             <p class="policy-card__text">
               Each package includes the stated revision rounds. Additional revisions beyond the
               included rounds are billed at $50/hour.
             </p>
           </div>
           <div class="policy-card">
-            <h4 class="policy-card__title">Cancellation &amp; Refunds</h4>
+            <h3 class="policy-card__title">Cancellation &amp; Refunds</h3>
             <p class="policy-card__text">
               Cancel before work begins for a full deposit refund. Once work has started the
               deposit is non-refundable; amounts paid for undelivered work are refunded within
@@ -323,7 +326,7 @@ const addOns = [
             </p>
           </div>
           <div class="policy-card">
-            <h4 class="policy-card__title">Ownership</h4>
+            <h3 class="policy-card__title">Ownership</h3>
             <p class="policy-card__text">
               Upon full payment, you own everything — designs, code, content, and all assets.
               No lock-in. No hidden licensing fees. See our

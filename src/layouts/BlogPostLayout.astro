@@ -4,6 +4,8 @@ import JsonLd from '../components/JsonLd.astro';
 
 export interface Props {
   title: string;
+  /** Meta-title override. Does not affect the on-page H1 or any other output. */
+  seoTitle?: string;
   description: string;
   date: Date;
   updated?: Date;
@@ -18,6 +20,7 @@ export interface Props {
 
 const {
   title,
+  seoTitle,
   description,
   date,
   updated,
@@ -44,7 +47,7 @@ const breadcrumbItems = [
 ---
 
 <BaseLayout
-  title={title}
+  title={seoTitle || title}
   description={description}
   canonical={postUrl}
   ogImage={ogImageUrl}
