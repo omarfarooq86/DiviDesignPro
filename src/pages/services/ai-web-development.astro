@@ -1,5 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+
+const canonical = Astro.url.href;
 
 const aiProjects = [
   {
@@ -38,17 +43,15 @@ const aiProjects = [
   description="I build complete websites and SaaS tools using AI — from design generation to production deployment on Vercel. CaseWalay, GrantCashFlow, Veloxa, and more."
   ogImage="/og-images/ai-services-og.png"
 >
-  <section class="page-header">
-    <div class="container">
-      <span class="page-header__badge">AI + Human Expertise</span>
-      <h1 class="page-header__title">AI-Powered Web Development</h1>
-      <p class="page-header__desc">
-        I use AI to design, build, and deploy complete websites — from concept to production.
-        Combining AI speed with human expertise, I deliver sites faster without sacrificing quality.
-        Every site below was built with AI assistance and deployed on Vercel.
-      </p>
-    </div>
-  </section>
+  <PageHeader
+    badge="AI + Human Expertise"
+    title="AI-Powered Web Development"
+    description="I use AI to design, build, and deploy complete websites — from concept to production. Combining AI speed with human expertise, I deliver sites faster without sacrificing quality. Every site below was built with AI assistance and deployed on Vercel."
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/services/' },
+    ]}
+  />
 
   <section class="section">
     <div class="container">
@@ -158,46 +161,27 @@ const aiProjects = [
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container" style="text-align:center;">
-      <h2 class="section__title">Want an AI-Built Site?</h2>
-      <p class="section__subtitle" style="margin-bottom:var(--space-6);">
-        I can build your website or SaaS tool using AI — from design to deployment. Faster delivery, lower cost, same professional quality.
-      </p>
-      <a href="/#contact" class="btn btn--primary btn--lg">Get a Free Quote</a>
-    </div>
-  </section>
+  <CTASection
+    title="Want an AI-Built Site?"
+    subtitle="I can build your website or SaaS tool using AI — from design to deployment. Faster delivery, lower cost, same professional quality."
+    buttonLabel="Get a Free Quote"
+    href="/#contact"
+    showPhone
+  />
+
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'AI-Powered Web Development',
+      description:
+        'AI-assisted WordPress and web development — converting AI-generated designs from Claude, Lovable, Figma and similar tools into production-ready websites.',
+      serviceType: 'AI web development',
+      url: canonical,
+    }}
+  />
 </BaseLayout>
 
 <style>
-  .page-header {
-    padding-top: calc(var(--header-height) + var(--space-12));
-    padding-bottom: var(--space-10);
-    background: linear-gradient(180deg, #EEF2FF 0%, #FFFFFF 100%);
-    text-align: center;
-  }
-
-  .page-header__badge {
-    display: inline-block;
-    background-color: var(--color-accent-light);
-    color: var(--color-accent-dark);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    padding: var(--space-1) var(--space-3);
-    border-radius: 999px;
-    margin-bottom: var(--space-3);
-  }
-
-  .page-header__title { margin-bottom: var(--space-4); }
-
-  .page-header__desc {
-    max-width: 640px;
-    margin-inline: auto;
-    color: var(--color-text-secondary);
-    font-size: var(--text-lg);
-    line-height: 1.7;
-  }
-
   .ai-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

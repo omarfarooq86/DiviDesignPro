@@ -1,0 +1,108 @@
+---
+/**
+ * The page hero used by every standalone page. Previously this markup and its
+ * CSS were copy-pasted into ai-services, pricing, portfolio and LegalLayout.
+ *
+ * Breadcrumbs render inside the header rather than above it: the global
+ * `.breadcrumb` rule carries its own `--header-height` top padding, so stacking
+ * it on top of `.page-header` would offset the fixed header twice. Passing
+ * `breadcrumbs` also emits the matching BreadcrumbList schema, keeping the
+ * visible trail and the structured data from drifting apart.
+ */
+import JsonLd from './JsonLd.astro';
+
+export interface Props {
+  badge?: string;
+  title: string;
+  description: string;
+  /** Top colour of the background gradient. Indigo by default; pricing uses
+   *  #F0FDF4 and portfolio #FFF7ED. */
+  tint?: string;
+  /** Trail from the homepage to this page, excluding the page itself. */
+  breadcrumbs?: { name: string; url: string }[];
+}
+
+const { badge, title, description, tint = '#EEF2FF', breadcrumbs = [] } = Astro.props;
+
+const canonical = Astro.url.href;
+const crumbItems = [...breadcrumbs, { name: title, url: canonical }];
+---
+
+<section class="page-header" style={`--page-header-tint: ${tint};`}>
+  <div class="container">
+    {breadcrumbs.length > 0 && (
+      <nav class="breadcrumb page-header__breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list">
+          {crumbItems.map((crumb, index) => (
+            <li>
+              {index === crumbItems.length - 1 ? (
+                <span aria-current="page">{crumb.name}</span>
+              ) : (
+                <a href={crumb.url}>{crumb.name}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+    {badge && <span class="page-header__badge">{badge}</span>}
+    <h1 class="page-header__title">{title}</h1>
+    <p class="page-header__desc">{description}</p>
+    <!-- Optional hero actions (service pages put their primary CTA here so it
+         sits above the fold). Styled by the calling page, not this component. -->
+    <slot />
+  </div>
+</section>
+
+{breadcrumbs.length > 0 && <JsonLd type="BreadcrumbList" data={{ items: crumbItems }} />}
+
+<style>
+  .page-header {
+    padding-top: calc(var(--header-height) + var(--space-12));
+    padding-bottom: var(--space-10);
+    background: linear-gradient(180deg, var(--page-header-tint, #EEF2FF) 0%, #FFFFFF 100%);
+    text-align: center;
+  }
+
+  /* Overrides the global .breadcrumb offset, which assumes the trail is the
+     first element on the page rather than nested inside the header. */
+  .page-header__breadcrumb {
+    padding-top: 0;
+    margin-bottom: var(--space-4);
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-header__badge {
+    display: inline-block;
+    background-color: var(--color-accent-light);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+
+  .page-header__title {
+    margin-bottom: var(--space-4);
+  }
+
+  .page-header__desc {
+    max-width: 640px;
+    margin-inline: auto;
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      padding-bottom: var(--space-8);
+    }
+
+    .page-header__desc {
+      font-size: var(--text-base);
+    }
+  }
+</style>

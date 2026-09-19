@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { business } from '../../data/business';
+
+const canonical = Astro.url.href;
+
+const services = [
+  {
+    title: 'Hire a WordPress Developer',
+    href: '/services/hire-wordpress-developer/',
+    description:
+      'A dedicated WordPress and Divi developer on a fixed price, not an hourly meter. Custom builds, redesigns, migrations and build-outs from an AI-generated design.',
+    points: ['Fixed-price quotes', 'From $799 per site', 'Delivery in 1–3 weeks'],
+  },
+  {
+    title: 'Web Design in Lahore',
+    href: '/services/web-design-lahore/',
+    description:
+      'Local web design for Lahore businesses, with the same developer also building for clients in the US, UK and Australia. Meet in person or work entirely remotely.',
+    points: ['Lahore-based, meeting on request', 'Bank transfer, Safepay or Wise', 'PKT support hours'],
+  },
+  {
+    title: 'AI-Powered Web Development',
+    href: '/services/ai-web-development/',
+    description:
+      'Already have a prototype from Claude, Lovable, Replit, Bolt, v0 or Figma AI? I convert it into a production WordPress or Divi site — responsive, fast and editable.',
+    points: ['AI prototype to live site', 'From $399 conversion', 'Astro, Vercel or WordPress'],
+  },
+];
+
+const alsoOffered = [
+  { label: 'Custom Divi 5 design', href: '/pricing/' },
+  { label: 'Theme customisation', href: '/#services' },
+  { label: 'WordPress maintenance & care plans', href: '/pricing/' },
+  { label: 'Speed & performance optimisation', href: '/pricing/' },
+  { label: 'On-page SEO', href: '/pricing/' },
+  { label: 'Divi fixes, updates & migrations', href: '/#services' },
+  { label: 'White label development for agencies', href: '/#contact' },
+];
+---
+
+<BaseLayout
+  title="WordPress & Divi Services | Websites, Care & Support"
+  description="Custom WordPress and Divi websites, AI prototype conversion, ongoing care plans and web design in Lahore. Fixed pricing, fast delivery, one developer."
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="Services"
+    title="WordPress & Divi Services"
+    description="One developer, fixed prices, and no agency overhead. Every service below is delivered personally by Muhammad Omar Farooq — 10+ years on WordPress, 100+ sites shipped, and a Divi 5 specialist since the beta."
+    breadcrumbs={[{ name: 'Home', url: '/' }]}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What I Do</h2>
+        <p class="section__subtitle">
+          Three ways to work together, depending on whether you need a developer, a local
+          designer, or someone to turn an AI prototype into a real website.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        {services.map((service) => (
+          <a href={service.href} class="service-block">
+            <h3 class="service-block__title">{service.title}</h3>
+            <p class="service-block__text">{service.description}</p>
+            <ul class="service-block__points">
+              {service.points.map((point) => <li>{point}</li>)}
+            </ul>
+            <span class="service-block__link">View service</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Also Offered</h2>
+        <p class="section__subtitle">
+          Supporting work that keeps an existing site healthy, fast and easy to update.
+        </p>
+      </div>
+
+      <ul class="also-list">
+        {alsoOffered.map((item) => (
+          <li class="also-list__item">
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <p class="also-note">
+        Not sure which one you need? <a href="/#contact">Send me a short description of your
+        project</a> and I will tell you honestly — including when the answer is that you do not
+        need to pay for anything yet.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Tell Me What You Need Built"
+    subtitle="Free consultation, a fixed-price quote, and a straight answer on timeline. Same-day response during Pakistan Standard Time business hours."
+    buttonLabel="Start a Project"
+    href="/#contact"
+    showPhone
+  />
+
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'WordPress and Divi web design services',
+      description:
+        'Custom WordPress and Divi website design, AI prototype conversion, maintenance and care plans, and local web design in Lahore, Pakistan.',
+      serviceType: 'Web design and WordPress development',
+      url: canonical,
+    }}
+  />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .service-block {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--transition-base), box-shadow var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .service-block:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .service-block__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-xl);
+  }
+
+  .service-block__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .service-block__points {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .service-block__points li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .service-block__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+  }
+
+  .service-block__link {
+    margin-top: auto;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+  }
+
+  .also-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3) var(--space-6);
+    list-style: none;
+    margin: 0 0 var(--space-8);
+    padding: 0;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+
+  .also-list__item a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .also-list__item a:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .also-note {
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .also-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

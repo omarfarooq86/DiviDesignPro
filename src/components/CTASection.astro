@@ -1,0 +1,56 @@
+---
+/**
+ * The closing call-to-action block. Previously copy-pasted into every
+ * standalone page, each with its own inline `style="text-align:center;"`.
+ */
+import { business } from '../data/business';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  href?: string;
+  /** Also render a click-to-call action. Service pages should set this. */
+  showPhone?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  buttonLabel = 'Get a Free Quote',
+  href = '/#contact',
+  showPhone = false,
+} = Astro.props;
+---
+
+<section class="section section--alt">
+  <div class="container cta">
+    <h2 class="section__title">{title}</h2>
+    {subtitle && <p class="section__subtitle cta__subtitle">{subtitle}</p>}
+    <div class="cta__actions">
+      <a href={href} class="btn btn--primary btn--lg">{buttonLabel}</a>
+      {showPhone && (
+        <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+          Call {business.phoneLocal.display}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    text-align: center;
+  }
+
+  .cta__subtitle {
+    margin-bottom: var(--space-6);
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+  }
+</style>

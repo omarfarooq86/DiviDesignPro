@@ -1,0 +1,539 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { business } from '../../data/business';
+
+const canonical = Astro.url.href;
+
+const benefits = [
+  {
+    title: 'A fixed price, agreed up front',
+    text: 'You get a written quote before any work starts. The number does not move because the project took longer than expected — that risk is mine, not yours.',
+  },
+  {
+    title: 'One developer, start to finish',
+    text: 'No account manager, no handover to a junior, no ticket queue. The person who scopes your project is the person who builds it and the person you email.',
+  },
+  {
+    title: 'You can edit it afterwards',
+    text: 'Every site is built on Divi or the WordPress block editor so your team can change text, swap images and add pages without calling a developer.',
+  },
+  {
+    title: 'Built to be fast',
+    text: 'Core Web Vitals are handled during the build, not bolted on later — compressed images, lazy loading, minimal plugins and clean markup.',
+  },
+  {
+    title: 'Search-ready structure',
+    text: 'Clean heading hierarchy, semantic markup, sensible URLs, metadata and schema. Technical SEO is part of the build, not an upsell.',
+  },
+  {
+    title: 'Handover you can actually use',
+    text: 'A short walkthrough video, editor access, and documentation for anything custom. Plus 30 days of post-launch support for genuine bugs.',
+  },
+];
+
+const audiences = [
+  {
+    title: 'Small businesses with no site yet',
+    text: 'You need a credible website that loads quickly and tells people what you do. Most builds land between five and ten pages.',
+  },
+  {
+    title: 'Businesses stuck on a slow, dated site',
+    text: 'Your current site is hard to update, looks old on mobile, or takes too long to load. A rebuild is usually cheaper than repeated patching.',
+  },
+  {
+    title: 'Founders with an AI-generated design',
+    text: 'You have a prototype from Claude, Lovable, Replit, Bolt, v0 or Figma AI that looks right but is not a real website yet. Converting it is the fastest route to launch.',
+  },
+  {
+    title: 'Agencies needing white label capacity',
+    text: 'You have overflow work and need a reliable WordPress developer behind your brand. I work quietly under your name and your client never hears from me.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Tell me what you need',
+    text: 'Send a short description, any designs or prototype links, and your rough deadline. If you already have a site, send the URL so I can look before we speak.',
+  },
+  {
+    title: 'You get a fixed quote',
+    text: 'Within one business day you receive a scope, a fixed price and a delivery date. No obligation, no sales sequence, no discovery fee.',
+  },
+  {
+    title: 'I build, you review',
+    text: 'You get a staging link early — usually within the first few days — so you see real progress rather than waiting for a big reveal at the end.',
+  },
+  {
+    title: 'Launch and handover',
+    text: 'I handle deployment, DNS, SSL, analytics and search console. Then you get editor access, a walkthrough, and 30 days of bug support.',
+  },
+];
+
+const tiers = [
+  {
+    name: 'Starter',
+    price: '$799',
+    description: 'A professional five-page WordPress site for a small business or personal brand.',
+    features: ['5-page custom design', 'Mobile responsive', 'Contact form', 'Basic on-page SEO', '2 revision rounds', '1-week delivery'],
+  },
+  {
+    name: 'Professional',
+    price: '$1,799',
+    popular: true,
+    description: 'A complete site with advanced SEO, speed optimisation and a blog.',
+    features: [
+      '10-page custom design',
+      'Advanced on-page SEO',
+      'Speed optimisation (90+ Lighthouse)',
+      'Blog setup with 5 posts',
+      'CRM / form integration',
+      '3 revision rounds',
+      '2-week delivery',
+    ],
+  },
+  {
+    name: 'E-Commerce',
+    price: '$2,999',
+    description: 'A full WooCommerce store with products, payments and shipping configured.',
+    features: ['WooCommerce store', 'Up to 50 products', 'Payment gateway setup', 'Shipping & tax config', 'Product SEO', '3–4 week delivery'],
+  },
+];
+
+const faqs = [
+  {
+    question: 'How much does it cost to hire a WordPress developer?',
+    answer:
+      'For a complete website, my packages start at $799 for a five-page build and $1,799 for a ten-page site with advanced SEO. If you only need work on an existing site — a redesign, a migration, a broken layout — that is quoted separately and usually starts lower. You always get a fixed price before work begins.',
+  },
+  {
+    question: 'How long does it take to build a WordPress website?',
+    answer:
+      'A five-page site takes about a week of build time. A ten-page site with a blog and custom features takes two weeks. E-commerce builds run three to four weeks. Larger projects are scheduled in phases so you see working software early rather than waiting for one delivery at the end.',
+  },
+  {
+    question: 'Do you work with clients outside Pakistan?',
+    answer:
+      'Most of my clients are outside Pakistan — mainly the United States, United Kingdom, Australia and Singapore. I am based in Lahore and work in Pakistan Standard Time (UTC+5), which overlaps with UK mornings and US evenings. I keep early and late slots for calls, and most communication happens over email or WhatsApp.',
+  },
+  {
+    question: 'What happens if I need changes after the site launches?',
+    answer:
+      'Every project includes 30 days of support for genuine bugs at no extra cost. After that you can request changes ad hoc, or move onto a monthly care plan from $99/month that covers updates, backups, security monitoring and a set number of content edits.',
+  },
+  {
+    question: 'Can you work with my existing WordPress site?',
+    answer:
+      'Yes. A large share of my work is on sites I did not build — fixing layout problems, improving speed, resolving plugin conflicts, or rebuilding specific pages. I will review the site first and tell you honestly whether a repair or a rebuild is the better use of your money.',
+  },
+  {
+    question: 'Do you build with Divi or another page builder?',
+    answer:
+      'Divi is my specialty and I have worked with it for over a decade, including the Divi 5 beta. I also build with the native WordPress block editor and with Elementor when a client already depends on it. If you have no preference, I will recommend based on who will be editing the site after launch.',
+  },
+  {
+    question: 'Who owns the website when the project is finished?',
+    answer:
+      'You do. Once the final payment clears, you own the design, the code, the content and every asset. There is no licensing fee, no lock-in and no clause that keeps your site dependent on me. If you leave, the site goes with you.',
+  },
+  {
+    question: 'How do I pay, and in what currency?',
+    answer:
+      'I invoice in US dollars. Payment is 50% to begin and 50% on completion before final delivery. I accept international bank transfer, card payments through Safepay, and Wise. There are no hidden fees and no charge for the initial quote.',
+  },
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services/' },
+];
+---
+
+<BaseLayout
+  title="Hire a WordPress Developer | Fixed-Price, Fast Delivery"
+  description="Hire a WordPress developer on a fixed price, not an hourly rate. Custom Divi builds, redesigns and migrations from $799. Free quote within one business day."
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="WordPress Development"
+    title="Hire a WordPress Developer"
+    description="You need a WordPress developer who quotes a fixed price, hits the agreed date, and hands back a site you can actually edit yourself. I have built more than 100 WordPress sites over 10+ years, and I work with you directly — no account managers, no offshore handoff, and no hourly meter running while you wait."
+    breadcrumbs={breadcrumbs}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn--primary btn--lg">Get a Fixed-Price Quote</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What You Get</h2>
+        <p class="section__subtitle">
+          The things that actually decide whether a website project goes well — not a feature list.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {benefits.map((benefit) => (
+          <div class="benefit-card">
+            <h3 class="benefit-card__title">{benefit.title}</h3>
+            <p class="benefit-card__text">{benefit.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Who Hires Me</h2>
+        <p class="section__subtitle">
+          Four situations that account for most of the work. If you recognise yours, the{' '}
+          <a href="/pricing/">pricing page</a> has the detail.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {audiences.map((audience) => (
+          <div class="audience-card">
+            <h3 class="audience-card__title">{audience.title}</h3>
+            <p class="audience-card__text">{audience.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">How the Project Runs</h2>
+        <p class="section__subtitle">
+          Four steps, no surprises. Most projects go from first message to live site in under three weeks.
+        </p>
+      </div>
+
+      <ol class="steps">
+        {steps.map((step, index) => (
+          <li class="step">
+            <span class="step__num" aria-hidden="true">{index + 1}</span>
+            <div>
+              <h3 class="step__title">{step.title}</h3>
+              <p class="step__text">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What It Costs</h2>
+        <p class="section__subtitle">
+          Fixed prices for complete websites. Everything below is a one-off cost — hosting and
+          domain are paid directly by you to your provider.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {tiers.map((tier) => (
+          <div class:list={['tier-card', tier.popular && 'tier-card--popular']}>
+            {tier.popular && <span class="tier-card__badge">Most popular</span>}
+            <h3 class="tier-card__name">{tier.name}</h3>
+            <p class="tier-card__price">{tier.price}</p>
+            <p class="tier-card__desc">{tier.description}</p>
+            <ul class="tier-card__features">
+              {tier.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+            <a href="#contact" class="btn btn--outline tier-card__cta">Get a Quote</a>
+          </div>
+        ))}
+      </div>
+
+      <p class="pricing-note">
+        Need something smaller? Redesigns, fixes, migrations and speed work are quoted
+        individually — see the <a href="/pricing/">full pricing page</a> or just ask.
+      </p>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Questions Clients Ask Before Hiring</h2>
+        <p class="section__subtitle">
+          Straight answers. If yours is not here, <a href="#contact">ask me directly</a>.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">{faq.question}</summary>
+            <p class="faq-item__answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="sources">
+        Further reading:{' '}
+        <a href="https://wordpress.org/" target="_blank" rel="noopener">WordPress.org</a>,{' '}
+        <a
+          href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+          target="_blank"
+          rel="noopener">Google's SEO starter guide</a
+        >, and{' '}
+        <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener"
+          >web.dev on Core Web Vitals</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <ContactForm />
+
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'Hire a WordPress developer',
+      description:
+        'Fixed-price WordPress and Divi website development: custom builds from $799, redesigns, migrations, speed optimisation and ongoing care plans.',
+      serviceType: 'WordPress development',
+      url: canonical,
+    }}
+  />
+  <JsonLd type="FAQ" data={{ questions: faqs }} />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .benefit-card,
+  .audience-card {
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .section--alt .audience-card {
+    background-color: var(--color-surface);
+  }
+
+  .benefit-card__title,
+  .audience-card__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  .benefit-card__text,
+  .audience-card__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg);
+  }
+
+  .step__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .tier-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .tier-card--popular {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .tier-card__badge {
+    position: absolute;
+    top: calc(var(--space-4) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .tier-card__name {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+  }
+
+  .tier-card__price {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .tier-card__desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .tier-card__features {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .tier-card__features li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .tier-card__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .tier-card__cta {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .pricing-note {
+    max-width: 640px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item__question {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    content: '−';
+  }
+
+  .faq-item__answer {
+    padding-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .sources {
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

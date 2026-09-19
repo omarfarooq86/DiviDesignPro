@@ -1,0 +1,452 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { business, addressLines } from '../../data/business';
+
+const canonical = Astro.url.href;
+
+const offerings = [
+  {
+    title: 'Business websites',
+    text: 'Five to ten page WordPress sites for Lahore businesses — service pages, an about page, testimonials and a contact form that reaches you reliably.',
+  },
+  {
+    title: 'E-commerce stores',
+    text: 'WooCommerce stores with products, delivery charges and payment options configured for how people actually buy in Pakistan.',
+  },
+  {
+    title: 'Redesigns and rebuilds',
+    text: 'Your current site looks dated on mobile or takes too long to load. I rebuild it on modern WordPress without losing your existing content or rankings.',
+  },
+  {
+    title: 'Care and maintenance',
+    text: 'Monthly plans from $99 covering WordPress and plugin updates, backups, security monitoring, uptime checks and a set number of content edits.',
+  },
+];
+
+const localReasons = [
+  {
+    title: 'Same timezone, same city',
+    text: 'When you need something changed before a meeting tomorrow morning, you are not waiting for a developer eight hours behind to wake up. I work in PKT and I am reachable during your business day.',
+  },
+  {
+    title: 'Meet in person if you want to',
+    text: 'Most of my work is remote, but if you are in Lahore and prefer to talk through a project face to face, that can be arranged. Some clients want a handshake before they pay a deposit — I understand that.',
+  },
+  {
+    title: 'Local payment, no friction',
+    text: 'Pay by local bank transfer, card through Safepay, or Wise. No requirement to hold a foreign bank account or a dollar card just to get your website built.',
+  },
+  {
+    title: 'Global standards, local rates',
+    text: 'The same person building for clients in the United States, United Kingdom and Australia builds for Lahore businesses — at pricing that makes sense for this market.',
+  },
+];
+
+const localFacts = [
+  { label: 'Based in', value: addressLines().join(', ') },
+  { label: 'Working hours', value: 'Monday–Friday, 9:00 AM – 6:00 PM PKT · Saturday, 10:00 AM – 4:00 PM PKT' },
+  { label: 'Serving', value: 'Lahore and across Pakistan, plus remote clients worldwide' },
+  { label: 'Payment', value: 'Local bank transfer, card via Safepay, or Wise — invoiced in USD' },
+  { label: 'Phone', value: business.phoneLocal.display, href: `tel:${business.phoneLocal.href}` },
+  { label: 'Email', value: business.email, href: `mailto:${business.email}` },
+];
+
+const process = [
+  {
+    title: 'A conversation, not a form',
+    text: 'Tell me what the business does and what the website needs to achieve. If you already have a site I will review it before we speak.',
+  },
+  {
+    title: 'Fixed quote and timeline',
+    text: 'You get a written scope, a fixed price and a delivery date — usually within one business day.',
+  },
+  {
+    title: 'Build with early visibility',
+    text: 'A staging link goes up within the first few days so you can watch it come together and give feedback as we go.',
+  },
+  {
+    title: 'Launch and handover',
+    text: 'I deploy the site, connect the domain, set up analytics, then hand over editor access with a walkthrough so your team can make changes.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Do you meet clients in person in Lahore?',
+    answer:
+      'Yes, if you would like to. Most projects run entirely over email and WhatsApp because that is faster for everyone, but if you are in Lahore and prefer to discuss the project face to face before committing, that can be arranged. Just mention it when you get in touch.',
+  },
+  {
+    question: 'How much does a website cost in Lahore?',
+    answer:
+      'My packages start at $799 for a five-page WordPress site and $1,799 for a ten-page site with advanced SEO. Converting an existing AI-generated design starts at $399. If you tell me what you need, you get a fixed price in writing before any work begins — no hourly billing and no surprise invoices.',
+  },
+  {
+    question: 'How do I pay a Lahore-based developer?',
+    answer:
+      'Local bank transfer, card payment through Safepay, or Wise. I invoice in US dollars because most of my clients are international, but you do not need a foreign account or a dollar card to work with me. Payment is 50% to start and 50% on completion.',
+  },
+  {
+    question: 'Do you only work with businesses in Lahore?',
+    answer:
+      'No. Lahore is where I am based, but the majority of my clients are in the United States, United Kingdom, Australia and Singapore. Working locally means overlap with your business hours and the option to meet — it does not limit who I can work with.',
+  },
+  {
+    question: 'Can you maintain my website after it launches?',
+    answer:
+      'Yes. Monthly care plans start at $99 and cover WordPress and plugin updates, backups, security monitoring, uptime monitoring and a set number of content edits each month. Every project also includes 30 days of free support for genuine bugs after launch.',
+  },
+  {
+    question: 'What are your working hours?',
+    answer:
+      'Monday to Friday, 9:00 AM to 6:00 PM Pakistan Standard Time, and Saturday 10:00 AM to 4:00 PM. I answer most messages the same working day. For clients in the US I keep early-morning and late-evening slots for calls so we are not both working at unreasonable hours.',
+  },
+  {
+    question: 'Will my website work for customers outside Pakistan?',
+    answer:
+      'Yes, and that matters more than it sounds. Every site I build is hosted on infrastructure with a global CDN, optimised for Core Web Vitals, and structured so it loads quickly for visitors in the US, UK and Middle East as well as locally. If you sell internationally, that speed difference affects both rankings and sales.',
+  },
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services/' },
+];
+---
+
+<BaseLayout
+  title="Web Design in Lahore | WordPress & Divi Specialist"
+  description="Web design in Lahore for small businesses — WordPress and Divi websites built by a local developer with 10+ years' experience. Meet in person or work remotely."
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="Lahore, Pakistan"
+    title="Web Design in Lahore"
+    description="I build WordPress and Divi websites for Lahore businesses — and for clients worldwide — from my base in the city. Same timezone, local payment options, and the option to meet in person before you commit to anything. More than 100 sites built over 10+ years."
+    tint="#F0FDF4"
+    breadcrumbs={breadcrumbs}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What I Build</h2>
+        <p class="section__subtitle">
+          Websites that a Lahore business can actually run — built on WordPress so your team can
+          edit them without a developer.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        {offerings.map((offering) => (
+          <div class="offering-card">
+            <h3 class="offering-card__title">{offering.title}</h3>
+            <p class="offering-card__text">{offering.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="offering-note">
+        Looking for something more specific? See the{' '}
+        <a href="/services/hire-wordpress-developer/">WordPress development service</a> or the{' '}
+        <a href="/pricing/">full pricing breakdown</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Why Work With a Lahore-Based Developer</h2>
+        <p class="section__subtitle">
+          Being local is not a marketing angle here — it changes how the project feels day to day.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {localReasons.map((reason) => (
+          <div class="reason-card">
+            <h3 class="reason-card__title">{reason.title}</h3>
+            <p class="reason-card__text">{reason.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Practical Details</h2>
+        <p class="section__subtitle">
+          Everything you would want to know before getting in touch.
+        </p>
+      </div>
+
+      <dl class="facts">
+        {localFacts.map((fact) => (
+          <div class="facts__row">
+            <dt class="facts__label">{fact.label}</dt>
+            <dd class="facts__value">
+              {fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">How a Project Runs</h2>
+        <p class="section__subtitle">
+          Most Lahore projects go from first message to a live site in under three weeks.
+        </p>
+      </div>
+
+      <ol class="steps">
+        {process.map((step, index) => (
+          <li class="step">
+            <span class="step__num" aria-hidden="true">{index + 1}</span>
+            <div>
+              <h3 class="step__title">{step.title}</h3>
+              <p class="step__text">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Common Questions</h2>
+        <p class="section__subtitle">
+          If yours is not answered here, <a href="#contact">send me a message</a> — I answer
+          the same working day.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">{faq.question}</summary>
+            <p class="faq-item__answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="sources">
+        Learn more about{' '}
+        <a href="https://wordpress.org/" target="_blank" rel="noopener">WordPress</a> and{' '}
+        <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener"
+          >Core Web Vitals</a
+        >, or see the{' '}
+        <a href="/portfolio/">portfolio of past projects</a>.
+      </p>
+    </div>
+  </section>
+
+  <ContactForm />
+
+  <JsonLd type="LocalBusiness" />
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'Web design in Lahore',
+      description:
+        'WordPress and Divi website design, e-commerce builds, redesigns and monthly care plans for businesses in Lahore, Pakistan.',
+      serviceType: 'Web design',
+      url: canonical,
+      areaServed: ['Lahore', 'Punjab', 'Pakistan'],
+    }}
+  />
+  <JsonLd type="FAQ" data={{ questions: faqs }} />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .offering-card,
+  .reason-card {
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .offering-card__title,
+  .reason-card__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  .offering-card__text,
+  .reason-card__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .offering-note {
+    max-width: 640px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .facts {
+    max-width: 760px;
+    margin-inline: auto;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .facts__row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .facts__label {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+  }
+
+  .facts__value {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg);
+  }
+
+  .step__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item__question {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    content: '−';
+  }
+
+  .faq-item__answer {
+    padding-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .sources {
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .facts__row {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+  }
+</style>

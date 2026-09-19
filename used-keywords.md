@@ -36,3 +36,5 @@
 | divi 5 loop builder | 2026-08-23 | divi-5-loop-builder-dynamic-content-made-easy |
 | ai to divi 5 | 2026-08-24 | how-to-convert-ai-generated-designs-to-divi-5-layouts |
 | divi 5 migration guide | 2026-09-01 | divi-5-migration-guide-upgrade-without-breaking-your-site |
+| hire wordpress developer | 2026-09-19 | services/hire-wordpress-developer |
+| web design lahore | 2026-09-19 | services/web-design-lahore |

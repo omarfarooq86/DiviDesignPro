@@ -2,33 +2,54 @@
 import { business } from '../data/business';
 
 interface Props {
-  type: 'Person' | 'WebSite' | 'Article' | 'BreadcrumbList' | 'FAQ';
+  type:
+    | 'Person'
+    | 'WebSite'
+    | 'Article'
+    | 'BreadcrumbList'
+    | 'FAQ'
+    | 'LocalBusiness'
+    | 'Organization'
+    | 'Service';
   data?: Record<string, any>;
 }
 
 const { type, data = {} } = Astro.props;
 
+/** Stable @id values so nodes can cross-reference each other in the graph. */
+const BUSINESS_ID = `${business.siteUrl}/#business`;
+const ORGANIZATION_ID = `${business.siteUrl}/#organization`;
+
+/** The Lahore address, shared by every schema that publishes a location. */
+function postalAddress() {
+  return {
+    '@type': 'PostalAddress',
+    streetAddress: `${business.address.line1}, ${business.address.line2}`,
+    addressLocality: business.address.city,
+    addressRegion: business.address.region,
+    postalCode: business.address.postalCode,
+    addressCountry: 'PK',
+  };
+}
+
+/** Resolve a relative upload path against siteUrl, matching SEOMeta's behaviour. */
+function absolute(pathOrUrl: string) {
+  return pathOrUrl.startsWith('http') ? pathOrUrl : `${business.siteUrl}${pathOrUrl}`;
+}
+
 function getPersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': `${business.siteUrl}/#person`,
     name: business.legalName,
     alternateName: business.tradingAs,
     url: business.siteUrl,
     jobTitle: 'Freelance Divi Designer & WordPress Developer',
     email: business.email,
     telephone: [business.phoneLocal.href, business.phoneInternational.href],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: `${business.address.line1}, ${business.address.line2}`,
-      addressLocality: business.address.city,
-      addressRegion: business.address.region,
-      postalCode: business.address.postalCode,
-      addressCountry: 'PK',
-    },
-    sameAs: [
-      'https://www.facebook.com/divithemesolution',
-    ],
+    address: postalAddress(),
+    sameAs: [...business.sameAs],
     knowsAbout: ['WordPress', 'Divi Theme', 'Web Design', 'SEO', 'Frontend Development'],
   };
 }
@@ -37,9 +58,12 @@ function getWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'DiviDesignPro',
-    url: 'https://www.dividesignpro.com',
-    description: 'Freelance Divi Designer crafting pixel-perfect WordPress sites.',
+    '@id': `${business.siteUrl}/#website`,
+    name: business.displayName,
+    url: business.siteUrl,
+    description: business.description,
+    inLanguage: 'en',
+    publisher: { '@id': ORGANIZATION_ID },
   };
 }
 
@@ -98,12 +122,87 @@ function getFAQSchema() {
   };
 }
 
+function getLocalBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    // ProfessionalService is the most specific subtype that fits a freelance
+    // web developer; LocalBusiness is kept alongside it for broader coverage.
+    '@type': ['ProfessionalService', 'LocalBusiness'],
+    '@id': BUSINESS_ID,
+    name: business.displayName,
+    legalName: business.legalName,
+    url: business.siteUrl,
+    description: business.description,
+    email: business.email,
+    telephone: business.phoneLocal.href,
+    image: absolute(business.ogImage),
+    logo: absolute(business.logo),
+    priceRange: business.priceRange,
+    address: postalAddress(),
+    areaServed: [...business.areaServed],
+    sameAs: [...business.sameAs],
+    openingHoursSpecification: business.openingHours.map((slot) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [...slot.days].map((day) => `https://schema.org/${day}`),
+      opens: slot.opens,
+      closes: slot.closes,
+    })),
+  };
+}
+
+function getOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': ORGANIZATION_ID,
+    name: business.displayName,
+    legalName: business.legalName,
+    url: business.siteUrl,
+    description: business.description,
+    logo: {
+      '@type': 'ImageObject',
+      url: absolute(business.logo),
+    },
+    image: absolute(business.ogImage),
+    email: business.email,
+    telephone: business.phoneLocal.href,
+    address: postalAddress(),
+    sameAs: [...business.sameAs],
+    founder: {
+      '@type': 'Person',
+      '@id': `${business.siteUrl}/#person`,
+      name: business.legalName,
+    },
+  };
+}
+
+function getServiceSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: data.name,
+    description: data.description,
+    serviceType: data.serviceType,
+    url: data.url,
+    provider: {
+      '@type': 'ProfessionalService',
+      '@id': BUSINESS_ID,
+      name: business.displayName,
+      url: business.siteUrl,
+    },
+    areaServed: data.areaServed ? [...data.areaServed] : [...business.areaServed],
+  };
+}
+
 const schemas: Record<string, () => object> = {
   Person: getPersonSchema,
   WebSite: getWebSiteSchema,
   Article: getArticleSchema,
   BreadcrumbList: getBreadcrumbSchema,
   FAQ: getFAQSchema,
+  LocalBusiness: getLocalBusinessSchema,
+  Organization: getOrganizationSchema,
+  Service: getServiceSchema,
 };
 
 const schema = schemas[type] ? schemas[type]() : null;

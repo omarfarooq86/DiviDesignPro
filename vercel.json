@@ -11,6 +11,16 @@
       "permanent": true
     },
     {
+      "source": "/ai-services/",
+      "destination": "/services/ai-web-development/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-services",
+      "destination": "/services/ai-web-development/",
+      "permanent": true
+    },
+    {
       "source": "/category/divi-tips/page/:page/",
       "destination": "/blog/page/:page/",
       "permanent": true

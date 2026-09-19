@@ -27,10 +27,19 @@ DiviDesignPro is the freelance portfolio of Muhammad Omar Farooq (Omar), a Divi 
 - Divi 5 expert since beta
 - 10+ years WordPress experience
 
+## Location
+Based in Lahore, Pakistan. Service-area business working remotely with clients worldwide.
+Working hours: Monday–Friday 9:00 AM – 6:00 PM PKT, Saturday 10:00 AM – 4:00 PM PKT.
+
 ## Site Structure
 - Homepage: https://www.dividesignpro.com
-- Blog: https://www.dividesignpro.com/blog/
+- Services: https://www.dividesignpro.com/services/
+- Hire a WordPress Developer: https://www.dividesignpro.com/services/hire-wordpress-developer/
+- Web Design in Lahore: https://www.dividesignpro.com/services/web-design-lahore/
+- AI-Powered Web Development: https://www.dividesignpro.com/services/ai-web-development/
+- Pricing: https://www.dividesignpro.com/pricing/
 - Portfolio: https://www.dividesignpro.com/portfolio/
+- Blog: https://www.dividesignpro.com/blog/
 - RSS Feed: https://www.dividesignpro.com/rss.xml
 
 ## Blog Topics

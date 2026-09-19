@@ -11,6 +11,15 @@ export const business = {
   siteUrl: 'https://www.dividesignpro.com',
   email: 'contact@dividesignpro.com',
 
+  /** Boilerplate used by the Organization and LocalBusiness schema builders. */
+  description:
+    'Freelance Divi and WordPress developer building fast, SEO-optimised websites for small businesses worldwide. 10+ years of experience, 100+ sites delivered.',
+
+  /** Public asset paths. The schema builders resolve these against siteUrl, the
+   *  same way SEOMeta resolves ogImage. */
+  logo: '/logo.png',
+  ogImage: '/og-images/home-og.png',
+
   phoneLocal: { display: '+92 310 1418307', href: '+923101418307' },
   phoneInternational: { display: '+1 (307) 445-3714', href: '+13074453714' },
 
@@ -22,6 +31,25 @@ export const business = {
     region: 'Punjab',
     country: 'Pakistan',
   },
+
+  /** This is a service-area business (see google-business-profile.md), not a
+   *  storefront — so areaServed carries the local signal rather than geo
+   *  coordinates, which we deliberately do not invent. */
+  areaServed: ['Lahore', 'Pakistan', 'Worldwide'],
+
+  /** Spans the maintenance entry tier ($99/mo) up to a full custom build. */
+  priceRange: '$99 - $2500',
+
+  /** Support hours in PKT (UTC+5), taken from google-business-profile.md. */
+  openingHours: [
+    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00' },
+    { days: ['Saturday'], opens: '10:00', closes: '16:00' },
+  ],
+
+  sameAs: [
+    'https://www.linkedin.com/in/muhammad-omar-farooq-wp/',
+    'https://www.facebook.com/divithemesolution',
+  ],
 
   currency: 'USD',
   effectiveDate: '14 September 2026',
