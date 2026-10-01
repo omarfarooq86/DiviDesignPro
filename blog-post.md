@@ -1,6 +1,6 @@
 # Blog Post Skill
 
-Create SEO-optimized blog posts for CaseWalay using the brand voice files and a structured workflow.
+Create SEO-optimized blog posts for using the brand voice files and a structured workflow.
 
 ## Trigger
 

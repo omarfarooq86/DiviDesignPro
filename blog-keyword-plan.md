@@ -14,76 +14,104 @@ So writing more Divi tutorials will not grow impressions much. That space is
 real, but it is being served to a small audience of other Divi users — peers,
 not clients.
 
-**The opportunity is pricing content.** Expand "wordpress maintenance cost" and
-you get 329 related keywords, and unlike the Divi terms these carry real volume,
-real CPC, and low difficulty. People searching cost questions are buyers.
+**The opportunity is maintenance content.** And within that, one cluster beats
+the others on every dimension.
 
 ## Read this before using the numbers
 
 **Google Ads groups close variants, and SE Ranking reports the group, not the
-keyword.** In the tables below, twelve rows all showing `480` with the same CPC
-are **one keyword group of 480 total**, not 480 each. Do not add them up. Each
-group below is marked, so target the group rather than chasing every variant.
+keyword.** Rows sharing an identical volume *and* an identical CPC to the cent
+are **one keyword group**, not several keywords at that volume each. Do not add
+them up. Groups are marked below.
 
 **Ignore anything about piracy.** The raw Divi keyword set was polluted with
-`divi theme crack download`, `divi theme premium free`, `nulled`, and similar.
+`divi theme crack download`, `divi theme premium free`, `nulled` and similar.
 Never write for those — wrong audience, and legally dubious.
 
 ---
 
-## Tier 1 — Pricing content (the real opportunity)
+## Tier 1 — Maintenance plans and pricing
 
-These are the posts worth writing first. High intent, winnable difficulty,
-and CPCs that show advertisers value these visitors.
+Ordered by opportunity, not by volume.
 
-### 1. How Much Does WordPress Maintenance Cost?
+### 1. Website Maintenance Plans: What's Included and What They Cost
+
+**This is the best target on the list.** Higher CPC than the cost phrase, at a
+fraction of the difficulty.
+
+| Keyword | Volume | Difficulty | CPC |
+|---|---|---|---|
+| **website maintenance plan** *(group)* | **390** | **14–17** | **$6.43** |
+| **website maintenance packages** *(group)* | **320** | **5–19** | **$5.13** |
+| what is a website maintenance plan | 10 | 18 | $0 |
+
+Difficulty 5–19 is close to free. Two distinct groups, roughly 710 searches a
+month between them, at $5–6.43 a click. Nothing else on the list combines those
+three numbers.
+
+### 2. WordPress Maintenance Plans
+
+The WordPress-specific version of the same idea. Fewer searches, higher CPC.
+
+| Keyword | Volume | Difficulty | CPC |
+|---|---|---|---|
+| wordpress maintenance plan *(group)* | 390 | 26–27 | **$10.00** |
+| wordpress care plans *(group)* | 260 | **12** | $5.50 |
+| wordpress website maintenance plan | 140 | 21 | $8.18 |
+| wordpress support plans *(group)* | 140 | 13–18 | $5.29 |
+
+### 3. How Much Does Website Maintenance Cost?
+
+Still worth writing — highest volume of the three — but it is the weakest on
+value and the hardest of the three.
 
 | Keyword | Volume | Difficulty | CPC |
 |---|---|---|---|
 | maintenance of website cost | 590 | 40 | $3.34 |
-| **website maintenance cost** *(group — covers ~12 variants)* | **480** | **26–28** | **$3.23** |
+| **website maintenance cost** *(group)* | **480** | **26** | **$3.23** |
 | how much does it cost to maintain a website | 210 | 27 | $1.22 |
 
-Target the phrase **"website maintenance cost"**. That group is the prize:
-480/month at difficulty 26 is genuinely winnable for a small site.
+Note the question form is far smaller than the statement form: "how much does
+website maintenance cost" is only 50/month against the 480 group. Write the
+title as a statement.
 
-### 2. How Much Does a WordPress Website Cost?
+### 4. How Much Does a WordPress Website Cost?
+
+Separate cluster from maintenance. Still a strong buyer-intent post.
 
 | Keyword | Volume | Difficulty | CPC |
 |---|---|---|---|
-| **wordpress website cost** *(group — covers ~15 variants)* | **480** | **22–33** | **$2.23** |
+| **wordpress website cost** *(group)* | **480** | **22–33** | **$2.23** |
 | how much does wordpress cost | 320 | 41 | $1.36 |
 | how much is a wordpress website | 140 | 24 | $2.04 |
 | wordpress website design cost | 110 | **18** | $1.88 |
 
-Best entry point is **"cost of a wordpress website"** (difficulty 23) or
-**"wordpress website design cost"** (difficulty 18).
+---
 
-### 3. WordPress Maintenance Plans: What You Get and What They Cost
+## Worth more than their volume suggests
 
-This one has the highest commercial value on the entire list — those CPCs mean
-advertisers pay $5–10 a click.
+Small groups with unusually high CPCs — good second-wave targets once the
+Tier 1 posts are indexed.
 
 | Keyword | Volume | Difficulty | CPC |
 |---|---|---|---|
-| wordpress maintenance plans *(group)* | 390 | 26 | **$10.00** |
-| wordpress maintenance packages *(group)* | 210 | 23 | $6.83 |
-| wordpress website maintenance plan | 140 | 21 | $8.18 |
-| wordpress support plans | 140 | **13** | $5.29 |
-| monthly website maintenance packages | 140 | 17 | $0 |
-| does wordpress cost money | 140 | 29 | $2.44 |
+| wordpress hosting and maintenance | 70 | 40 | **$24.53** |
+| wordpress support package *(group)* | 50 | 21–30 | **$22.05** |
+| wordpress monthly support *(group)* | 70 | 25–26 | **$18.22** |
+| best wordpress maintenance services | 110 | **24** | **$16.97** |
+| wordpress web maintenance *(group)* | 480 | 33–35 | **$15.75** |
 
-Watch the overlap with the `/pricing/` page — keep the blog post informational
-(what plans include, how to choose) and let the service page do the selling, or
-they will compete with each other. See `used-keywords.md` before publishing.
+`wordpress web maintenance` is notable: 480 searches at $15.75, the highest-value
+large group found. Difficulty 35 makes it a stretch for now, but it is the
+obvious long-term target.
 
 ---
 
 ## Tier 2 — Divi, but only the broad terms
 
-The hyper-specific tutorial long-tail has no volume. These broader terms do,
-and they are worth having — but they attract Divi users rather than buyers, so
-treat them as authority-building rather than lead generation.
+The hyper-specific tutorial long-tail has no volume. These broader terms do, and
+are worth having — but they attract Divi users rather than buyers, so treat them
+as authority-building rather than lead generation.
 
 | Keyword | Volume | Difficulty | Notes |
 |---|---|---|---|
@@ -97,28 +125,28 @@ treat them as authority-building rather than lead generation.
 | divi lifetime | 210 | **11** | already covered by an existing post |
 | divi meaning | 170 | 15 | |
 
-Note `divi-lifetime-license-worth-it` already exists and targets "divi lifetime"
-— that is the right instinct and it is already ranking-eligible.
+`divi-lifetime-license-worth-it` already targets "divi lifetime" — right
+instinct, already ranking-eligible.
 
 ---
 
 ## Do not target
 
 - **The Divi tutorial long-tail.** 50 of 55 candidates had no measurable volume.
-  Your existing 15 Divi 5 posts already cover this ground; more will not move
-  impressions.
+  The existing 15 Divi 5 posts already cover this ground.
 - **Piracy terms** — `crack`, `nulled`, `free download`, `premium free`.
 - **Non-English terms.** The SE Ranking US database is not language-filtered and
-  returned German, French, Italian and Indonesian keywords. The exclusion filter
-  does not appear to work, so filter by eye.
+  returned German, French, Italian and Indonesian keywords.
 - **Brand/navigational Divi terms** like "elegant themes" (1,900/month) — that
   traffic belongs to Elegant Themes and mostly wants their site, not yours.
 
 ## How to use this
 
-1. Write Tier 1 first. Four posts, each targeting one group above.
-2. One post per group — do not write five posts all chasing "website
-   maintenance cost" variants, they will cannibalise each other.
-3. Log each keyword in `used-keywords.md` before publishing so nothing overlaps.
-4. Re-run the metrics after 8–12 weeks; the rank tracker will show whether
+1. Write the four Tier 1 posts, one per cluster. Do not write several posts
+   chasing variants of one group — they will cannibalise each other.
+2. Keep them **informational**. `/pricing/` already sells maintenance plans; if
+   the blog posts also push plans hard, the two compete for the same terms.
+   Explain, compare, and link to `/pricing/` for the sale.
+3. Log each keyword in `used-keywords.md` before publishing.
+4. Re-run the metrics after 8–12 weeks and check the rank tracker to see whether
    they moved.

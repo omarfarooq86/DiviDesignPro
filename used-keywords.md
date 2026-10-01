@@ -38,3 +38,6 @@
 | divi 5 migration guide | 2026-09-01 | divi-5-migration-guide-upgrade-without-breaking-your-site |
 | hire wordpress developer | 2026-09-19 | services/hire-wordpress-developer |
 | web design lahore | 2026-09-19 | services/web-design-lahore |
+| website maintenance plan | 2026-10-01 | website-maintenance-plans-explained |
+| website maintenance cost | 2026-10-01 | website-maintenance-cost |
+| wordpress website cost | 2026-10-01 | wordpress-website-cost |
