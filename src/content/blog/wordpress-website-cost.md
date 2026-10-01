@@ -4,6 +4,7 @@ seoTitle: 'WordPress Website Cost in 2026: Real Freelancer Prices'
 description: 'A WordPress website costs $500 to $10,000 from a freelancer, or $25,000 and up from an agency. Here is what drives the price and where the money actually goes.'
 date: 2026-10-01
 category: 'WordPress'
+featuredImage: '/blog-images/wordpress-website-cost-featured.webp'
 hasFAQ: true
 faqData:
   - question: 'How much does a WordPress website cost?'

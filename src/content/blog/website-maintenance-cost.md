@@ -4,6 +4,7 @@ seoTitle: 'Website Maintenance Cost: Real Numbers for 2026'
 description: 'Website maintenance costs range from $5 to $25,000 a month. Here is what a small business actually pays, what drives the price up, and how to spend less.'
 date: 2026-10-01
 category: 'WordPress'
+featuredImage: '/blog-images/website-maintenance-cost-featured.webp'
 hasFAQ: true
 faqData:
   - question: 'How much does website maintenance cost per month?'
@@ -59,6 +60,18 @@ Under $50 a month, you are buying automation. Automated backups, automatic plugi
 **$250 to $500 a month** adds content work, SEO monitoring, performance tuning and a real person you can email when something looks wrong.
 
 **Past $500**, you are usually buying availability commitments, staging environments for testing changes, and priority response times. For most small businesses this is more than you need.
+
+## The three ways you will be quoted
+
+Almost every maintenance quote you receive is one of these three. They are not interchangeable, and the cheapest-looking one usually is not.
+
+**Fixed monthly plan.** A flat fee, a defined task list, a defined response time. Predictable for you, and it puts the risk of a bad month on the provider. This is what my plans are. It is the right model if you want to stop thinking about it.
+
+**Block hours.** You buy a bundle of hours — ten a month, say — and the provider draws them down as work comes in. Fine if your needs are genuinely unpredictable, but you are paying for capacity whether you use it or not. Unused hours usually expire, which is worth checking.
+
+**Pay as you go.** Hourly, only when something needs doing. Cheapest on paper, and genuinely the best value for a static site. The catch is that nobody is watching. Problems get found when they break rather than before, which is exactly the thing maintenance is supposed to prevent.
+
+A quick way to decide: if your site earns money, a fixed plan is cheaper than the outage you are avoiding. If it does not, pay as you go and accept that you are choosing to react rather than prevent.
 
 ## What drives your price up
 

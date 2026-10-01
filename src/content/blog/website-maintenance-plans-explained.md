@@ -4,6 +4,7 @@ seoTitle: 'Website Maintenance Plans: What You Actually Get'
 description: 'A website maintenance plan explained by someone who does the work. What is included, what it costs, and the situations where you should not buy one at all.'
 date: 2026-10-01
 category: 'WordPress'
+featuredImage: '/blog-images/website-maintenance-plans-featured.webp'
 hasFAQ: true
 faqData:
   - question: 'What is a website maintenance plan?'
@@ -61,6 +62,67 @@ Here is the checklist I would want if I were buying. If a provider cannot explai
 | Content and plugin audit | Quarterly | Removes what you are no longer using |
 
 Nine out of ten "maintenance" plans I have seen stop at the first three rows. Updates, backup, scan, done. That is automated housekeeping, not maintenance.
+
+## What happens when the site goes down at 9pm
+
+This is the part that separates a plan from a plugin, and it is the question almost nobody asks before signing up.
+
+Ask any provider this: *the site is down, it is Friday night, what actually happens?*
+
+There are three honest answers.
+
+**"We monitor it and we'll know."** That is not an answer. Knowing your site is down is not the same as fixing it.
+
+**"Open a ticket and we'll get to it Monday."** Perfectly reasonable for a brochure site. Completely useless if your site takes bookings.
+
+**"Here's the number, here's the response window, here's who answers."** That is a maintenance plan.
+
+Whichever answer you get, get it in writing. And get the response window in hours, not adjectives. "Fast" is not a number. "Under four hours during business hours, next morning outside them" is a number.
+
+One more thing worth doing before you need it. Find out where your site is hosted, and whether you have access to that account. I have taken over sites where the previous developer held the hosting login and the owner had never seen it. When something breaks at that point, you are not waiting for maintenance. You are waiting for a negotiation.
+
+## The parts most plans leave out
+
+Three things rarely appear on a maintenance checklist, and all three cause real problems.
+
+**Accessibility.** If your site has forms, menus and images, it has accessibility requirements. A contrast change or a form rebuild can quietly break keyboard navigation. Nobody notices, because the people who would notice have already left your site. A decent plan checks the basics — alt text, focus states, heading order — after any significant update. If yours does not, ask why.
+
+**Compliance.** If you collect email addresses in the EU, or take payments at all, your privacy policy and cookie setup need to stay accurate as your site changes. New plugins have a habit of dropping their own cookies without telling you. That is a legal problem, not a technical one, and it does not announce itself.
+
+**Staging.** Testing an update on a live site means your customers are the test. A proper setup lets an update be applied somewhere private first, checked, then pushed live. Plenty of cheap hosts charge extra for staging, which is why it is rarely included.
+
+None of these are exotic. They are just unglamorous, and unglamorous work is the first thing to get cut from a cheap plan.
+
+## The tools doing the actual work
+
+You are not buying tools. You are buying someone who knows which ones to use and checks that they ran. Still, it helps to know what should be running behind the scenes, because it makes vague answers easier to spot.
+
+**Uptime monitoring.** A service that pings your site every minute from several locations and alerts someone when it stops responding. This is how you find out your site is down before a customer emails you. If a provider cannot name theirs, they do not have one.
+
+**Backup.** Files and database, stored somewhere that is not your web server. The 3-2-1 principle is the standard: three copies, two different media, one off-site. In practice, one good off-site backup that you have actually restored from beats three you have never tested.
+
+**Security scanning.** Malware detection and file integrity monitoring. This watches for changed files, which is how most infections announce themselves. A scan that runs weekly is fine. A scan that runs never is why sites get blacklisted.
+
+**Performance monitoring.** Somewhere that tracks load time over months, not once at launch. Sites slow down gradually as content and plugins accumulate, and gradual problems never trigger an alert.
+
+**Staging.** A private copy of your site where updates get tested first. This is the difference between "we updated your site" and "we updated your site and checked it still works before you saw it."
+
+Here is the test worth running. Ask your provider what alerted them last month. Every provider who is genuinely monitoring has at least one story — a plugin that broke something, a disk that filled up, a certificate that was about to expire. A provider with no stories is not watching.
+
+(I have plenty of stories. My favourite is the SSL certificate that expired on a Sunday because the auto-renewal had silently stopped working in March. Nobody noticed for four hours. The client noticed in one, which is how I found out. That is what monitoring is for, and also what humility is for.)
+
+## How often should you review the plan itself
+
+A maintenance plan is not a gym membership. It should change as your site changes.
+
+Go through it once a year, or whenever something significant shifts. Four questions:
+
+- **Is the plan still the right size?** If you stopped publishing and your site is now a brochure, you may be overpaying by $200 a month.
+- **What actually got done last year?** Ask for the list. A provider who cannot produce one is not maintaining anything, and a year is plenty of time to find out.
+- **Has anything been added that nobody uses?** SEO reporting on a site with no SEO strategy is a line item, not a service.
+- **Is the response time still right?** A site that now takes bookings needs a faster response than it did when it was a catalogue.
+
+I review every client's plan with them once a year. Roughly a third of the time we reduce it. That is not a great business model and it is the correct one, because the alternative is a customer who eventually notices they have been paying for nothing.
 
 ## What it costs, honestly
 
