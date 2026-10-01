@@ -1,3 +1,12 @@
+Keyword ledger. Add a row the moment a keyword is claimed for a post or page.
+
+A keyword claimed here is also removed from `keywords.csv`, so that file is
+the list of what is still available to write and this file is the full record
+of what has been used. Rows are never deleted from here.
+
+Note: ~30 rows below were claimed before this convention existed and were never
+in `keywords.csv` at all. That is expected, not a discrepancy.
+
 | keyword | date | post_slug |
 |---|---|---|
 | divi 5 global variables | 2026-07-29 | divi-5-global-variables-complete-guide |

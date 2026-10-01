@@ -1,19 +1,11 @@
 keyword,category,intent,difficulty,content_idea,priority
 divi 5 tutorial,divi,informational,medium,step-by-step divi 5 beginner guide,high
-divi 5 vs divi 4,divi,informational,low,comparison article with migration guide,high
-divi 5 speed optimization,divi,informational,medium,performance tuning checklist,high
-divi 5 loop builder,divi,informational,medium,tutorial with real examples,high
-divi 5 global variables,divi,informational,low,design system setup guide,medium
-divi 5 design presets,divi,informational,low,reusable presets walkthrough,medium
 divi 5 review,divi,informational,high,honest review from experienced dev,high
 divi 5 new features,divi,informational,medium,whats new roundup post,high
 divi 5 release date,divi,informational,low,news update post,low
-divi 5 migration guide,divi,informational,medium,step-by-step upgrade tutorial,high
 divi 5 performance benchmarks,divi,informational,medium,data-driven speed comparison,medium
-divi 5 vs elementor,divi,comparison,high,in-depth feature comparison,high
 divi 5 vs bricks builder,divi,comparison,medium,head-to-head comparison,medium
 divi theme pricing,divi,commercial,low,pricing breakdown and value analysis,high
-divi lifetime license,divi,commercial,low,cost-benefit analysis,high
 divi theme features,divi,informational,low,complete feature overview,medium
 divi child theme development,divi,informational,medium,how to build custom child themes,medium
 divi custom modules,divi,informational,high,creating custom divi modules guide,medium
@@ -128,7 +120,6 @@ facebook ads wordpress,digital_marketing,informational,low,fb pixel integration,
 website lead generation tips,digital_marketing,informational,medium,lead gen optimization guide,high
 small business website tips,digital_marketing,informational,low,website tips for smbs,high
 divi 5 dynamic content tutorial,divi,informational,medium,dynamic content deep dive,medium
-divi 5 hover effects,divi,informational,low,advanced hover effects tutorial,low
 divi 5 animations,divi,informational,low,animation effects guide,low
 divi 5 gradient backgrounds,divi,informational,low,modern gradient design tutorial,low
 divi 5 mega menu,divi,informational,medium,mega menu creation guide,medium
@@ -178,11 +169,9 @@ divi ai,divi,informational,high,divi ai features tutorial,high
 divi marketplace,divi,informational,low,child themes and layouts,medium
 elegant themes pricing,divi,commercial,medium,membership options breakdown,high
 elegant themes discount,divi,commercial,low,discount codes and deals,high
-website maintenance plan,maintenance,commercial,low,what is actually included and how to choose one,high
 website maintenance plans,maintenance,commercial,low,plan tiers compared side by side,high
 website maintenance packages,maintenance,commercial,low,package inclusions and monthly pricing,high
 web maintenance plan,maintenance,commercial,low,plan basics for small business sites,medium
-website maintenance cost,maintenance,commercial,medium,real cost breakdown by site type,high
 maintenance of website cost,maintenance,commercial,medium,annual maintenance budget guide,medium
 how much does website maintenance cost,maintenance,commercial,medium,direct pricing answer with ranges,high
 how much does it cost to maintain a website,maintenance,commercial,medium,monthly versus annual costs explained,medium
@@ -198,7 +187,6 @@ wordpress support package,maintenance,commercial,medium,what a support package s
 best wordpress maintenance services,maintenance,commercial,low,how to choose a maintenance provider,medium
 wordpress hosting and maintenance,maintenance,commercial,high,hosting plus maintenance combined guide,low
 wordpress web maintenance,maintenance,commercial,high,ongoing wordpress upkeep guide,medium
-wordpress website cost,wordpress,commercial,medium,full cost breakdown by site type,high
 cost of a wordpress website,wordpress,commercial,low,budget tiers explained honestly,high
 how much is a wordpress website,wordpress,commercial,low,price ranges by website type,high
 wordpress website design cost,wordpress,commercial,low,what drives design cost up or down,high
