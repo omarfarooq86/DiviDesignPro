@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { business, addressLines } from '../../data/business';
+
+const canonical = Astro.url.href;
+
+const offerings = [
+  {
+    title: 'Business websites',
+    text: 'Five to ten page WordPress sites for Pakistani businesses — service pages, an about page, testimonials and a contact form that reliably reaches you.',
+  },
+  {
+    title: 'E-commerce stores',
+    text: 'WooCommerce stores with products, delivery charges and payment options configured for how people actually buy in Pakistan, including cash on delivery.',
+  },
+  {
+    title: 'Redesigns and rebuilds',
+    text: 'Your current site looks dated on mobile or loads slowly. I rebuild it on modern WordPress without losing your existing content or search rankings.',
+  },
+  {
+    title: 'Care and maintenance',
+    text: 'Monthly plans from $99 covering WordPress and plugin updates, backups, security monitoring and a set number of content edits each month.',
+  },
+];
+
+const reasons = [
+  {
+    title: 'Same country, same timezone',
+    text: 'I work in Pakistan Standard Time, so when you send a message during your business day, it gets answered during your business day. No waiting for a developer eight hours behind to wake up.',
+  },
+  {
+    title: 'Payment that works here',
+    text: 'Local bank transfer, card through Safepay, or Wise. No requirement to hold a foreign bank account or a dollar card just to get your website built.',
+  },
+  {
+    title: 'Built for Pakistani buyers',
+    text: 'Cash on delivery, local courier integration, WhatsApp enquiries, and pages that load on a 3G connection. A template built for American customers gets these wrong.',
+  },
+  {
+    title: 'International standards',
+    text: 'The same developer building for clients in the United States, United Kingdom and Australia builds for Pakistani businesses. That matters for speed, structure and how the site performs for overseas customers.',
+  },
+];
+
+const localFacts = [
+  { label: 'Based in', value: addressLines().join(', ') },
+  { label: 'Serving', value: 'Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar and across Pakistan — remotely, plus international clients' },
+  { label: 'Working hours', value: 'Monday–Friday, 9:00 AM – 6:00 PM PKT · Saturday, 10:00 AM – 4:00 PM PKT' },
+  { label: 'Payment', value: 'Local bank transfer, card via Safepay, or Wise — invoiced in USD' },
+  { label: 'Phone', value: business.phoneLocal.display, href: `tel:${business.phoneLocal.href}` },
+  { label: 'Email', value: business.email, href: `mailto:${business.email}` },
+];
+
+const process = [
+  {
+    title: 'Tell me what the business needs',
+    text: 'A short description, any designs or content you already have, and your rough deadline. If you have an existing site, send the URL so I can look before we speak.',
+  },
+  {
+    title: 'Fixed quote and timeline',
+    text: 'You get a written scope, a fixed price and a delivery date — usually within one business day. No hourly billing and no discovery fee.',
+  },
+  {
+    title: 'Build with early visibility',
+    text: 'A staging link goes up within the first few days so you can watch it come together and give feedback as we go, rather than waiting for a big reveal.',
+  },
+  {
+    title: 'Launch and handover',
+    text: 'I deploy the site, connect the domain, set up analytics, then hand over editor access with a walkthrough video so your team can make changes.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How much does a website cost in Pakistan?',
+    answer:
+      'My packages start at $799 for a five-page WordPress site and $1,799 for a ten-page site with advanced SEO and a blog. E-commerce starts at $2,999. Converting a design you already have from Figma or an AI tool starts at $399. You get a fixed price in writing before any work begins.',
+  },
+  {
+    question: 'Do you work with businesses outside Lahore?',
+    answer:
+      'Yes. Lahore is where I am based, but most of my work is remote and I have built for clients in Islamabad and internationally. Karachi, Faisalabad, Multan, Peshawar and Rawalpindi are all normal working relationships — everything happens over email, WhatsApp and video calls.',
+  },
+  {
+    question: 'How do I pay a developer based in Pakistan?',
+    answer:
+      'Local bank transfer, card payment through Safepay, or Wise. I invoice in US dollars because most of my clients are international, but you do not need a foreign account or a dollar card to work with me. Payment is 50% to start and 50% on completion before final delivery.',
+  },
+  {
+    question: 'Can you build an online store for Pakistani customers?',
+    answer:
+      'Yes, and it needs configuring differently from a Western store. Cash on delivery, local courier charges, bank transfer or Easypaisa-style payment, and WhatsApp order enquiries are all things I set up. A default WooCommerce install does none of these well out of the box.',
+  },
+  {
+    question: 'Should I use WordPress or a custom-built site?',
+    answer:
+      'WordPress for almost every business site, because you can edit it yourself and it costs less to maintain. Custom development makes sense when you need something WordPress genuinely cannot do — a booking system with complex rules, or a product that is really a web application.',
+  },
+  {
+    question: 'Do you only work with businesses in Pakistan?',
+    answer:
+      'No. Most of my clients are in the United States, United Kingdom and Australia. Working with Pakistani businesses is not a fallback — it is simply work I am well set up for, in the same timezone and with payment options that make sense locally.',
+  },
+  {
+    question: 'What are your working hours?',
+    answer:
+      'Monday to Friday, 9:00 AM to 6:00 PM Pakistan Standard Time, and Saturday 10:00 AM to 4:00 PM. I answer most messages the same working day, and keep early and late slots for calls with clients in other timezones.',
+  },
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services/' },
+];
+---
+
+<BaseLayout
+  title="Website Development in Pakistan | WordPress & Divi Experts"
+  description="A Lahore-based WordPress developer building websites for businesses across Pakistan. Fixed prices from $799, delivered in one to three weeks, remote-first."
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="Serving all of Pakistan"
+    title="Website Development in Pakistan"
+    description="I build WordPress and Divi websites for businesses across Pakistan — from my base in Lahore, working remotely with clients in Karachi, Islamabad, Faisalabad and beyond. Fixed prices, local payment options, and the same developer from first message to launch. More than 100 sites built over 10+ years."
+    tint="#F0FDF4"
+    breadcrumbs={breadcrumbs}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What I Build</h2>
+        <p class="section__subtitle">
+          Websites a Pakistani business can actually run — built on WordPress so your team can
+          edit them without calling a developer.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        {offerings.map((offering) => (
+          <div class="offering-card">
+            <h3 class="offering-card__title">{offering.title}</h3>
+            <p class="offering-card__text">{offering.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="offering-note">
+        Detailed pricing is on the <a href="/pricing/">pricing page</a>. If you already have a
+        design from Figma or an AI tool, <a href="/services/ai-web-development/">converting it</a>{' '}
+        is the fastest and cheapest route to launch.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Why Work With a Developer in Pakistan</h2>
+        <p class="section__subtitle">
+          Not a sales angle. These are practical differences you notice in week one.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {reasons.map((reason) => (
+          <div class="reason-card">
+            <h3 class="reason-card__title">{reason.title}</h3>
+            <p class="reason-card__text">{reason.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Practical Details</h2>
+        <p class="section__subtitle">
+          Everything you would want to know before getting in touch.
+        </p>
+      </div>
+
+      <dl class="facts">
+        {localFacts.map((fact) => (
+          <div class="facts__row">
+            <dt class="facts__label">{fact.label}</dt>
+            <dd class="facts__value">
+              {fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      <p class="facts-note">
+        Recent work includes a pediatric cardiology practice in Islamabad and a Pakistani
+        e-commerce store, alongside clients in the US, UK, Singapore and Australia. See the{' '}
+        <a href="/portfolio/">full portfolio</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">How a Project Runs</h2>
+        <p class="section__subtitle">
+          Most projects go from first message to a live site in under three weeks.
+        </p>
+      </div>
+
+      <ol class="steps">
+        {process.map((step, index) => (
+          <li class="step">
+            <span class="step__num" aria-hidden="true">{index + 1}</span>
+            <div>
+              <h3 class="step__title">{step.title}</h3>
+              <p class="step__text">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Common Questions</h2>
+        <p class="section__subtitle">
+          If yours is not answered here, <a href="#contact">send me a message</a> — I answer
+          the same working day.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">{faq.question}</summary>
+            <p class="faq-item__answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="sources">
+        Learn more about{' '}
+        <a href="https://wordpress.org/" target="_blank" rel="noopener">WordPress</a> and{' '}
+        <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener"
+          >Core Web Vitals</a
+        >, or see work for a{' '}
+        <a href="/services/web-design-lahore/">Lahore business</a> if you are based in the city.
+      </p>
+    </div>
+  </section>
+
+  <ContactForm />
+
+  <JsonLd type="LocalBusiness" />
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'Website development in Pakistan',
+      description:
+        'WordPress and Divi website design, e-commerce builds, redesigns and monthly care plans for businesses across Pakistan.',
+      serviceType: 'Web design',
+      url: canonical,
+      areaServed: ['Pakistan', 'Karachi', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan', 'Peshawar'],
+    }}
+  />
+  <JsonLd type="FAQ" data={{ questions: faqs }} />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .offering-card,
+  .reason-card {
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .offering-card__title,
+  .reason-card__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  .offering-card__text,
+  .reason-card__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .offering-note {
+    max-width: 640px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .facts {
+    max-width: 760px;
+    margin-inline: auto;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .facts__row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .facts__label {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+  }
+
+  .facts__value {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .facts-note {
+    max-width: 640px;
+    margin: var(--space-6) auto 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg);
+  }
+
+  .step__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item__question {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    content: '−';
+  }
+
+  .faq-item__answer {
+    padding-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .sources {
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .facts__row {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+  }
+</style>
