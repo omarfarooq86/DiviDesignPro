@@ -39,6 +39,11 @@
       "source": "/category/divi-tips/",
       "destination": "/blog/",
       "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
     }
   ],
   "headers": [
