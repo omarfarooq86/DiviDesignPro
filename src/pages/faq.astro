@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { business } from '../data/business';
+
+const canonical = Astro.url.href;
+
+// Grouped so fifteen answers do not read as one wall. Every question here also
+// feeds the FAQPage schema below, so the visible copy and the structured data
+// cannot drift apart.
+const sections = [
+  {
+    id: 'working-together',
+    title: 'Working together',
+    intro: 'What it is like to hire me, and what I need from you.',
+    faqs: [
+      {
+        question: 'How long does a website take to build?',
+        answer:
+          'Most projects take 1-3 weeks, depending on the number of pages and how fast feedback comes in. I give you a fixed delivery date before we start, and I stick to it.',
+      },
+      {
+        question: 'What do I need to give you before we start?',
+        answer:
+          "Your logo, brand colors, rough page list, and any text or images you already have. If you're missing something, I'll tell you exactly what I need and help you work out the rest.",
+      },
+      {
+        question: "I'm not technical. Can I still work with you?",
+        answer:
+          "Yes. You don't need to know what features or plugins you need. Tell me what your business does and what you want visitors to do, and I'll recommend the setup in plain language.",
+      },
+      {
+        question: 'Can you work with me if I am outside Pakistan?',
+        answer:
+          "Yes. I'm based in Lahore and work with clients remotely. We talk over Zoom, WhatsApp, email or Upwork messages, and I work around your time zone.",
+      },
+      {
+        question: "What if I'm not happy with the design?",
+        answer:
+          'I share designs early so we catch problems before the build, not after.',
+      },
+    ],
+  },
+  {
+    id: 'pricing',
+    title: 'Pricing and payment',
+    intro: 'What it costs, and what happens when things change.',
+    faqs: [
+      {
+        question: 'How much does a website cost?',
+        answer:
+          'Projects start at $799, with local pricing available for clients in Pakistan. The final quote depends on pages, features, and any ecommerce or booking setup. You get a written quote before any work begins.',
+      },
+      {
+        question: 'What happens if the project scope changes midway?',
+        answer:
+          'Small tweaks are included. Larger additions get a clear quote first, so there are no surprise charges.',
+      },
+      {
+        question: 'How do I pay?',
+        answer:
+          'Payment is split into milestones, so you only pay as the work gets delivered. Bank transfer, card through Safepay, and Wise are all accepted.',
+      },
+    ],
+  },
+  {
+    id: 'your-website',
+    title: 'Your website',
+    intro: 'What you get, and what it will do for your business.',
+    faqs: [
+      {
+        question: 'Will my website rank on Google?',
+        answer:
+          "Every site I build has clean structure, fast loading, mobile layouts, and on-page SEO basics in place. Rankings also depend on your competition, content, and time, so I can't promise a position, and anyone who does is guessing.",
+      },
+      {
+        question: 'Will my website bring me more leads or sales?',
+        answer:
+          "A good site makes it easy for visitors to call, book, or buy. I design every page around one clear action. Results depend on your traffic and offer too, so I'll walk you through what to expect for your business.",
+      },
+      {
+        question: 'Do you build online stores?',
+        answer:
+          'Yes. I build WooCommerce stores on WordPress, including product pages, checkout, and payment setup.',
+      },
+      {
+        question: 'Will my site work well on mobile and load fast?',
+        answer:
+          'Yes. I build and test on phones, tablets, and desktops, and I optimize images and code for speed before launch.',
+      },
+      {
+        question: 'Can I edit the website myself after launch?',
+        answer:
+          "Yes. If you know WordPress, it lets you change text and images without code. I'll also record a short walkthrough video so you're not stuck.",
+      },
+    ],
+  },
+  {
+    id: 'after-launch',
+    title: 'After launch',
+    intro: 'What happens once the site is live.',
+    faqs: [
+      {
+        question: 'Do you offer support after the website goes live?',
+        answer:
+          'Yes. I include 30 days of free fixes after launch. After that, I offer a monthly maintenance plan covering edits, updates, and backups.',
+      },
+      {
+        question: 'Why choose a freelancer over an agency?',
+        answer:
+          "You work directly with the person building your site, with no hand-offs between account managers and designers. I've worked with WordPress for over 10 years — more than seven of them with Divi — including time on Divi live chat support at Elegant Themes. I'm also a Top Rated freelancer on Upwork with a 100% Job Success Score.",
+      },
+    ],
+  },
+];
+
+const allFaqs = sections.flatMap((section) => section.faqs);
+---
+
+<BaseLayout
+  title="Website Design FAQ | Timelines, Pricing & Support"
+  description="Direct answers to the questions clients ask before hiring me — how long a build takes, what a website costs, how payment works, and what happens after launch."
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="FAQ"
+    title="Frequently Asked Questions"
+    description="Fifteen questions clients ask before hiring me, answered directly. If yours is not here, send me a message and I will answer it the same working day."
+    breadcrumbs={[{ name: 'Home', url: '/' }]}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn--primary btn--lg">Ask Me Something</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  {
+    sections.map((section) => (
+      <section class="section" id={section.id}>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{section.title}</h2>
+            <p class="section__subtitle">{section.intro}</p>
+          </div>
+
+          <div class="faq-list">
+            {section.faqs.map((faq) => (
+              <details class="faq-item">
+                <summary class="faq-item__question">{faq.question}</summary>
+                <p class="faq-item__answer">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Still Deciding?</h2>
+        <p class="section__subtitle">
+          The <a href="/pricing/">pricing page</a> has every package with what is included, and
+          the <a href="/services/">services page</a> explains the different ways to work
+          together. Or just <a href="/#contact">ask me directly</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ContactForm />
+
+  <JsonLd type="FAQ" data={{ questions: allFaqs }} />
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'Website design and WordPress development',
+      description:
+        'Custom WordPress and Divi website design, e-commerce builds, AI prototype conversion, and monthly maintenance plans.',
+      serviceType: 'Web design',
+      url: canonical,
+    }}
+  />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item__question {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    content: '−';
+  }
+
+  .faq-item__answer {
+    padding-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+</style>
