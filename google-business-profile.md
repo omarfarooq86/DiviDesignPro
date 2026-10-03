@@ -1,5 +1,9 @@
 # Google Business Profile — DiviDesignPro
 
+> **One profile only, located in Lahore.** Do not create a second profile, and do
+> not set the location to any country other than Pakistan. See "Why the location
+> is Lahore" below before changing anything here.
+
 ## Business Details
 
 | Field | Value |
@@ -7,14 +11,40 @@
 | **Business Name** | DiviDesignPro |
 | **Category (Primary)** | Web Designer |
 | **Category (Secondary)** | Website Designer, Internet Marketing Service |
-| **Address** | Remote / online business — set as "Service Area Business" |
-| **Phone** | +92 310 1418307 |
+| **Location** | Lahore, Pakistan — Service Area Business, address hidden |
+| **Phone (primary)** | +92 310 1418307 |
+| **Phone (additional)** | +1 (307) 445-3714 — for international clients |
 | **Email** | omee00@gmail.com |
 | **Website** | https://www.dividesignpro.com |
 | **Appointment Link** | https://www.dividesignpro.com/#contact |
 
+## Why the location is Lahore
+
+A second profile was set to a US location in October 2026 in an attempt to reach
+American local clients. It was removed within days, before Google acted on it.
+Three things were wrong with it:
+
+- **It does not work.** Local pack rankings are driven by proximity. A profile in
+  Lahore cannot outrank a local agency for a local US search, whatever the
+  address field says.
+- **It risked both profiles.** Two profiles sharing one website URL is a duplicate
+  listing. Google suspends on that, and it does not reliably suspend only one —
+  the Lahore profile holding the reviews was exposed too.
+- **It contradicts the Safepay review.** Sites reading as a US business hiding a
+  Pakistani base are a known rejection trigger for that gateway.
+
+The US market is served through `/services/hire-wordpress-developer/`, which
+targets a global query where geography does not matter. That is the correct
+vehicle, and it needs no local pretence.
+
+**Two phone numbers are fine and intended.** A US number for international
+clients to call is normal. What must never happen is a US number paired with a
+US location, or a US number with no Pakistani counterpart.
+
 ## Service Area
-Worldwide (remote freelancer)
+Lahore and across Pakistan, plus remote clients worldwide. Do not add US service
+areas in an attempt to reach American clients — the same proximity problem
+applies, and distant areas invite the same review.
 
 ## Services to List
 1. Custom Divi 5 Website Design
