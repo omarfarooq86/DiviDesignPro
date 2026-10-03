@@ -11,6 +11,16 @@
       "permanent": true
     },
     {
+      "source": "/divi-5-the-10-questions-every-user-is-asking-right-now/",
+      "destination": "/blog/divi-5-the-10-questions-every-user-is-asking-right-now/",
+      "permanent": true
+    },
+    {
+      "source": "/divi-5-the-10-questions-every-user-is-asking-right-now",
+      "destination": "/blog/divi-5-the-10-questions-every-user-is-asking-right-now/",
+      "permanent": true
+    },
+    {
       "source": "/ai-services/",
       "destination": "/services/ai-web-development/",
       "permanent": true
