@@ -1,0 +1,101 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { business, addressLines } from '../data/business';
+
+const address = addressLines();
+
+const sections = [
+  {
+    id: 'information-we-collect',
+    heading: 'Information We Collect',
+    body: [
+      'We receive your WhatsApp phone number, profile name where available, message content, attachments you send, and message information such as timestamps and delivery status.',
+      'If you voluntarily provide additional information, such as your name, email address, or appointment details, we process it to handle your request.',
+    ],
+  },
+  {
+    id: 'how-we-use',
+    heading: 'How We Use Your Information',
+    body: ['We use this information to:'],
+    list: [
+      'Respond to messages and provide customer support.',
+      'Process requests and perform the actions you ask us to complete.',
+      'Operate, troubleshoot, and secure our automation.',
+      'Meet applicable legal obligations.',
+    ],
+  },
+  {
+    id: 'automated-responses',
+    heading: 'Automated Responses',
+    body: [
+      'Our service uses automated responses. Please avoid sending passwords, payment card details, or other sensitive information.',
+    ],
+  },
+  {
+    id: 'service-providers',
+    heading: 'Service Providers and Data Sharing',
+    body: [
+      `Messages are processed through <strong>Meta's WhatsApp Business Platform</strong> and our <strong>n8n</strong> automation, hosted by <strong>Domain.com</strong>.`,
+      'These providers receive information needed to perform their services. Their processing is also governed by their applicable privacy policies and agreements.',
+      'We do not sell your personal information.',
+      'We may disclose information where required by law or necessary to protect legal rights and prevent misuse.',
+    ],
+  },
+  {
+    id: 'storage-retention',
+    heading: 'Storage and Retention',
+    body: [
+      'We retain message content and customer records for <strong>7 days</strong>. Automation execution logs are retained for <strong>7 days</strong>, and backups are retained for <strong>7 days</strong>.',
+      'Information is then deleted or anonymized, unless a longer retention period is required by law.',
+    ],
+  },
+  {
+    id: 'international-processing',
+    heading: 'International Processing',
+    body: [
+      'Depending on the locations of our hosting and service providers, your information may be processed outside your country. Where applicable, we use safeguards required by relevant data protection laws.',
+    ],
+  },
+  {
+    id: 'security',
+    heading: 'Security',
+    body: [
+      'We use reasonable technical and organizational measures to protect personal information. However, no electronic transmission or storage system is completely secure.',
+    ],
+  },
+  {
+    id: 'data-deletion',
+    heading: 'Your Choices and Data Deletion',
+    body: [
+      'You can stop communicating with the service at any time. To request access to, correction of, or deletion of your personal information, email <a href="mailto:contact@dividesignpro.com">contact@dividesignpro.com</a> with the subject <strong>&ldquo;WhatsApp Data Request.&rdquo;</strong>',
+      'Include the WhatsApp phone number you used, with its country code. We may verify your identity before completing your request. We will respond within applicable legal time limits and explain any information we must retain.',
+      'Deletion from our systems does not remove messages stored on your device or data independently retained by WhatsApp under its own policies.',
+    ],
+  },
+  {
+    id: 'changes',
+    heading: 'Changes to This Policy',
+    body: [
+      'We may update this policy as our service changes. The latest version will be published on this page with an updated effective date.',
+    ],
+  },
+  {
+    id: 'contact',
+    heading: 'Contact',
+    body: [
+      '<strong>Business/operator:</strong> DiviDesignPro',
+      `<strong>Email:</strong> <a href="mailto:${business.email}">${business.email}</a>`,
+      `<strong>Address:</strong> ${address.join(', ')}`,
+    ],
+  },
+];
+---
+
+<LegalLayout
+  title="Privacy Policy for DiviDesignPro WhatsApp Automation"
+  description="How DiviDesignPro handles personal information when you message our WhatsApp automation: what we collect, how we use it, data sharing, retention and deletion."
+  badge="Legal"
+  intro="DiviDesignPro operates WhatsApp, a WhatsApp automation service that uses the WhatsApp Business Platform and n8n to receive messages, process requests, and provide responses. This policy explains how we handle personal information when you communicate with our service."
+  effectiveDate="19 October 2026"
+  sections={sections}
+/>
