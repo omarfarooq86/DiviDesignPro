@@ -3,6 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEOMeta from '../components/SEOMeta.astro';
 import JsonLd from '../components/JsonLd.astro';
+import Analytics from '../components/Analytics.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import '../styles/global.css';
 
 export interface Props {
@@ -53,6 +55,9 @@ const currentUrl = canonical || 'https://dividesignpro.com';
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Analytics (renders nothing unless PUBLIC_GA_ID is set) -->
+    <Analytics />
   </head>
   <body>
     <!-- Skip to content (accessibility) -->
@@ -91,6 +96,8 @@ const currentUrl = canonical || 'https://dividesignpro.com';
     <JsonLd type="Person" />
     <JsonLd type="WebSite" />
     <JsonLd type="Organization" />
+
+    <ConsentBanner />
   </body>
 </html>
 

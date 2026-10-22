@@ -107,6 +107,16 @@
         if (response.ok) {
           form.setAttribute('hidden', '');
           successMsg.removeAttribute('hidden');
+
+          // GA4 conversion. Mark `generate_lead` as a key event in the GA4
+          // admin so it appears in reports and can be imported into Ads later.
+          const gtag = (window as any).gtag;
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              form_name: 'contact',
+              page_location: window.location.href,
+            });
+          }
         }
       } catch (error) {
         submitBtn.classList.remove('form-submit--loading');

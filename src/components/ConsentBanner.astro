@@ -1,0 +1,95 @@
+---
+// Consent banner for GA4. Only rendered when analytics is configured, so a
+// site without PUBLIC_GA_ID never shows a cookie prompt.
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+{gaId && (
+  <div id="cookie-consent" class="cookie-consent" role="region" aria-label="Cookie consent" hidden>
+    <p class="cookie-consent__text">
+      I use Google Analytics to see which pages people find useful. It sets cookies.
+      Nothing loads until you choose. <a href="/privacy-policy/">Privacy policy</a>
+    </p>
+    <div class="cookie-consent__actions">
+      <button type="button" class="btn btn--primary btn--sm" data-consent="granted">Accept</button>
+      <button type="button" class="btn btn--outline btn--sm" data-consent="denied">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    const banner = document.getElementById('cookie-consent');
+    const KEY = 'cookie-consent';
+
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem(KEY);
+    } catch (e) { /* localStorage blocked */ }
+
+    if (banner && !stored) banner.hidden = false;
+
+    banner?.querySelectorAll<HTMLButtonElement>('[data-consent]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const choice = button.dataset.consent === 'granted' ? 'granted' : 'denied';
+        try {
+          localStorage.setItem(KEY, choice);
+        } catch (e) { /* nothing to persist */ }
+
+        const gtag = (window as any).gtag;
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', { analytics_storage: choice });
+        }
+        if (banner) banner.hidden = true;
+      });
+    });
+  </script>
+)}
+
+<style>
+  .cookie-consent {
+    position: fixed;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    left: var(--space-4);
+    z-index: 200;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    max-width: 640px;
+    margin-inline: auto;
+    padding: var(--space-4) var(--space-5);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cookie-consent__text {
+    margin: 0;
+    flex: 1 1 280px;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .cookie-consent__text a {
+    color: var(--color-primary);
+  }
+
+  .cookie-consent__actions {
+    display: flex;
+    gap: var(--space-2);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .cookie-consent__actions {
+      width: 100%;
+    }
+
+    .cookie-consent__actions .btn {
+      flex: 1;
+    }
+  }
+</style>
