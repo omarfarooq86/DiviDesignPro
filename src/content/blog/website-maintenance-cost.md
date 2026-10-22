@@ -190,7 +190,7 @@ If you would rather hand the whole thing over than shop for it, [my WordPress ma
 
 If you want the other half of this picture, I wrote about [what a maintenance plan should actually include](/blog/website-maintenance-plans-explained/) — the checklist to hold any provider against.
 
-If your site is costing more to maintain than it is worth, that is a different conversation. [Hiring a WordPress developer](/services/hire-wordpress-developer/) to rebuild it properly is often cheaper over three years. Full numbers on [the pricing page](/pricing/).
+If your site is costing more to maintain than it is worth, that is a different conversation. [Hiring a WordPress developer](/services/hire-wordpress-developer/) to rebuild it properly is often cheaper over three years. Full numbers on [the pricing page](/pricing/). If you are still working out what the site itself should cost before you maintain it, [WordPress website cost](/blog/wordpress-website-cost/) covers build prices separately.
 
 I am in Lahore, working with small businesses in the US, UK and Australia. Ten years on WordPress, just over 100 sites. I publish my prices because the alternative is a contact form and a discovery call, and nobody has time for that.
 

@@ -1,5 +1,6 @@
 ---
 title: 'Divi 5 Global Variables: The Complete Guide (2026)'
+seoTitle: 'Divi 5 Design Variables: The Complete Guide'
 description: 'Master Divi 5 Global Variables — colours, fonts, numbers, relative colours, fluid sizing and presets. The design token workflow that lets you restyle a whole site in minutes.'
 date: 2026-07-29
 updated: 2026-08-24

@@ -148,6 +148,8 @@ Then resist the urge to switch to Column on tablet, and use Display Order rather
 
 [Divi 5's](https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=81533) Flexbox controls are good enough that most responsive problems are now configuration mistakes rather than limitations. If your nav collapses at the wrong breakpoint and you'd rather not bisect it yourself, [I'll bisect it](#contact).
 
+Next in the series: [responsive columns without CSS Grid](/blog/et-part-9-of-mastering-flexbox-creating-responsive-columns-with/) and [flexbox best practices](/blog/et-part-10-of-mastering-flexbox-best-practices-helpful-tips/).
+
 ---
 
 *This is a summary of [Elegant Themes' original post, "Part 7 Of Mastering Flexbox: Building Flexible Button, Menu, And Link Rows"](https://www.elegantthemes.com/blog/divi-resources/part-7-of-mastering-flexbox-building-flexible-button-menu-and-link-rows). All credit for the original content goes to Elegant Themes.*

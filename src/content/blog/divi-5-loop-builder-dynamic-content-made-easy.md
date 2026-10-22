@@ -180,3 +180,4 @@ Design the card properly, set the aspect ratio so the images behave, build it on
 - [Divi 5 Global Variables: Complete Guide](/blog/divi-5-global-variables-complete-guide/) — what your loop cards should reference instead of hex codes
 - [Better Blog, Portfolio and Product Grids with Aspect Ratio](/blog/et-how-to-build-better-blog-portfolio-and-product-grids-with-as/) — the image framing that makes a loop look finished
 - [Divi 5 Speed Optimization Tips](/blog/divi-5-speed-optimization-tips/) — keeping a 12-item loop from becoming a 4MB page
+- [Divi 5 tips: the 10 questions everyone asks](/blog/divi-5-the-10-questions-every-user-is-asking-right-now/) — worth reading before you build the first loop

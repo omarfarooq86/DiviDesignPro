@@ -85,7 +85,7 @@ The practical payoff shows up in things like contained hover zooms — set the G
 - Theme Builder — headers, footers, archives, 404, Woo templates
 - The Divi Library
 - Transform, Position, Scroll Effects, Sticky Position, hover states
-- Licensing: around $89/year or $249 lifetime, unlimited sites
+- Licensing: around $89/year or $249 lifetime, unlimited sites — [and whether the lifetime deal is still worth it](/blog/divi-lifetime-license-worth-it/)
 
 If you know Divi 4, you can build in Divi 5 within an hour. The learning curve isn't the interface — it's knowing which of your old techniques to stop using.
 
@@ -123,7 +123,7 @@ My rule after a migration: **go through the Library and ask of each item, "is th
 
 **Stay on Divi 4 temporarily** if a third-party Divi plugin you depend on has no Divi 5 release, you're mid-project against a deadline, or you have a heavily customised child theme nobody has reviewed.
 
-Those are timing reasons, not reasons to stay. Divi 4 keeps getting support; it doesn't get the development. [The upgrade guide](/blog/what-is-divi-5-and-why-you-should-upgrade/) has the step-by-step, including the plugin audit that prevents the one failure mode that actually bites.
+Those are timing reasons, not reasons to stay. Divi 4 keeps getting support; it doesn't get the development. [The upgrade guide](/blog/what-is-divi-5-and-why-you-should-upgrade/) has the step-by-step, including the plugin audit that prevents the one failure mode that actually bites. If you are moving a live site rather than starting fresh, the [Divi 5 migration guide](/blog/divi-5-migration-guide-upgrade-without-breaking-your-site/) is the longer version.
 
 ## Straight Answers
 

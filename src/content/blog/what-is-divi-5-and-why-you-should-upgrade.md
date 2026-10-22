@@ -168,4 +168,6 @@ The upgrade is genuinely low risk for a stock site. Audit your addon plugins fir
 
 - [Divi 5 vs Divi 4: What Changed](/blog/divi-5-vs-divi-4-what-changed/) — the itemised comparison
 - [Divi 5: The 10 Questions Everyone Is Asking](/blog/divi-5-the-10-questions-every-user-is-asking-right-now/) — quick answers to upgrade worries
-- [Divi 5 Global Variables: Complete Guide](/blog/divi-5-global-variables-complete-guide/) — the feature that changes how you build
+- [Divi 5 design variables: the complete guide](/blog/divi-5-global-variables-complete-guide/) — the feature that changes how you build
+- [Divi 5 migration guide](/blog/divi-5-migration-guide-upgrade-without-breaking-your-site/) — moving a live site without breaking it
+- [Divi 5.11 release notes](/blog/et-divi-5-11-release-notes/) — what shipped in the latest release

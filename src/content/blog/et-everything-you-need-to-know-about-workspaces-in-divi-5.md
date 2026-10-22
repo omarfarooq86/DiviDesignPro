@@ -172,6 +172,8 @@ Learn Ctrl+K, understand that Update and Reset are opposites, and build your sec
 
 [Divi 5](https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=81533) ships Power User and Minimalist to start from, which is enough. If you'd like a Global workspace configured so your whole team sees the same builder — genuinely useful for documentation — [that's a quick job](#contact).
 
+If you only need the builder interface trimmed down rather than the full workspace system, [customising the builder interface](/blog/et-how-to-customize-the-divi-5-builder-interface-with-workspace/) is the narrower walkthrough.
+
 ---
 
 *This is a summary of [Elegant Themes' original post, "Everything You Need To Know About Workspaces In Divi 5"](https://www.elegantthemes.com/blog/divi-resources/everything-you-need-to-know-about-workspaces-in-divi-5). All credit for the original content goes to Elegant Themes.*

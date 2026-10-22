@@ -142,6 +142,8 @@ Just replace text before images, keep some cells empty, and restyle with your ow
 
 You need [Divi 5](https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=81533) to use these, and if you'd like the pack adapted to an existing brand system rather than dropped in as-is, [that's an afternoon's work](#contact) and it's the difference between "we used a template" and "we have a design."
 
+If you would rather have a module library than a set of sections, [Divi Essential adds 109+ modules](/blog/et-divi-5-product-highlight-divi-essential/) to Divi 5.
+
 ---
 
 *This is a summary of [Elegant Themes' original post, "Knockout Grids For Divi 5"](https://www.elegantthemes.com/blog/divi-resources/knockout-grids-for-divi-5). All credit for the original content goes to Elegant Themes.*

@@ -1,5 +1,6 @@
 ---
 title: '10 Best Variable Fonts in Divi 5 (With Their Axes)'
+seoTitle: '10 Best Variable Fonts for Web Design (Divi 5 Tested)'
 description: 'The 10 best variable fonts now available in Divi 5 — every axis, weight range and use case for Inter, Roboto Flex, Recursive, Fraunces and more, plus how to wire them to variables.'
 date: 2026-07-30
 updated: 2026-08-23
@@ -153,6 +154,8 @@ Ten fonts, every axis accounted for. Pick by job, wire them to font variables, b
 Then pick the fewest axes that get the design done. That's the choice that determines whether the typography still looks deliberate in two years, and it's the one nobody thinks about while choosing a font.
 
 [Divi 5](https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=81533) puts these controls in the Design tab and the Variable Manager. If your site has accumulated eleven weights across four families and you'd like it down to one variable font without anyone noticing, [that's a rewarding kind of subtraction](#contact).
+
+If you want pairings rather than single fonts, [seven variable font combinations](/blog/et-creative-variable-font-setting-combinations/) shows what the axes are actually good for. And once you have picked a family, [Divi 5 design variables](/blog/divi-5-global-variables-complete-guide/) is how you wire it site-wide instead of per module.
 
 ---
 

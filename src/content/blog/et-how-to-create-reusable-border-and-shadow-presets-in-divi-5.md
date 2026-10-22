@@ -136,6 +136,8 @@ Name by role. Keep the groups independent. Three shadow levels. Check the result
 
 [Divi 5](https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=81533) gives you the Preset Manager and three retrofit tools, which means even a messy existing site is fixable. If yours has forty card variations and you'd rather not count them yourself, [I'll count them](#contact).
 
+Once you have more than a couple of presets, the next problem is which one wins. [Stacking, nesting and mixing presets](/blog/et-how-to-stack-nest-mix-and-match-presets-in-divi-5/) covers the inheritance rules.
+
 ---
 
 *This is a summary of [Elegant Themes' original post, "How To Create Reusable Border And Shadow Presets In Divi 5"](https://www.elegantthemes.com/blog/divi-resources/how-to-create-reusable-border-and-shadow-presets-in-divi-5). All credit for the original content goes to Elegant Themes.*

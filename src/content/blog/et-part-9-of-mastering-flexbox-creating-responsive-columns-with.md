@@ -139,7 +139,7 @@ Column Class plus Wrap plus Gap. That's the trio. Everything else in [Divi 5's](
 
 Start with simple fractions, resist the urge to switch on every control at once, and test with real content instead of placeholder text — because placeholder text is a professional liar and will happily hide a layout problem until launch day.
 
-Next up in the series: [best practices and the mistakes to avoid](/blog/et-part-10-of-mastering-flexbox-best-practices-helpful-tips/). And if a layout is refusing to behave no matter which setting you poke, [I'm available](#contact) — I've poked all of them.
+Next up in the series: [best practices and the mistakes to avoid](/blog/et-part-10-of-mastering-flexbox-best-practices-helpful-tips/). If you missed it, [part 7 covers button, menu and link rows](/blog/et-part-7-of-mastering-flexbox-building-flexible-button-menu-an/). And if a layout is refusing to behave no matter which setting you poke, [I'm available](#contact) — I've poked all of them.
 
 ---
 

@@ -132,6 +132,8 @@ The point of all this isn't to make a blog post look like a print magazine. It's
 
 Pick your two, check it on a phone, and resist the drop cap on paragraph four. If your blog layout needs an editorial once-over, [I'm around](#contact) — and I'll only use one vertical heading, I promise.
 
+If what you want is a pull quote rather than a whole editorial system, [five free quote sections](/blog/et-large-quotes-for-divi-5/) are ready to import.
+
 ---
 
 *This is a summary of [Elegant Themes' original post, "How To Create Magazine-Style Blog Posts With Divi 5's New Text Styling Options"](https://www.elegantthemes.com/blog/divi-resources/how-to-create-magazine-style-blog-posts-with-divi-5s-new-text-styling-options). All credit for the original content goes to Elegant Themes.*
