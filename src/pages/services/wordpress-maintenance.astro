@@ -1,0 +1,738 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { business } from '../../data/business';
+
+const canonical = Astro.url.href;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PRICING — single source of truth. Edit these three numbers only.
+//
+// 99 / 199 / 399 are the figures already published in
+// /blog/website-maintenance-cost/ ("My own plans are $99, $199 and $399").
+// They are used here in the plan cards, the comparison table, the <title>
+// and the meta description, so changing them here updates all four.
+// If you change them, update the cost article to match.
+//
+// TODO before launch — confirm the inferred values below:
+//   • response times on each tier
+//   • number of monthly content edits included
+//   • whether Complete Care includes a quarterly speed audit
+// ─────────────────────────────────────────────────────────────────────────────
+const plans = [
+  {
+    name: 'Basic Care',
+    price: 99,
+    tagline: 'For brochure and small business sites that need to stay up and stay backed up.',
+    features: [
+      'Monthly WordPress core and plugin updates',
+      'Every update tested on a staging copy first',
+      'Weekly backups, stored off your host',
+      'Uptime monitoring, checked every minute',
+      'Monthly security scan',
+      'Email support, 1 business day response',
+    ],
+  },
+  {
+    name: 'Business Care',
+    price: 199,
+    popular: true,
+    tagline: 'For sites that generate enquiries, where a broken form is lost revenue.',
+    features: [
+      'Everything in Basic Care',
+      'Up to 1 hour of content or design changes monthly',
+      'Broken link and form submission checks',
+      'Performance check with fixes applied',
+      'Priority support, same business day response',
+      'Plain-English monthly report',
+    ],
+  },
+  {
+    name: 'Complete Care',
+    price: 399,
+    tagline: 'For WooCommerce stores and sites where an hour offline is expensive.',
+    features: [
+      'Everything in Business Care',
+      'Up to 3 hours of changes monthly',
+      'WooCommerce, payment and checkout checks',
+      'Search Console monitoring and error triage',
+      'Quarterly speed audit with a written plan',
+      'Emergency response outside business hours',
+    ],
+  },
+];
+
+const fromPrice = plans[0].price;
+
+// What a plan deliberately does NOT cover. Being explicit here closes more
+// deals than another feature bullet — it is the question every buyer asks.
+const exclusions = [
+  {
+    title: 'New pages and redesigns',
+    text: 'A new landing page, a rebuilt section or a fresh design is project work, not maintenance. Quoted separately at the normal rate.',
+  },
+  {
+    title: 'Content writing',
+    text: 'I will publish and format your content. I will not write it. Copywriting is a different job and usually a different person.',
+  },
+  {
+    title: 'Hosting and domain fees',
+    text: 'You pay your host and registrar directly, so you always own them. I never mark up infrastructure.',
+  },
+  {
+    title: 'Malware cleanup on a compromised site',
+    text: 'If a site is already infected, cleanup is a one-off job from $350 depending on depth, quoted before anything starts.',
+  },
+];
+
+const audiences = [
+  {
+    title: 'Small business sites with enquiries at stake',
+    text: 'Your contact form is the business. If it stops sending, you find out from a quiet week rather than an error message. This is the most common reason people move onto a plan.',
+  },
+  {
+    title: 'WooCommerce stores',
+    text: 'Checkout is the one page that must never break. Store plans add payment gateway checks, order integrity checks and update testing that accounts for plugins talking to each other.',
+  },
+  {
+    title: 'Sites abandoned by a previous developer',
+    text: 'The site works, nobody maintains it, and the original developer has stopped replying. I inherit sites regularly and will tell you honestly whether it is worth maintaining.',
+  },
+  {
+    title: 'Agencies needing white-label cover',
+    text: 'You keep the client relationship and your branding. I do the monthly work quietly behind you and report to you, not to them.',
+  },
+];
+
+const benefits = [
+  {
+    title: 'Updates tested, not just installed',
+    text: 'Every core, theme and plugin update goes onto a staging copy first. If it breaks something, you never see it. That distinction is most of what separates maintenance from a subscription.',
+  },
+  {
+    title: 'Backups you could actually restore',
+    text: 'A backup that has never been opened is a hope, not a backup. They are stored off your host, so a hosting failure does not take the backup with it.',
+  },
+  {
+    title: 'Security monitoring with a person behind it',
+    text: 'Automated scans raise alerts. Someone still has to read them, decide whether it is a false positive, and act. That someone is me.',
+  },
+  {
+    title: 'Uptime and form checks',
+    text: 'Downtime is obvious. A silently broken contact form is not. Both are checked, because the second one costs more money.',
+  },
+  {
+    title: 'A report you can actually read',
+    text: 'What was updated, what broke, what was fixed, what needs a decision. One page, no dashboard login, no invented metrics.',
+  },
+  {
+    title: 'One person who knows your site',
+    text: 'No ticket queue and no handover to whoever is on shift. Your site gets fixed by someone who remembers why it was built that way.',
+  },
+];
+
+const comparison = [
+  { label: 'Updates installed', diy: 'When you remember', host: 'Automatically', us: 'Monthly, on staging first' },
+  { label: 'Update failures fixed', diy: 'You, at midnight', host: 'Not covered', us: 'Included' },
+  { label: 'Backups verified', diy: 'If configured', host: 'Usually daily', us: 'Weekly, stored off-host' },
+  { label: 'Security cleanup', diy: 'You', host: 'Scan only', us: 'Triaged and quoted' },
+  { label: 'Broken form detection', diy: 'Never', host: 'No', us: 'Checked monthly' },
+  { label: 'Who you email when it breaks', diy: 'Nobody', host: 'A support queue', us: 'Me, directly' },
+  { label: 'Monthly cost', diy: '$0 plus your time', host: 'Bundled in hosting', us: `$${fromPrice}–$${plans[2].price}` },
+];
+
+const steps = [
+  {
+    title: 'I audit the site first',
+    text: 'Before you pay anything I look at the site: plugin count, update history, backup situation, page speed and anything already broken. You get a short written summary either way.',
+  },
+  {
+    title: 'You pick a plan, or I tell you not to',
+    text: 'If a brochure site only needs Basic Care, that is what I will recommend. If the site is in bad enough shape that maintenance is throwing money at a rebuild, I will say so.',
+  },
+  {
+    title: 'First month is a cleanup',
+    text: 'The first cycle is heavier than the rest: bring everything up to date, remove abandoned plugins, fix what is already broken, and confirm the backup restores.',
+  },
+  {
+    title: 'Then it becomes boring',
+    text: 'Which is the point. A predictable monthly cycle, a report, and an inbox that stays quiet. Boring is the service working.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What do WordPress maintenance services include?',
+    answer:
+      'A real maintenance service covers four things: WordPress core, theme and plugin updates tested on a staging copy before they go live; backups stored somewhere other than your host and periodically test-restored; security monitoring where a person actually reviews the alerts; and uptime plus form-submission checks. Anything that only installs updates automatically is not maintenance — it is a plugin with a billing address.',
+  },
+  {
+    question: 'How much do WordPress maintenance services cost?',
+    answer:
+      'My plans are $99, $199 and $399 per month, with 30 days notice and no lock-in. Industry-wide, small business sites run $50 to $500 a month, e-commerce $300 to $1,000, and anything under about $50 is usually automation with nobody watching. I published a full breakdown of the market, line by line, in the website maintenance cost guide.',
+  },
+  {
+    question: 'Is WordPress maintenance really necessary?',
+    answer:
+      'If the site earns money or captures enquiries, yes. The two failures I see most are a plugin update taking the site down overnight, and an outdated plugin being exploited so the site starts redirecting visitors. Both are cheap to prevent and expensive to discover. If it is a hobby site with no traffic, pay-as-you-go is the honest recommendation.',
+  },
+  {
+    question: 'Can you maintain a site you did not build?',
+    answer:
+      'Yes, and most of the sites I maintain were built by someone else. I will review the site before quoting so the price reflects what is actually there — a site with 45 plugins costs more to maintain than one with 12, and I would rather tell you that up front than discover it in month two.',
+  },
+  {
+    question: 'Do you only work with Divi sites?',
+    answer:
+      'No. Divi is my specialty and I spent years on Elegant Themes support, but I maintain sites on the WordPress block editor, Elementor, WooCommerce and a number of themes no longer actively developed. If a site is built on something genuinely abandoned, I will say so and quote a rebuild instead.',
+  },
+  {
+    question: 'What happens if my site goes down at night?',
+    answer:
+      'Uptime monitoring alerts me, not just you. On Business Care and Complete Care I investigate and restore from backup if needed; Complete Care includes out-of-hours emergency response. On Basic Care, a nighttime outage is handled the next business morning unless it is a full outage, which I treat as urgent regardless of plan.',
+  },
+  {
+    question: 'Can I get a one-off fix without a monthly plan?',
+    answer:
+      'Yes. Ad-hoc work is billed hourly, and for a static site that never changes, pay-as-you-go is often the better value. The trade-off is that nobody is watching between jobs, so problems are found when they break rather than before.',
+  },
+  {
+    question: 'How do I cancel, and what happens to my site?',
+    answer:
+      'Thirty days notice, by email, no exit fee. You keep the site, the hosting, the domain and every login. Nothing is held hostage, and there is no clause that makes your site depend on me. If you leave, I hand over documentation and a final backup.',
+  },
+  {
+    question: 'Do you work with clients outside Pakistan?',
+    answer:
+      'Most of them are outside Pakistan — the US, UK, Australia and Singapore. I am based in Lahore and work in Pakistan Standard Time (UTC+5), which overlaps with UK mornings and US evenings. I keep early and late slots for calls, and most day-to-day communication happens over email or WhatsApp.',
+  },
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services/' },
+];
+---
+
+<BaseLayout
+  title={`WordPress Maintenance Services | Plans from $${fromPrice}/mo`}
+  description={`Monthly WordPress maintenance from $${fromPrice}: tested updates, verified backups, security monitoring and uptime checks, with a real person reviewing your site. 30 days notice, no lock-in.`}
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="WordPress Care Plans"
+    title="WordPress Maintenance Services"
+    description="You do not need a developer on retainer. You need someone who logs in every month, tests the updates before they go live, confirms the backup actually restores, and fixes what broke before your customers find it. That is what these plans are — and I do the work myself, from Lahore, for clients in the US, UK and Australia."
+    breadcrumbs={breadcrumbs}
+  >
+    <div class="hero-actions">
+      <a href="#plans" class="btn btn--primary btn--lg">See the Plans</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What Maintenance Actually Means</h2>
+        <p class="section__subtitle">
+          Most “maintenance” sold online is a plugin that installs updates and emails you a
+          dashboard login. Here is the difference, item by item.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {benefits.map((benefit) => (
+          <div class="benefit-card">
+            <h3 class="benefit-card__title">{benefit.title}</h3>
+            <p class="benefit-card__text">{benefit.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Who These Plans Are For</h2>
+        <p class="section__subtitle">
+          Four situations that account for most of the work. If yours is not here,{' '}
+          <a href="#contact">ask directly</a> — including if the answer is that you do not need a
+          plan.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {audiences.map((audience) => (
+          <div class="audience-card">
+            <h3 class="audience-card__title">{audience.title}</h3>
+            <p class="audience-card__text">{audience.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="credibility">
+        I spent years on Divi live chat support at Elegant Themes before freelancing full time,
+        and I am a Top Rated freelancer on Upwork with a 100% Job Success Score. Just over 100
+        WordPress sites built, and many more maintained.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="plans">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">WordPress Care Plans &amp; Pricing</h2>
+        <p class="section__subtitle">
+          Billed monthly, thirty days notice, no lock-in. Hosting and domain are paid by you
+          directly to your provider.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {plans.map((plan) => (
+          <div class:list={['tier-card', plan.popular && 'tier-card--popular']}>
+            {plan.popular && <span class="tier-card__badge">Most popular</span>}
+            <h3 class="tier-card__name">{plan.name}</h3>
+            <p class="tier-card__price">
+              ${plan.price}<span class="tier-card__period">/month</span>
+            </p>
+            <p class="tier-card__desc">{plan.tagline}</p>
+            <ul class="tier-card__features">
+              {plan.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+            <a href="#contact" class="btn btn--outline tier-card__cta">Start with {plan.name}</a>
+          </div>
+        ))}
+      </div>
+
+      <p class="pricing-note">
+        Not sure which tier fits? <a href="#contact">Send me the URL</a> and I will tell you
+        which one I would put it on — or whether a plan is the wrong purchase entirely. The
+        full market breakdown is in the{' '}
+        <a href="/blog/website-maintenance-cost/">website maintenance cost guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What the Plans Do Not Cover</h2>
+        <p class="section__subtitle">
+          Every provider has an exclusions list. Most bury it. Here is mine, in full.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {exclusions.map((item) => (
+          <div class="exclusion-card">
+            <h3 class="exclusion-card__title">{item.title}</h3>
+            <p class="exclusion-card__text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">DIY, Your Host, or a Maintenance Service</h2>
+        <p class="section__subtitle">
+          The honest comparison. For a static brochure site, doing it yourself is a legitimate
+          answer.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col">What matters</th>
+              <th scope="col">You do it</th>
+              <th scope="col">Host auto-updates</th>
+              <th scope="col">These plans</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td>{row.diy}</td>
+                <td>{row.host}</td>
+                <td class="compare-table__us">{row.us}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="pricing-note">
+        The pattern is that hosts cover the easy half — installing updates — and leave the part
+        that actually breaks sites to you.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">How Onboarding Works</h2>
+        <p class="section__subtitle">
+          Four steps. The audit happens before you pay anything.
+        </p>
+      </div>
+
+      <ol class="steps">
+        {steps.map((step, index) => (
+          <li class="step">
+            <span class="step__num" aria-hidden="true">{index + 1}</span>
+            <div>
+              <h3 class="step__title">{step.title}</h3>
+              <p class="step__text">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Questions About WordPress Maintenance</h2>
+        <p class="section__subtitle">
+          Straight answers. If yours is not here, <a href="#contact">ask me directly</a>.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">{faq.question}</summary>
+            <p class="faq-item__answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="sources">
+        Further reading:{' '}
+        <a href="https://wordpress.org/documentation/article/hardening-wordpress/" target="_blank" rel="noopener"
+          >WordPress.org on hardening a site</a
+        >,{' '}
+        <a href="https://developer.wordpress.org/advanced-administration/security/backup/" target="_blank" rel="noopener"
+          >WordPress backups</a
+        >, and{' '}
+        <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener"
+          >web.dev on Core Web Vitals</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <ContactForm />
+
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'WordPress maintenance services',
+      description:
+        'Monthly WordPress care plans from $' +
+        fromPrice +
+        ': tested core and plugin updates, verified off-host backups, security monitoring, uptime and form checks, and monthly reporting.',
+      serviceType: 'WordPress maintenance',
+      url: canonical,
+    }}
+  />
+  <JsonLd type="FAQ" data={{ questions: faqs }} />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .benefit-card,
+  .audience-card,
+  .exclusion-card {
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .benefit-card__title,
+  .audience-card__title,
+  .exclusion-card__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  .benefit-card__text,
+  .audience-card__text,
+  .exclusion-card__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .credibility {
+    max-width: 720px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg);
+  }
+
+  .step__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .tier-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .tier-card--popular {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .tier-card__badge {
+    position: absolute;
+    top: calc(var(--space-4) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .tier-card__name {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+  }
+
+  .tier-card__price {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .tier-card__period {
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .tier-card__desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .tier-card__features {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .tier-card__features li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .tier-card__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .tier-card__cta {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .pricing-note {
+    max-width: 680px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    min-width: 640px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  .compare-table thead th {
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: var(--color-bg-alt);
+  }
+
+  .compare-table tbody th {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .compare-table td {
+    color: var(--color-text-secondary);
+  }
+
+  .compare-table__us {
+    color: var(--color-text) !important;
+    font-weight: 500;
+  }
+
+  .compare-table tr:last-child th,
+  .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item__question {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    content: '−';
+  }
+
+  .faq-item__answer {
+    padding-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .sources {
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

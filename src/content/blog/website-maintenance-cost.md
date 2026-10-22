@@ -3,6 +3,7 @@ title: 'Website Maintenance Cost: What You Actually Pay in 2026'
 seoTitle: 'Website Maintenance Cost: Real Numbers for 2026'
 description: 'Website maintenance costs range from $5 to $25,000 a month. Here is what a small business actually pays, what drives the price up, and how to spend less.'
 date: 2026-10-01
+updated: 2026-10-22
 category: 'WordPress'
 featuredImage: '/blog-images/website-maintenance-cost-featured.webp'
 hasFAQ: true
@@ -31,7 +32,17 @@ If you are a small business owner, the only row that matters is the second one. 
 
 ## The short version
 
-Most small business sites should budget $50 to $500 a month. My own plans are $99, $199 and $399. The price is driven by four things: what the site does, how much it changes, how much traffic it gets, and whether anyone is actually watching it.
+Most small business sites should budget $50 to $500 a month for maintenance. My own plans are $99, $199 and $399. The price is driven by four things: what the site does, how much it changes, how much traffic it gets, and whether anyone is actually watching it.
+
+Here they are against the market, so you can see where the line falls:
+
+| Plan | Monthly | Yearly | Built for | What you get |
+|---|---|---|---|---|
+| Basic Care | $99 | $1,188 | Brochure and small business sites | Tested updates, off-host backups, security scan, uptime monitoring |
+| Business Care | $199 | $2,388 | Sites that generate enquiries | Everything in Basic, plus monthly content edits, form checks and a performance review |
+| Complete Care | $399 | $4,788 | WooCommerce and revenue-critical sites | Everything in Business, plus checkout checks, Search Console monitoring and out-of-hours response |
+
+The full task list for each is on the [WordPress maintenance services page](/services/wordpress-maintenance/). The rest of this article is about the market around those numbers, because your provider might not be me and the comparison should still work.
 
 ## What website maintenance costs, by site type
 
@@ -51,15 +62,36 @@ First, the jump from blog to small business site is roughly tenfold. That is not
 
 Second, the range within each row is enormous. A $50 site and a $500 site can both be described as "small business." The difference is what you are actually buying.
 
+## Where the money actually goes
+
+The $50 to $500 figure above is the *maintenance* line only. Running a site costs more than that, because a website is several bills stacked on top of each other. Here is the full stack for a small business site, so you can see which lines are fixed, which are optional, and which one you are actually shopping for.
+
+| Line item | Monthly | Yearly | What it covers |
+|---|---|---|---|
+| Domain name | $1–$2 | $10–$25 | Registration or renewal, per year |
+| Web hosting | $5–$15 | $60–$180 | Shared hosting; managed WordPress runs $20–$150/month |
+| SSL certificate | $0–$8 | $0–$100 | Free with Let's Encrypt on most hosts |
+| Theme and plugin licences | $4–$25 | $50–$300 | Divi is $89/year; premium plugins add up quickly |
+| Security and backups | $5–$50 | $60–$600 | Often bundled by the host, sometimes not |
+| Maintenance or retainer | $50–$500 | $600–$6,000 | The human work — updates tested, problems fixed |
+| **All-in total** | **$65–$600** | **$780–$7,200** | |
+
+Two lines deserve a comment.
+
+**Hosting is not maintenance.** This is the single most common confusion I see. A host keeps the server running and may install updates automatically. It does not test whether those updates broke your layout, and it does not notice when your contact form stops sending. Those are different jobs, done by different people, and only one of them shows up on your hosting invoice.
+
+**Security and backup are frequently paid for twice.** Many hosts now include daily backups and malware scanning. If you are paying a host for both *and* paying a plugin for both, check what you already have before adding a line.
+
 ## What you are buying at each price point
 
-Under $50 a month, you are buying automation. Automated backups, automatic plugin updates, maybe a security plugin. Nobody looks at your site. That is not necessarily bad — for a hobby blog it is completely sufficient. Just do not call it maintenance.
+| Price band | What you are actually buying |
+|---|---|
+| Under $50/month | Automation. Backups, scheduled updates, a security plugin. Nobody looks at your site. Fine for a hobby blog, not maintenance. |
+| $100–$250/month | Professional maintenance starts here. Someone logs in, runs the updates, checks the site still works, confirms the backup ran, and fixes what broke. |
+| $250–$500/month | Adds content work, SEO monitoring, performance tuning, and a named person you can email when something looks wrong. |
+| Past $500/month | Availability commitments, staging environments and priority response times. More than most small businesses need. |
 
-**$100 to $250 a month** is where professional maintenance starts. Someone logs in, runs the updates, checks the site still works afterwards, confirms the backup completed, and fixes what broke. That last part is the whole service. Updates that break things are not rare.
-
-**$250 to $500 a month** adds content work, SEO monitoring, performance tuning and a real person you can email when something looks wrong.
-
-**Past $500**, you are usually buying availability commitments, staging environments for testing changes, and priority response times. For most small businesses this is more than you need.
+The last part of the $100–$250 row is the whole service. Updates that break things are not rare — they are the normal failure mode of a WordPress site, and fixing them is what you are paying for.
 
 ## The three ways you will be quoted
 
@@ -153,6 +185,8 @@ Usually not. Below $50 a month nobody is inspecting your site. That is a plugin 
 Monthly. If the provider stops doing the work, you can leave in 30 days rather than funding the problem.
 
 ## Where this fits
+
+If you would rather hand the whole thing over than shop for it, [my WordPress maintenance services](/services/wordpress-maintenance/) are what I actually sell — task list, response times, exclusions and all. The plans above are the same three plans on that page.
 
 If you want the other half of this picture, I wrote about [what a maintenance plan should actually include](/blog/website-maintenance-plans-explained/) — the checklist to hold any provider against.
 
