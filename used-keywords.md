@@ -52,3 +52,6 @@ in `keywords.csv` at all. That is expected, not a discrepancy.
 | wordpress website cost | 2026-10-01 | wordpress-website-cost |
 | website development in pakistan | 2026-10-02 | services/web-design-pakistan |
 | web development services pakistan | 2026-10-02 | services/web-design-pakistan |
+| wordpress maintenance services | 2026-10-22 | services/wordpress-maintenance |
+| wordpress maintenance plans | 2026-10-22 | services/wordpress-maintenance |
+| website maintenance packages | 2026-10-22 | services/wordpress-maintenance |
