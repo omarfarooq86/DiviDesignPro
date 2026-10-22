@@ -28,7 +28,7 @@ const sections = [
     heading: 'How we collect information',
     list: [
       '<strong>Directly from you</strong>, when you complete our contact form, email us, message us on WhatsApp, or send us project files.',
-      '<strong>Automatically</strong>, through privacy-friendly analytics that record aggregate page views without using tracking cookies or building a profile of you.',
+      '<strong>Automatically</strong>, through analytics: cookieless page-view statistics from Vercel Web Analytics, and Google Analytics 4 only where you have accepted analytics cookies. See <a href="#analytics-cookies">Analytics and cookies</a>.',
       '<strong>From payment processors</strong>, who confirm to us that a payment succeeded or failed and provide the billing name and email associated with the transaction.',
     ],
   },
@@ -65,9 +65,32 @@ const sections = [
     id: 'analytics-cookies',
     heading: 'Analytics and cookies',
     body: [
-      'This website uses Vercel Web Analytics to understand how visitors find and use the site. It reports aggregate statistics such as page views and referring sources, and is designed to work without cookies and without cross-site tracking or individual profiling.',
-      'This website does not set advertising or marketing cookies, and we do not use your visit to build an advertising profile or to retarget you elsewhere. Because no tracking cookies are set, there is no cookie consent banner to dismiss.',
-      'You can block or delete cookies in your browser settings at any time. Doing so will not prevent you from using this website.',
+      'This website uses two analytics services to understand which pages are useful and how visitors find us. Neither is used for advertising. We do not run remarketing, we do not build advertising profiles, and we do not sell or share your visit with advertising networks.',
+      '<strong>Vercel Web Analytics</strong> records aggregate page views, referring sources, and browser and device type. It works without cookies and does not track you across other websites.',
+      '<strong>Google Analytics 4</strong>, operated by Google LLC, is used to measure page engagement and to see which pages lead to enquiries. It is switched off by default. It only loads if you press <strong>Accept</strong> on the cookie banner, and if you press <strong>Decline</strong> no Google Analytics script is loaded and no Google Analytics cookies are set.',
+      'When Google Analytics is active, it sets the following cookies:',
+    ],
+    list: [
+      '<strong>_ga</strong> — distinguishes one browser from another so visits can be counted. Expires after 2 years.',
+      '<strong>_ga_&lt;container-id&gt;</strong> — keeps session state between page views. Expires after 2 years.',
+      'Your consent choice is stored in your browser\'s local storage under the key <code>cookie-consent</code>. This is not a cookie, it never leaves your device, and we use it only to remember your answer.',
+    ],
+  },
+  {
+    id: 'analytics-data',
+    heading: 'What Google Analytics receives',
+    body: [
+      'Where you have accepted analytics cookies, Google receives your IP address, approximate location derived from it, device and browser information, the pages you view, how you arrived at the site, and the interactions you have with the page. Google acts as our service provider for this data and may process it in countries other than your own, including the United States.',
+      'We do not enable Google Analytics advertising features or Google Signals, and our configuration permanently denies the advertising consent signals. The data is therefore used for measurement only, not for advertising.',
+      'Google Analytics event data is retained for up to 14 months and is then deleted by Google. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google\'s privacy policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses data from sites that use its services</a>.',
+    ],
+  },
+  {
+    id: 'managing-consent',
+    heading: 'Changing or withdrawing your consent',
+    body: [
+      'Analytics cookies are used on the basis of your consent, and you can withdraw that consent at any time. The simplest way is to clear this site\'s data in your browser settings, reload the page, and press <strong>Decline</strong> when the banner appears.',
+      'You can also install Google\'s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Analytics Opt-out Browser Add-on</a>, or block cookies entirely in your browser settings. Blocking analytics will not prevent you from using this website or contacting us.',
     ],
   },
   {
@@ -75,7 +98,7 @@ const sections = [
     heading: 'When we share information',
     body: ['We do not sell, rent or trade your personal information. We share it only in the following limited circumstances:'],
     list: [
-      '<strong>Service providers</strong> who help us operate — our payment gateway, our web host, our email provider and our analytics provider. These providers act on our instructions and are bound to protect the information they handle.',
+      '<strong>Service providers</strong> who help us operate — our payment gateway, our web host, our email provider and our analytics providers (Vercel and Google). These providers act on our instructions and are bound to protect the information they handle.',
       '<strong>Professional advisers</strong> such as accountants, where reasonably necessary to run the business.',
       '<strong>Legal requirements</strong>, where we are required to disclose information by law, court order or a competent authority.',
       '<strong>Business transfer</strong>, if the business is ever sold or transferred, in which case client information may transfer as part of it. We will notify affected clients before that happens.',
@@ -97,7 +120,7 @@ const sections = [
       '<strong>Project and client records</strong> — retained for the duration of the engagement and for as long afterwards as our accounting and tax obligations require.',
       '<strong>Invoices and payment records</strong> — retained for the period required by applicable tax and accounting law.',
       '<strong>Project files and credentials</strong> — deleted or returned once the work is complete and the support period has ended, unless you ask us to retain them for ongoing maintenance.',
-      'Analytics data is retained by our provider in aggregate form and is not linked to you as an individual.',
+      '<strong>Analytics</strong> — Google Analytics event data is retained for up to 14 months and then deleted by Google. Vercel Web Analytics data is aggregate and is not linked to you as an individual.',
     ],
   },
   {
@@ -164,8 +187,9 @@ const sections = [
 
 <LegalLayout
   title="Privacy Policy"
-  description="How DiviDesignPro collects, uses and shares personal information: Safepay payments, analytics, retention periods and your data rights."
+  description="How DiviDesignPro collects, uses and shares personal information: Safepay payments, Google Analytics and cookies, retention periods and your data rights."
   badge="Legal"
   intro="How we collect, use and protect your personal information when you visit this website, contact us, or engage us for services."
+  effectiveDate="22 October 2026"
   sections={sections}
 />
