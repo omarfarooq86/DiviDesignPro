@@ -8,7 +8,10 @@ export default defineConfig({
   site: 'https://www.dividesignpro.com',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/category/'),
+      // Exclude paginated archives and category listings: they are thin,
+      // duplicate the blog index, and waste crawl budget on a low-authority domain.
+      filter: (page) =>
+        !page.includes('/category/') && !/\/blog\/page\/\d+\/?$/.test(page),
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
