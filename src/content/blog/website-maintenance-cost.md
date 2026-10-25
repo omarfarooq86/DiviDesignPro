@@ -3,7 +3,7 @@ title: 'Website Maintenance Cost: What You Actually Pay in 2026'
 seoTitle: 'Website Maintenance Cost: Real Numbers for 2026'
 description: 'Website maintenance costs range from $5 to $25,000 a month. Here is what a small business actually pays, what drives the price up, and how to spend less.'
 date: 2026-10-01
-updated: 2026-10-22
+updated: 2026-10-25
 category: 'WordPress'
 featuredImage: '/blog-images/website-maintenance-cost-featured.webp'
 hasFAQ: true
@@ -20,6 +20,10 @@ faqData:
     answer: 'Usually not. Below about $50 a month, nobody is inspecting your site. You are paying a subscription for automatic updates and backups, which your host may already provide. That is not maintenance. That is a plugin with a billing address.'
   - question: 'Should I pay monthly or yearly for maintenance?'
     answer: 'Monthly, unless the yearly discount is genuinely large. Maintenance is a service, not a gym membership. If the provider stops doing the work, a monthly plan lets you leave in 30 days. A yearly plan makes you fund the problem.'
+  - question: 'How much do businesses pay for website updates and changes annually?'
+    answer: 'Separate from maintenance, most small businesses spend $600 to $1,800 a year on updates and changes — new pages, pricing edits, rebuilt sections and campaign pages. That is typically six to twelve change requests billed at $75 to $150 an hour. Add maintenance and the all-in figure for a 5 to 10 page business site lands between $1,800 and $4,800 a year.'
+  - question: 'What is the average annual website maintenance cost for a small business in 2026?'
+    answer: 'For a small business site, budget $600 to $6,000 a year, with most landing between $1,800 and $3,600. My own plans run $1,188 to $4,788 annually, billed monthly. Anything under about $600 a year is automated plugin cover with nobody inspecting the site, which is a different product.'
 ---
 
 A small business website costs **$50 to $500 a month** to maintain. That is the honest headline number, and it is the one most articles make you scroll three times to find.
@@ -81,6 +85,30 @@ Two lines deserve a comment.
 **Hosting is not maintenance.** This is the single most common confusion I see. A host keeps the server running and may install updates automatically. It does not test whether those updates broke your layout, and it does not notice when your contact form stops sending. Those are different jobs, done by different people, and only one of them shows up on your hosting invoice.
 
 **Security and backup are frequently paid for twice.** Many hosts now include daily backups and malware scanning. If you are paying a host for both *and* paying a plugin for both, check what you already have before adding a line.
+
+## What businesses pay for website updates each year
+
+Two different things get billed under one heading, and mixing them is why annual figures look inconsistent.
+
+**Maintenance** is preventive: updates tested, backups verified, security monitored, a person watching. It is predictable, and it is priced monthly.
+
+**Updates and changes** are project work: new pages, a pricing change, a rebuilt section, a campaign landing page. It is not predictable, and it is priced per job or per hour.
+
+Most businesses quote the first number and forget the second. Here is both, per year, for a typical small business site.
+
+| Business type | Maintenance / year | Updates & changes / year | All-in / year |
+|---|---|---|---|
+| Solo or brochure site | $600–$1,200 | $0–$600 | $600–$1,800 |
+| Small business, 5–10 pages | $1,200–$3,000 | $600–$1,800 | $1,800–$4,800 |
+| Service business driven by enquiries | $2,400–$4,800 | $1,200–$3,600 | $3,600–$8,400 |
+| E-commerce store | $3,600–$7,200 | $1,800–$4,800 | $5,400–$12,000 |
+| Corporate or custom build | $12,000+ | $6,000+ | $18,000+ |
+
+The arithmetic behind the middle column is simple enough to check against your own invoices. A developer charging $75–$150 an hour, called six times a year for two hours, costs $900–$1,800. If you are on a monthly plan at $199, you are paying $2,388 — more in total, but that figure includes the monitoring, backups and security work that ad-hoc calls do not.
+
+That comparison is the honest one, and it cuts both ways. A brochure site that changes twice a year should stay pay-as-you-go. A site that changes monthly, or that earns money when it is up, should be on a plan.
+
+One more cost that never appears on an invoice: your own time. Every hour spent chasing a plugin conflict, briefing a developer, or checking whether a change went live is a real cost that most annual estimates leave out entirely.
 
 ## What you are buying at each price point
 
@@ -183,6 +211,12 @@ Usually not. Below $50 a month nobody is inspecting your site. That is a plugin 
 
 **Should I pay monthly or yearly?**
 Monthly. If the provider stops doing the work, you can leave in 30 days rather than funding the problem.
+
+**How much do businesses pay for website updates and changes annually?**
+Separate from maintenance, most small businesses spend $600 to $1,800 a year on updates and changes — new pages, pricing edits, rebuilt sections and campaign pages. That is usually six to twelve change requests at $75 to $150 an hour. Add maintenance and the all-in figure for a 5–10 page site lands between $1,800 and $4,800 a year.
+
+**What is the average annual website maintenance cost for a small business in 2026?**
+Budget $600 to $6,000 a year, with most small businesses landing between $1,800 and $3,600. My own plans run $1,188 to $4,788 annually, billed monthly. Under about $600 a year you are buying automated plugin cover, not maintenance.
 
 ## Where this fits
 

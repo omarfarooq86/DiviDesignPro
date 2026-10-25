@@ -3,7 +3,7 @@ title: '10 Best Variable Fonts in Divi 5 (With Their Axes)'
 seoTitle: '10 Best Variable Fonts for Web Design (Divi 5 Tested)'
 description: 'The 10 best variable fonts now available in Divi 5 — every axis, weight range and use case for Inter, Roboto Flex, Recursive, Fraunces and more, plus how to wire them to variables.'
 date: 2026-07-30
-updated: 2026-08-23
+updated: 2026-10-25
 category: 'Divi Tips'
 featuredImage: '/blog-images/best-variable-fonts-for-web-design-now-in-divi-5.webp'
 tags:
@@ -93,6 +93,37 @@ The path that scales:
 One font variable for headings, another for body. Then build **presets** for hero headings, blog titles, product cards, buttons, captions and navigation.
 
 Setting axis values directly on modules works exactly once and then becomes a liability — the same argument as every other value in [Divi 5's variable system](/blog/divi-5-global-variables-complete-guide/). For the specific axis numbers I use, [seven variable font combinations](/blog/et-creative-variable-font-setting-combinations/) has copy-paste values for Roboto Flex, Fraunces, Recursive, Inter and more.
+
+## Variable Fonts for a Responsive Design System
+
+A responsive design system asks three things of typography: a small set of tokens, predictable scaling, and as few network requests as possible. Variable fonts deliver all three — but only if you treat them as a system rather than as nine static weights crammed into one file.
+
+**Fluid sizing belongs in `clamp()`, not in three breakpoints.** Instead of jumping a heading from 28px to 40px to 56px with media queries, define one token:
+
+```css
+--type-h1: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+```
+
+At 320px that resolves to about 32px. At 1440px it lands near 56px. Between the two it scales continuously, with no jump at any breakpoint. The middle term sets the rate — raise the `vw` value for a more aggressive scale, lower it for a calmer one. The min and max clamps are the part people skip: the minimum stops the heading collapsing on a phone, the maximum stops it becoming absurd on a 4K monitor.
+
+Then map weight the same way. A system does not need the full 100–900 range; it needs four steps with names:
+
+| Token | Weight | Where it goes |
+|---|---|---|
+| `--weight-regular` | 400 | Body copy |
+| `--weight-medium` | 500 | UI labels, table headers |
+| `--weight-semibold` | 600 | Subheadings |
+| `--weight-bold` | 700 | H1 and emphasis |
+
+**Axis strategy: pay only for the axes you use.** `wght` earns its place on every project. `opsz` is worth enabling when the family ships one — optical size adjusts contrast and spacing automatically between caption and display sizes, which is exactly the responsive problem you are trying to solve. `wdth` is rarely worth the design complexity it introduces. Custom axes such as `GRAD` or `slnt` should be deliberate choices, not features left switched on because they were available.
+
+Three rules that prevent most responsive type bugs:
+
+- **Never drop body copy below 16px**, clamped or otherwise. Fluid type that shrinks on mobile is the most common way a design system fails accessibility.
+- **Test line length, not just font size.** 65–75 characters per line holds at every breakpoint; a heading that is legible but wraps to four lines on a tablet is still wrong.
+- **Check the fallback.** A `clamp()` value tuned against your variable font will shift the layout when a fallback with different metrics loads. Either set `size-adjust` on the fallback or accept the reflow knowingly.
+
+In Divi, the fluid value belongs in a font variable and the `clamp()` is applied at preset level, so every heading inherits it rather than each module carrying its own copy.
 
 ## Pick by Job
 
