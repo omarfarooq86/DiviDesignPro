@@ -1,0 +1,718 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { business } from '../../data/business';
+
+const canonical = Astro.url.href;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PRICING — benchmarked 25 Oct 2026 against published done-for-you packages
+// (Robofy, Achiya, Brilworks, Zelix Labs, DMly, freelance n8n builds).
+// Market average for a comparable small-business build: $1,785 setup + $290/mo.
+// Booking Agent is set at that average minus 10%; the other tiers scale from it.
+// ─────────────────────────────────────────────────────────────────────────────
+const plans = [
+  {
+    name: 'FAQ Bot',
+    setup: 800,
+    monthly: 130,
+    tagline: 'For businesses answering the same twenty questions all day.',
+    features: [
+      'AI answers built from your own content and price list',
+      'Answers common questions 24/7 in English and Urdu',
+      'Hands over to a human with the conversation history intact',
+      'Conversation log to Google Sheets',
+      'One revision round after launch',
+    ],
+  },
+  {
+    name: 'Booking Agent',
+    setup: 1600,
+    monthly: 260,
+    popular: true,
+    tagline: 'For clinics, salons and services that live or die by the calendar.',
+    features: [
+      'Everything in FAQ Bot',
+      'Checks live availability and books appointments',
+      'Reschedules and cancels on request',
+      'Sends a reminder before the appointment',
+      'Google Calendar, Calendly or Cal.com integration',
+      'Escalates anything it is unsure about',
+    ],
+  },
+  {
+    name: 'Complete',
+    setup: 2600,
+    monthly: 430,
+    tagline: 'For teams with a CRM and more than one person answering.',
+    features: [
+      'Everything in Booking Agent',
+      'Lead qualification before a booking is offered',
+      'CRM sync and follow-up sequences',
+      'Multiple human handoff rules by topic or time of day',
+      'Monthly conversation review and tuning',
+      'Priority support',
+    ],
+  },
+];
+
+const priceLabel = (plan: (typeof plans)[number]) =>
+  `$${plan.setup.toLocaleString('en-US')} setup, $${plan.monthly}/mo`;
+
+const capabilities = [
+  {
+    title: 'Answers instantly, at any hour',
+    text: 'Pricing, opening hours, services, parking, delivery times — answered from your own content rather than a generic model inventing an answer. Outside office hours it is the only thing answering.',
+  },
+  {
+    title: 'Books appointments',
+    text: 'It checks real availability, offers slots, books the appointment, and writes it to your calendar. Rescheduling and cancellations work the same way, which is where most of the wasted admin actually sits.',
+  },
+  {
+    title: 'Qualifies before it books',
+    text: 'Ask what service they need, where they are, and what budget they have in mind — then either offer a time or route to a human. Fewer no-shows and fewer calls that were never going to convert.',
+  },
+  {
+    title: 'Hands over cleanly',
+    text: 'When a question falls outside its knowledge, or the customer asks for a person, it stops and hands over with the full conversation attached. No repeating yourself to a human afterwards.',
+  },
+  {
+    title: 'Sends reminders',
+    text: 'A message the day before an appointment measurably reduces no-shows. Sent as an approved template so it complies with WhatsApp rules rather than pretending the rules do not exist.',
+  },
+  {
+    title: 'Logs everything',
+    text: 'Every conversation lands in a sheet or your CRM — what was asked, what was booked, what was escalated. You get to see what people actually want, which is usually not what the website says.',
+  },
+];
+
+const audiences = [
+  {
+    title: 'Clinics and dentists',
+    text: 'Appointment-heavy, repetitive, and staffed by people who should be with patients rather than answering "do you take walk-ins?" for the ninth time today.',
+  },
+  {
+    title: 'Salons, spas and studios',
+    text: 'Bookings cluster outside working hours, which is exactly when nobody is at the desk. The bot takes the booking at 11pm and the calendar is full by morning.',
+  },
+  {
+    title: 'Real estate agents',
+    text: 'Volume is high, most enquiries are unqualified, and the first reply wins. The bot answers instantly, asks the qualifying questions, and books viewings.',
+  },
+  {
+    title: 'E-commerce and local retail',
+    text: 'Order status, sizing, delivery times, returns — the questions that clog an inbox and are almost always answerable from information you already have.',
+  },
+];
+
+const steps = [
+  {
+    title: 'We map the conversations',
+    text: 'I look at what people actually ask you — message history, call notes, the questions your staff repeat. That becomes the knowledge base and the decision tree, before any automation is built.',
+  },
+  {
+    title: 'I connect the pieces',
+    text: 'WhatsApp Business Platform, your number, n8n, the AI model, and your calendar. You do not need to create developer accounts; I set up what can be delegated and walk you through what only you can authorise.',
+  },
+  {
+    title: 'We test on real messages',
+    text: 'I run your own past questions through it, and you try to break it before your customers do. Anything it gets wrong becomes a rule in the flow, not a prompt tweak and a prayer.',
+  },
+  {
+    title: 'It goes live, then gets tuned',
+    text: 'The first two weeks produce the real edge cases. I review conversations, tighten the answers, and adjust the handoff rules. After that it is monthly maintenance, not a rebuild.',
+  },
+];
+
+const limits = [
+  {
+    title: 'It cannot message people first',
+    text: 'WhatsApp prohibits unsolicited outbound messaging, and accounts that do it get restricted. Everything starts with the customer messaging you. Anyone selling you "bulk WhatsApp blasting" is selling you a ban.',
+  },
+  {
+    title: 'Replies outside 24 hours need templates',
+    text: 'Free-form replies are only allowed within 24 hours of the customer’s last message. After that, you must use a message template approved by Meta. That is why reminders work the way they do.',
+  },
+  {
+    title: 'Template approval takes time',
+    text: 'Meta reviews templates before they can be sent, usually within minutes but sometimes longer. This is a platform rule, not something I can speed up, and it is worth knowing before a launch date is promised to anyone.',
+  },
+  {
+    title: 'Your number may have to move',
+    text: 'A number registered to the API generally cannot also be used in the regular WhatsApp app. Meta runs a coexistence programme for some business accounts; I will check yours during setup rather than assume.',
+  },
+  {
+    title: 'It is not a negotiator',
+    text: 'Complex complaints, custom quotes and anything emotional should reach a person. A good setup recognises that and hands over early rather than confidently guessing.',
+  },
+];
+
+const comparison = [
+  { label: 'Setup effort', diy: 'Weeks of n8n and API work', us: 'Done for you, typically 1–2 weeks' },
+  { label: 'Meta business verification', diy: 'Your problem to research', us: 'Handled and explained' },
+  { label: 'When it gives a wrong answer', diy: 'You debug the workflow', us: 'I tune the flow' },
+  { label: 'Ongoing cost', diy: 'Cheap, plus your time', us: 'Monthly care plan' },
+  { label: 'Who you email when it breaks', diy: 'A forum', us: 'Me, directly' },
+];
+
+const faqs = [
+  {
+    question: 'What is a WhatsApp AI chatbot?',
+    answer:
+      'It is an automated assistant that answers your customers inside WhatsApp, using an AI model trained on your own business information rather than a script of fixed keywords. It can answer questions, qualify leads, book appointments into your calendar and hand the conversation to a person when it should.',
+  },
+  {
+    question: 'How much does a WhatsApp chatbot cost?',
+    answer:
+      'Plans start at $800 setup plus $130/month for an FAQ bot. The booking package, which checks availability and writes to your calendar, is $1,600 setup plus $260/month. Complete automation with CRM integration and lead qualification is $2,600 setup plus $430/month. Meta also charges for some message types, which pass through at cost and are shown to you before you commit. Prices are fixed before work starts — there is no hourly billing.',
+  },
+  {
+    question: 'Can it book appointments automatically?',
+    answer:
+      'Yes. It checks live availability in Google Calendar, Calendly or Cal.com, offers real slots, books the appointment, and handles rescheduling and cancellations. It can also send a reminder the day before, sent as an approved template so it complies with WhatsApp rules.',
+  },
+  {
+    question: 'Will I lose my WhatsApp number?',
+    answer:
+      'Possibly. A number registered to the WhatsApp Business API generally cannot be used in the regular WhatsApp app at the same time. Meta runs a coexistence programme for some business accounts, so I check your situation during setup. If coexistence is not available to you, the usual answer is a second number for automation, with the original kept for personal replies.',
+  },
+  {
+    question: 'Do I need the WhatsApp Business API?',
+    answer:
+      'For a proper AI assistant that books appointments and handles volume, yes. The API gives you automation, multiple agents, templates and analytics. The free WhatsApp Business app is fine for a few manual replies a day, but it cannot run an AI flow reliably.',
+  },
+  {
+    question: 'Does it run on n8n?',
+    answer:
+      'Yes. The automation layer is n8n, which connects WhatsApp to your AI model, calendar, CRM and anything else with an API. I host it for you or use your existing instance. Because n8n is open source and self-hostable, you are not locked into a proprietary chatbot vendor.',
+  },
+  {
+    question: 'Which languages does it support?',
+    answer:
+      'English and Urdu as standard, and it will detect and match the customer’s language. Because the understanding comes from a language model rather than keyword matching, it handles Roman Urdu and mixed-language messages far better than a menu-based bot. Other languages are available on request.',
+  },
+  {
+    question: 'How long does setup take?',
+    answer:
+      'Usually one to two weeks for a booking setup, depending on how quickly your content and calendar access are ready, and on Meta’s verification and template approvals. A simple FAQ bot can go live sooner. I give you a date after the discovery call, not before.',
+  },
+  {
+    question: 'Can it hand over to a human?',
+    answer:
+      'Yes, and it should. You define the triggers: a customer asking for a person, a question outside the knowledge base, a complaint, or a keyword like "refund". It then notifies your team with the full conversation so the customer does not have to start again.',
+  },
+  {
+    question: 'Is it compliant with WhatsApp policies?',
+    answer:
+      'It uses the official WhatsApp Business Platform, approved message templates and opt-in conversations, which is what keeps your number in good standing. It does not send unsolicited bulk messages. If you have seen "bulk WhatsApp sender" services, those are the ones that get numbers banned.',
+  },
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services/' },
+];
+---
+
+<BaseLayout
+  title="WhatsApp AI Chatbot & Automation Setup"
+  description="AI chatbot for WhatsApp that answers customer questions and books appointments, built on n8n and the official WhatsApp Business API. Set up and managed for you."
+  ogImage="/og-images/default-og.png"
+>
+  <PageHeader
+    badge="WhatsApp Automation"
+    title="WhatsApp AI Chatbot & Automation"
+    description="Your customers already message you on WhatsApp. Right now those messages wait until someone is free. I build an AI assistant that answers instantly, books the appointment, and hands over to a human only when it should — running on n8n and the official WhatsApp Business Platform."
+    breadcrumbs={breadcrumbs}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn--primary btn--lg">Get a Fixed Quote</a>
+      <a href={`tel:${business.phoneLocal.href}`} class="btn btn--outline btn--lg">
+        Call {business.phoneLocal.display}
+      </a>
+    </div>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What the Assistant Actually Does</h2>
+        <p class="section__subtitle">
+          Not a menu of numbered options. It reads the question, answers it from your own
+          information, and takes the next step.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {capabilities.map((item) => (
+          <div class="benefit-card">
+            <h3 class="benefit-card__title">{item.title}</h3>
+            <p class="benefit-card__text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Who It Is For</h2>
+        <p class="section__subtitle">
+          Businesses where the same questions arrive all day and a missed message is a missed
+          booking.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {audiences.map((item) => (
+          <div class="audience-card">
+            <h3 class="audience-card__title">{item.title}</h3>
+            <p class="audience-card__text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="credibility">
+        I run this on my own WhatsApp line — the automation behind it is n8n, and the{' '}
+        <a href="/whatsapp-privacy-policy/">privacy policy for that bot</a> is published on this
+        site. Ten years on WordPress, and now the same engineering applied to messaging.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">How the Setup Works</h2>
+        <p class="section__subtitle">
+          Four steps, roughly one to two weeks for a booking setup.
+        </p>
+      </div>
+
+      <ol class="steps">
+        {steps.map((step, index) => (
+          <li class="step">
+            <span class="step__num" aria-hidden="true">{index + 1}</span>
+            <div>
+              <h3 class="step__title">{step.title}</h3>
+              <p class="step__text">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="pricing">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">WhatsApp Automation Pricing</h2>
+        <p class="section__subtitle">
+          A fixed setup fee plus a monthly retainer, priced below the published market average
+          for comparable done-for-you builds.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {plans.map((plan) => (
+          <div class:list={['tier-card', plan.popular && 'tier-card--popular']}>
+            {plan.popular && <span class="tier-card__badge">Most popular</span>}
+            <h3 class="tier-card__name">{plan.name}</h3>
+            <p class="tier-card__price">{priceLabel(plan)}</p>
+            <p class="tier-card__desc">{plan.tagline}</p>
+            <ul class="tier-card__features">
+              {plan.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+            <a href="#contact" class="btn btn--outline tier-card__cta">Get a Quote</a>
+          </div>
+        ))}
+      </div>
+
+      <p class="pricing-note">
+        Meta also charges for some message types (marketing and utility templates). Those costs
+        pass through at cost — I will show you the projected figure before you commit. No
+        markup on platform fees.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">What It Cannot Do</h2>
+        <p class="section__subtitle">
+          WhatsApp has real rules, and most chatbot providers gloss over them. Better you hear
+          them now.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {limits.map((item) => (
+          <div class="exclusion-card">
+            <h3 class="exclusion-card__title">{item.title}</h3>
+            <p class="exclusion-card__text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Build It Yourself, or Have It Built</h2>
+        <p class="section__subtitle">
+          n8n is free and the API is documented. Doing it yourself is a legitimate option if you
+          enjoy this kind of work.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col">What matters</th>
+              <th scope="col">DIY</th>
+              <th scope="col">Done for you</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td>{row.diy}</td>
+                <td class="compare-table__us">{row.us}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Questions About WhatsApp Automation</h2>
+        <p class="section__subtitle">
+          Straight answers. If yours is not here, <a href="#contact">ask me directly</a>.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">{faq.question}</summary>
+            <p class="faq-item__answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="sources">
+        Further reading:{' '}
+        <a href="https://business.whatsapp.com/products/business-platform" target="_blank" rel="noopener"
+          >WhatsApp Business Platform</a
+        >,{' '}
+        <a href="https://developers.facebook.com/docs/whatsapp/cloud-api" target="_blank" rel="noopener"
+          >Cloud API documentation</a
+        >, and{' '}
+        <a href="https://n8n.io/" target="_blank" rel="noopener">n8n</a>.
+      </p>
+    </div>
+  </section>
+
+  <ContactForm />
+
+  <JsonLd
+    type="Service"
+    data={{
+      name: 'WhatsApp AI chatbot and automation',
+      description:
+        'AI assistants for WhatsApp built on n8n and the official WhatsApp Business Platform: answering customer questions, qualifying leads and booking appointments into Google Calendar, Calendly or Cal.com.',
+      serviceType: 'WhatsApp automation',
+      url: canonical,
+    }}
+  />
+  <JsonLd type="FAQ" data={{ questions: faqs }} />
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .benefit-card,
+  .audience-card,
+  .exclusion-card {
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .benefit-card__title,
+  .audience-card__title,
+  .exclusion-card__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  .benefit-card__text,
+  .audience-card__text,
+  .exclusion-card__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .credibility {
+    max-width: 720px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+
+  .step__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg);
+  }
+
+  .step__text {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .tier-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .tier-card--popular {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .tier-card__badge {
+    position: absolute;
+    top: calc(var(--space-4) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .tier-card__name {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+  }
+
+  .tier-card__price {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .tier-card__desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .tier-card__features {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .tier-card__features li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .tier-card__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .tier-card__cta {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .pricing-note {
+    max-width: 680px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    min-width: 640px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  .compare-table thead th {
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: var(--color-bg-alt);
+  }
+
+  .compare-table tbody th {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .compare-table td {
+    color: var(--color-text-secondary);
+  }
+
+  .compare-table__us {
+    color: var(--color-text) !important;
+    font-weight: 500;
+  }
+
+  .compare-table tr:last-child th,
+  .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item__question {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    content: '−';
+  }
+
+  .faq-item__answer {
+    padding-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  .sources {
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

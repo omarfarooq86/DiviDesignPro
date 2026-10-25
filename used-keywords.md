@@ -55,3 +55,7 @@ in `keywords.csv` at all. That is expected, not a discrepancy.
 | wordpress maintenance services | 2026-10-22 | services/wordpress-maintenance |
 | wordpress maintenance plans | 2026-10-22 | services/wordpress-maintenance |
 | website maintenance packages | 2026-10-22 | services/wordpress-maintenance |
+| whatsapp ai chatbot | 2026-10-25 | services/whatsapp-ai-automation |
+| whatsapp chatbot | 2026-10-25 | services/whatsapp-ai-automation |
+| whatsapp automation | 2026-10-25 | services/whatsapp-ai-automation |
+| whatsapp appointment booking | 2026-10-25 | services/whatsapp-ai-automation |
