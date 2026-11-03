@@ -1,0 +1,106 @@
+---
+interface Props {
+  category?: string;
+}
+
+const { category = 'Divi Tips' } = Astro.props;
+
+// Contextual links from every post to the commercial pages. These are the only
+// pages on the site that earn money, and on a domain with very few external
+// links, internal links are the most reliable crawl signal available.
+const services = [
+  {
+    href: '/services/hire-wordpress-developer/',
+    title: 'Hire a WordPress developer',
+    text: 'Fixed-price builds, redesigns and migrations from $799.',
+  },
+  {
+    href: '/services/wordpress-maintenance/',
+    title: 'WordPress maintenance plans',
+    text: 'Updates tested on staging, backups verified, from $99/month.',
+  },
+  {
+    href: '/services/whatsapp-ai-automation/',
+    title: 'WhatsApp AI automation',
+    text: 'An assistant that answers customers and books appointments.',
+  },
+];
+---
+
+<section class="related-services" aria-labelledby="related-services-title">
+  <h2 class="related-services__title" id="related-services-title">Related services</h2>
+  <ul class="related-services__list">
+    {services.map((service) => (
+      <li class="related-services__item">
+        <a href={service.href} class="related-services__link">{service.title}</a>
+        <span class="related-services__text">{service.text}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="related-services__note">
+    Reading about {category.toLowerCase()} and want it done for you?{' '}
+    <a href="/#contact">Tell me what you need</a> and you'll get a fixed quote within one
+    business day.
+  </p>
+</section>
+
+<style>
+  .related-services {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-services__title {
+    margin-bottom: var(--space-5);
+    font-size: var(--text-lg);
+  }
+
+  .related-services__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+  }
+
+  .related-services__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4);
+    background-color: var(--color-bg-alt, var(--color-surface));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .related-services__link {
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .related-services__link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .related-services__text {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .related-services__note {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .related-services__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

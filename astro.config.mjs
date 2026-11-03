@@ -1,4 +1,5 @@
 // @ts-check
+import fs from 'node:fs';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
@@ -17,6 +18,26 @@ const noindexPosts = [
   'et-creative-variable-font-setting-combinations',
 ];
 
+// Real content dates, read straight from the markdown frontmatter.
+// Previously every URL carried the build timestamp as `lastmod`, which tells
+// Google all 48 pages changed on every deploy — and trains it to ignore the
+// signal entirely. Pages with no real date get no lastmod at all.
+const blogDir = new URL('./src/content/blog/', import.meta.url);
+const contentDates = new Map();
+
+for (const file of fs.readdirSync(blogDir)) {
+  if (!file.endsWith('.md')) continue;
+  const frontmatter = fs
+    .readFileSync(new URL(file, blogDir), 'utf8')
+    .match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1];
+  if (!frontmatter) continue;
+
+  const date =
+    frontmatter.match(/^updated:\s*(\d{4}-\d{2}-\d{2})/m)?.[1] ??
+    frontmatter.match(/^date:\s*(\d{4}-\d{2}-\d{2})/m)?.[1];
+  if (date) contentDates.set(`/blog/${file.replace(/\.md$/, '')}/`, date);
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.dividesignpro.com',
@@ -30,7 +51,12 @@ export default defineConfig({
         !noindexPosts.some((slug) => page.includes(`/blog/${slug}/`)),
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date(),
+      serialize: (item) => {
+        const date = contentDates.get(new URL(item.url).pathname);
+        if (date) item.lastmod = `${date}T00:00:00.000Z`;
+        else delete item.lastmod;
+        return item;
+      },
     }),
   ],
   output: 'static',
