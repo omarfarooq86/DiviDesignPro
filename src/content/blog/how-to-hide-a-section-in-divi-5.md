@@ -1,6 +1,7 @@
 ---
 title: 'How to Hide a Section in Divi 5: 5 Methods (And Which to Use)'
-description: 'Five ways to hide a section in Divi 5 — Disable, device visibility, Display Conditions, custom CSS and the Divi Library. Plus why hiding on mobile is not a speed fix.'
+seoTitle: 'How to Hide a Section in Divi 5: 5 Methods Compared'
+description: 'Five ways to hide a section in Divi 5, when to use each, and why hiding on mobile does not make your page any faster.'
 date: 2026-06-12
 updated: 2026-08-23
 category: 'Divi Tips'
