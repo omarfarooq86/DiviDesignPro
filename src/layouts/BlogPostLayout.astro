@@ -16,6 +16,8 @@ export interface Props {
   readingTime?: string;
   hasFAQ?: boolean;
   faqData?: { question: string; answer: string }[];
+  /** Keeps the post live but out of the index. Used for thin archive content. */
+  noindex?: boolean;
 }
 
 const {
@@ -31,6 +33,7 @@ const {
   readingTime = '4 min read',
   hasFAQ = false,
   faqData = [],
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://www.dividesignpro.com';
@@ -54,6 +57,7 @@ const breadcrumbItems = [
   ogType="article"
   publishedTime={isoDate}
   modifiedTime={isoUpdated}
+  noindex={noindex}
 >
   <article class="blog-post">
     <header class="blog-post__header">

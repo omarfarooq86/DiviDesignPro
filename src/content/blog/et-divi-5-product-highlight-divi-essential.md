@@ -2,6 +2,7 @@
 title: 'Divi Essential Review: 109+ Modules for Divi 5'
 description: 'Divi Essential adds 109+ modules and 28+ extensions to Divi 5, including a Vertical Menu module with four layouts. Here is what it does and who needs it.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:

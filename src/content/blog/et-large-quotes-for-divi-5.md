@@ -2,6 +2,7 @@
 title: '5 Free Divi 5 Quote Sections (And How to Import Them)'
 description: 'Five free large quote sections for Divi 5, plus how to import a layout via the Divi Library and five design rules for pull quotes that actually get read.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:

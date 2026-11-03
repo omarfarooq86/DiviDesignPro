@@ -2,6 +2,7 @@
 title: 'Divi 5 Flexbox: Responsive Columns Without CSS Grid'
 description: 'Build responsive columns in Divi 5 with Flexbox instead of CSS Grid. Column Class, Layout Wrapping and Gap explained, plus per-breakpoint reflow with no media queries.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:

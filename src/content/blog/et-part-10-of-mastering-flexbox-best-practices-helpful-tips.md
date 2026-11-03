@@ -2,6 +2,7 @@
 title: 'Divi 5 Flexbox Best Practices: 8 Tips and 5 Mistakes'
 description: 'Divi 5 Flexbox best practices from the full series: use Gap over margins, Stretch for equal-height cards, clamp() for fluid values, and the mistakes that break layouts.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:

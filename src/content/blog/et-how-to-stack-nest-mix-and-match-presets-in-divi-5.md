@@ -2,6 +2,7 @@
 title: 'Divi 5 Presets: How to Stack, Nest, Mix and Match Them'
 description: 'Divi 5 presets can stack and nest like a real design system. Learn how to layer presets, nest them inside each other, and change one value site-wide.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:

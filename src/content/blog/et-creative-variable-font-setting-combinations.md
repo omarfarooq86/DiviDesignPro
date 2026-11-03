@@ -2,6 +2,7 @@
 title: '7 Variable Font Combinations for Divi 5 Typography'
 description: 'Seven creative variable font setting combinations for Divi 5, with exact axis values for Roboto Flex, Fraunces, Recursive, Inter and more. Copy them straight in.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:

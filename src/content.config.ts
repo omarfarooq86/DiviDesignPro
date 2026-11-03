@@ -16,6 +16,9 @@ const blogCollection = defineCollection({
     featuredImage: z.string().optional(),
     ogImage: z.string().optional(),
     draft: z.boolean().default(false),
+    // Live but kept out of the index. Used for thin archive posts that were
+    // never crawled anyway and were competing for crawl budget.
+    noindex: z.boolean().default(false),
     hasFAQ: z.boolean().optional(),
     faqData: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   }),

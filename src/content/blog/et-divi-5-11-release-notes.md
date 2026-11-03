@@ -2,6 +2,7 @@
 title: 'Divi 5.11 Release Notes: 4 New Modules and 18 Fixes'
 description: 'Divi 5.11 adds Charts, Gravity Forms, Imagely Gallery and Payment Button modules plus 18 fixes. What actually matters, what to test, and the AI Agent teaser.'
 date: 2026-08-23
+noindex: true
 category: 'Divi Tips'
 featuredImage: '/blog-images/divi-ai-design.jpg'
 tags:
